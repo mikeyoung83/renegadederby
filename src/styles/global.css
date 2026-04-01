@@ -1,8 +1,10 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+    themes: business --default;
+}
 
-html {
-    font-family: "Anton", sans-serif;
-    font-size: 100px;
-    font-display: swap;
+@plugin "daisyui/theme" {
+    name: "business";
+    default: true;
+    --color-secondary: #8bc242;
 }

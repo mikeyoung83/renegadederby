@@ -1,0 +1,17 @@
+---
+// Get the current URL path from Astro
+const { pathname } = Astro.url;
+
+// A helper function to check if the link is active
+// We trim trailing slashes to ensure "/" matches "/"
+const isActive = (path: string) =>
+    pathname === path || pathname === path + "/" ? "active" : "";
+---
+
+<li><a aria-label="Go to Homepage" href="/" class={isActive("/")}>Home</a></li>
+
+<style>
+    .active {
+        font-weight: bold;
+    }
+</style>
