@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+html {
+    font-family: "Anton", sans-serif;
+    font-size: 100px;
+}
