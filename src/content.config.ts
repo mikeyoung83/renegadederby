@@ -11,7 +11,14 @@ const teams = defineCollection({
       name: z.string(),
       logo: image(),
       groupPhoto: image(),
-      // The description will come from the Markdown body
+      // New Socials Object
+      socials: z
+        .object({
+          facebook: z.string().url().optional(),
+          twitter: z.string().url().optional(),
+          instagram: z.string().url().optional(),
+        })
+        .optional(),
     }),
 });
 
