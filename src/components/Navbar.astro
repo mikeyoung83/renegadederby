@@ -1,16 +1,13 @@
 ---
 // src/components/Navbar.astro
 import Nav from "../components/Nav.astro";
-import { Image } from "astro:assets";
-import logo from "../assets/renegade-derby_logo.png";
+import Logo from "./Logo.astro";
 ---
 
-<div
-    class="navbar bg-base-content border-b border-base-300 px-4 sticky top-0 z-50"
->
+<div class="navbar bg-base-100 border-b border-base-300 px-4 sticky top-0 z-50">
     <div class="flex-1">
-        <a href="/" class="" aria-label="LaunchItLocally Home">
-            Renegade Derby Dames
+        <a href="/" aria-label="Derby Home">
+            <Logo />
         </a>
     </div>
     <div class="flex-none md:hidden">
