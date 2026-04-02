@@ -1,5 +1,5 @@
 ---
-name: "Bombshells"
+name: "Bombshell Battalions"
 logo: "../../assets/teams/bombshells/logo.png"
 groupPhoto: "../../assets/teams/bombshells/group-shot.jpg"
 socials:
