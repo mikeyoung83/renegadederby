@@ -9,6 +9,16 @@ const isActive = (path: string) =>
 ---
 
 <li><a aria-label="Go to Homepage" href="/" class={isActive("/")}>Home</a></li>
+<li>
+    <details>
+        <summary>Teams & Support</summary>
+        <ul class="p-2 bg-base-100 w-40 z-1">
+            <li>
+                <a href="/teams/bombshells/">Bombshell Battalion</a>
+            </li>
+        </ul>
+    </details>
+</li>
 
 <style>
     .active {

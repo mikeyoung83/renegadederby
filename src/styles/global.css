@@ -9,3 +9,9 @@
     default: true;
     --color-secondary: #8bc242;
 }
+
+h1,
+h2 {
+    font-family: "Anton", sans-serif;
+    letter-spacing: 2px;
+}
