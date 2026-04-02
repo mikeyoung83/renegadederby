@@ -132,13 +132,13 @@ const socials = team.data.socials;
                             {/* 1. Relative container to hold both the flare and the image */}
                             <div class="relative w-60">
                                 {/* 2. The Green Flare (Offset Layer) */}
-                                <div class="absolute inset-0 -mt-2 -ml-2 bg-secondary" />
+                                <div class="absolute  rounded-2xl inset-0 -mt-2 -ml-2 bg-secondary" />
 
                                 {/* 3. The Actual Image (Z-index ensures it sits on top) */}
                                 <img
                                     src={player.data.photo.src}
                                     alt={player.data.name}
-                                    class="relative z-10 aspect-3/4 w-full object-cover "
+                                    class="relative z-10 aspect-3/4 w-full object-cover rounded-2xl"
                                 />
                             </div>
 
