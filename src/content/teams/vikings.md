@@ -1,6 +1,6 @@
 ---
 name: "Striking Vikings"
-logo: "../../assets/teams/bombshells/logo.png"
+logo: "../../assets/teams/vikings/logo.png"
 groupPhoto: "../../assets/teams/bombshells/group-shot.jpg"
 socials:
   facebook: "http://www.facebook.com/strikingvikings/"
