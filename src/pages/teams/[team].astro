@@ -31,6 +31,10 @@ const socials = team.data.socials;
     <div class="relative isolate overflow-hidden py-24 sm:py-28">
         <Image
             src={team.data.groupPhoto}
+            decoding="async"
+            loading="eager"
+            fetchpriority="high"
+            width={1800}
             alt={`Group photo of ${team.data.name}`}
             class="absolute inset-0 -z-10 size-full object-cover"
         />
