@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import fallbackPhoto from "../../assets/placeholder-player.jpg";
 
 export async function getStaticPaths() {
     const allTeams = await getCollection("teams");
@@ -27,8 +29,8 @@ const socials = team.data.socials;
 
 <MainLayout title={team.data.name}>
     <div class="relative isolate overflow-hidden py-24 sm:py-28">
-        <img
-            src={team.data.groupPhoto.src}
+        <Image
+            src={team.data.groupPhoto}
             alt={`Group photo of ${team.data.name}`}
             class="absolute inset-0 -z-10 size-full object-cover"
         />
@@ -135,9 +137,10 @@ const socials = team.data.socials;
                                 <div class="absolute  rounded-2xl inset-0 -mt-2 -ml-2 bg-secondary" />
 
                                 {/* 3. The Actual Image (Z-index ensures it sits on top) */}
-                                <img
-                                    src={player.data.photo.src}
+                                <Image
+                                    src={player.data.photo || fallbackPhoto}
                                     alt={player.data.name}
+                                    width={400}
                                     class="relative z-10 aspect-3/4 w-full object-cover rounded-2xl"
                                 />
                             </div>

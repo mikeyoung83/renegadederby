@@ -31,7 +31,7 @@ const players = defineCollection({
     z.object({
       name: z.string(),
       number: z.number(),
-      photo: image(),
+      photo: image().optional(),
     }),
 });
 
