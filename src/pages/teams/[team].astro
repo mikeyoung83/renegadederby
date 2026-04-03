@@ -45,7 +45,15 @@ const socials = team.data.socials;
 
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:mx-0 relative">
-                <img src={team.data.logo.src} alt="" class="w-30 mb-4" />
+                <Image
+                    src={team.data.logo}
+                    decoding="async"
+                    loading="eager"
+                    fetchpriority="high"
+                    width={250}
+                    alt={`Logo of ${team.data.name}`}
+                    class="w-30 mb-4"
+                />
                 <h2
                     class="text-5xl font-semibold tracking-tight text-white sm:text-7xl inline"
                 >
