@@ -35,4 +35,13 @@ const players = defineCollection({
     }),
 });
 
-export const collections = { teams, players };
+const coaches = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/coaches" }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      photo: image().optional(), // Fallback supported here too
+    }),
+});
+
+export const collections = { teams, players, coaches };

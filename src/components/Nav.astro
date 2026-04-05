@@ -12,13 +12,19 @@ const isActive = (path: string) =>
 <li>
     <details>
         <summary>Teams & Support</summary>
-        <ul class="p-2 bg-base-100 w-40 z-1">
+        <ul class="p-2 bg-base-100 w-50 z-1">
             <li>
                 <a href="/teams/bombshells/">Bombshell Battalion</a>
                 <a href="/teams/vikings/">Striking Vikings</a>
             </li>
         </ul>
     </details>
+</li>
+<li>
+    <a
+        aria-label="Go to Sponsors"
+        href="/sponsors/"
+        class={isActive("/sponsors/")}>Sponsors</a>
 </li>
 
 <style>
