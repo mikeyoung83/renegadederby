@@ -3,42 +3,93 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Sponsors" description="change meta tag">
-    <section class="relative isolate px-6 py-24 sm:py-20 lg:px-8">
-        <div
-            class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
-            aria-hidden="true"
-        >
-        </div>
-        <div class="mx-auto max-w-6xl prose">
-            <h1>Sponsors</h1>
+    <section class="relative isolate">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 py-12 sm:py-20">
+            <div
+                class="grid grid-cols-1 gap-x-18 gap-y-16 lg:grid-cols-8 items-start"
+            >
+                <div class="lg:col-span-5">
+                    <div class="mx-auto max-w-6xl prose">
+                        <h1>Sponsors</h1>
 
-            <p class="text-lg font-medium text-pretty sm:text-xl/8">
-                RDD would like to extend our sincerest and warmest thanks to all
-                of our 2025 sponsors and look forward to continuing our
-                partnership with these excellent companies which support us! We
-                urge all of our fans to support those who support us and tell
-                them that RDD sent you!
-            </p>
-            <h2>Become a Sponsor</h2>
-            <p>
-                As a not-for-profit women's sporting organization, we face
-                ongoing challenges in funding our operations, with most of our
-                income directed toward practice space and minimal resources for
-                operating expenses like guest trainers and bout production. The
-                Renegade Derby Dames invite partners to join us in our mission
-                through sponsorship, advertising, in-kind donations, and event
-                participation. We value collaborations with local businesses and
-                aim to support community charities. This season offers a unique
-                chance to engage with the rapidly growing sport of roller derby!
-                By sponsoring the Renegade Derby Dames, your brand can reach a
-                diverse and enthusiastic audience. Our games draw fans from
-                across the region, and your partnership will gain visibility
-                through social media and promotional materials. Support roller
-                derby and connect your brand with an exciting and passionate
-                fanbase—let’s make a difference together! You can view our
-                Sponsorship Package here! For more information, email us at:
-                sponsor @renegadederbydames .com
-            </p>
+                        <p class="text-lg font-medium text-pretty sm:text-xl/8">
+                            RDD would like to extend our sincerest and warmest
+                            thanks to all of our 2025 sponsors and look forward
+                            to continuing our partnership with these excellent
+                            companies which support us! We urge all of our fans
+                            to support those who support us and tell them that
+                            RDD sent you!
+                        </p>
+
+                        <p class="prose">
+                            The Renegade Derby Dames invite partners to join us
+                            in our mission through sponsorship, advertising,
+                            in-kind donations, and event participation. We value
+                            collaborations with local businesses and aim to
+                            support community charities. This season offers a
+                            unique chance to engage with the rapidly growing
+                            sport of roller derby!
+                        </p>
+                        <p>
+                            By sponsoring the Renegade Derby Dames, your brand
+                            can reach a diverse and enthusiastic audience. Our
+                            games draw fans from across the region, and your
+                            partnership will gain visibility through social
+                            media and promotional materials. Support roller
+                            derby and connect your brand with an exciting and
+                            passionate fanbase—let’s make a difference together!
+                            You can view our Sponsorship Package here!
+                        </p>
+                        <p>
+                            Questions about Sponsorship or becomming a Vendor? <a
+                                href="/contact">Contact us</a
+                            >
+                            for more information.
+                        </p>
+                        <div
+                            class="collapse collapse-arrow bg-primary-content text-secondary-content border border-base-300"
+                        >
+                            <input type="checkbox" />
+                            <div class="collapse-title font-semibold">
+                                How do I create an account?
+                            </div>
+                            <div class="collapse-content text-sm">
+                                Click the "Sign Up" button in the top right
+                                corner and follow the registration process.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="lg:col-span-3 sticky">
+                    <div
+                        class="mx-auto max-w-6xl prose rounded-2xl border-2 border-solid border-white p-6"
+                    >
+                        <h2 class="mt-0">Vendors</h2>
+                        <p>
+                            Our games offer local businesses a unique
+                            opportunity to connect with our fans by reserving
+                            space in our Vendor Village.
+                        </p>
+                        <p>
+                            Each vendor space includes one 8' table and two
+                            chairs provided by the league. Power is available on
+                            a first-come, first-served basis, so we encourage
+                            vendors to reserve their space early. The cost is
+                            $10 per vendor space, per event.
+                        </p>
+                        <p>
+                            Please note that vendor fees are non-refundable;
+                            however, with a minimum of two weeks’ notice,
+                            cancellations may be deferred to a future event. All
+                            vendors must carry their own insurance, and the Town
+                            of New Tecumseth must be listed as an additional
+                            insured.
+                        </p>
+                        <p>Fill out this form to reserve your table!</p>
+                    </div>
+                </aside>
+            </div>
         </div>
     </section>
 </MainLayout>
