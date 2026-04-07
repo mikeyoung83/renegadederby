@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import fallbackPhoto from "../../assets/placeholder-player.jpg";
+
+const officials = await getCollection("officials");
+---
+
+<MainLayout title="League Officials">
+    <div class="py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:mx-0">
+                <h2
+                    class="text-4xl font-semibold tracking-tight text-white sm:text-6xl uppercase"
+                >
+                    League Officials
+                </h2>
+                <p class="mt-6 text-lg leading-8 text-gray-300">
+                    From keeping the games safe for the players, to calling
+                    penalties, to tracking scores and other stats, our Officials
+                    are a dedicated and energetic group of highly valued
+                    volunteers. We couldn't play Roller Derby without their
+                    help.
+                </p>
+            </div>
+
+            <ul
+                role="list"
+                class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
+            >
+                {
+                    officials.map(async (official) => {
+                        const { Content } = await render(official);
+                        return (
+                            <li>
+                                <div class="relative w-60">
+                                    <div class="absolute rounded-2xl inset-0 -mt-2 -ml-2 bg-secondary" />
+                                    <Image
+                                        src={
+                                            official.data.photo || fallbackPhoto
+                                        }
+                                        alt={official.data.name}
+                                        width={400}
+                                        class="relative z-10 aspect-3/4 w-full object-cover rounded-2xl shadow-xl"
+                                    />
+                                </div>
+                                <h3 class="mt-6 text-xl font-bold leading-7 tracking-tight text-white">
+                                    {official.data.name}
+                                </h3>
+                                <div class="mt-2 text-base leading-7 text-gray-400 italic">
+                                    <Content />
+                                </div>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        </div>
+    </div>
+</MainLayout>

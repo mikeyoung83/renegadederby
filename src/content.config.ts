@@ -44,4 +44,30 @@ const coaches = defineCollection({
     }),
 });
 
-export const collections = { teams, players, coaches };
+const officials = defineCollection({
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/officials",
+  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      photo: image().optional(), // Fallback supported here too
+    }),
+});
+
+const sponsors = defineCollection({
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/sponsors",
+  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      logo: image(),
+      url: z.string().url(),
+      // Description can stay in the frontmatter or be the body of the MD
+    }),
+});
+
+export const collections = { teams, players, coaches, officials, sponsors };

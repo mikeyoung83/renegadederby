@@ -1,5 +1,8 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+const allSponsors = await getCollection("sponsors");
 ---
 
 <MainLayout title="Sponsors" description="change meta tag">
@@ -46,17 +49,56 @@ import MainLayout from "../layouts/MainLayout.astro";
                             >
                             for more information.
                         </p>
-                        <div
-                            class="collapse collapse-arrow bg-primary-content text-secondary-content border border-base-300"
-                        >
-                            <input type="checkbox" />
-                            <div class="collapse-title font-semibold">
-                                How do I create an account?
-                            </div>
-                            <div class="collapse-content text-sm">
-                                Click the "Sign Up" button in the top right
-                                corner and follow the registration process.
-                            </div>
+                        <div class="space-y-4 max-w-4xl">
+                            <h3>Check out our current awesome sponsors:</h3>
+                            {
+                                allSponsors.map(async (sponsor) => {
+                                    const { Content } = await render(sponsor);
+                                    return (
+                                        <div class="collapse collapse-arrow bg-white text-secondary-content border border-base-300 shadow-sm">
+                                            <input
+                                                type="checkbox"
+                                                name="sponsors-accordion"
+                                            />
+                                            <div class="collapse-title text-xl font-semibold flex items-center">
+                                                {sponsor.data.name}
+                                            </div>
+                                            <div class="collapse-content">
+                                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 gap-8 pt-4">
+                                                    <div class="lg:col-span-2">
+                                                        <Image
+                                                            width={400}
+                                                            src={
+                                                                sponsor.data
+                                                                    .logo
+                                                            }
+                                                            alt={`${sponsor.data.name} logo`}
+                                                            class="w-full"
+                                                        />
+                                                    </div>
+                                                    <div class="flex flex-col justify-between lg:col-span-6">
+                                                        <div class="text-sm text-accent-content prose">
+                                                            <Content />
+                                                            <a
+                                                                href={
+                                                                    sponsor.data
+                                                                        .url
+                                                                }
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                class="btn btn-outline btn-primary mb-6 self-start"
+                                                            >
+                                                                Check out their
+                                                                website
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            }
                         </div>
                     </div>
                 </div>
