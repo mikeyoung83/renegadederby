@@ -45,13 +45,14 @@ const upcomingGame = allGames
                     class="relative px-6 py-12 sm:py-20 lg:px-8 lg:py-20 lg:pr-0"
                 >
                     <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-                        <div class="mb-10 sm:flex">
-                            <div
-                                class="relative rounded-full px-8 py-2 text-sm/6 ring-1 ring-accent"
-                            >
-                                {
-                                    upcomingGame && (
-                                        <div class="mx-auto max-w-7xl ">
+                        {
+                            upcomingGame && (
+                                <div class="mb-10 sm:flex">
+                                    <a
+                                        href="/games"
+                                        class="relative rounded-full px-8 py-2 text-sm/6 ring-1 ring-accent hover:ring-secondary transition-all group block"
+                                    >
+                                        <div class="mx-auto max-w-7xl">
                                             <p class="text-secondary uppercase tracking-widest font-black text-xs">
                                                 Upcoming Game:
                                             </p>
@@ -69,7 +70,7 @@ const upcomingGame = allGames
                                                 <span class="text-white/20">
                                                     |
                                                 </span>
-                                                <p class="tl font-black uppercase  tracking-tight text-white">
+                                                <p class="font-black uppercase tracking-tight text-white group-hover:text-secondary transition-colors">
                                                     {
                                                         upcomingGame.data
                                                             .entries[0]?.title
@@ -77,10 +78,10 @@ const upcomingGame = allGames
                                                 </p>
                                             </div>
                                         </div>
-                                    )
-                                }
-                            </div>
-                        </div>
+                                    </a>
+                                </div>
+                            )
+                        }
                         <h1
                             class="text-6xl font-semibold tracking-tight text-pretty sm:text-9xl text-white uppercase"
                         >
@@ -93,11 +94,11 @@ const upcomingGame = allGames
                             County's first flat-track roller derby league.
                         </p>
                         <div class="mt-10 flex items-center gap-x-6">
-                            <a href="/contact" class="btn btn-secondary"
+                            <a href="/games" class="btn btn-secondary"
                                 >View Schedule</a
                             >
                             <a
-                                href="/contact"
+                                href="/about"
                                 class="btn btn-accent btn-outline text-accent"
                                 >Curious To Join?</a
                             >
