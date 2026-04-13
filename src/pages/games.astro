@@ -1,0 +1,155 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import { render } from "astro:content"; // Import render
+import MainLayout from "../layouts/MainLayout.astro";
+
+const allGameDays = await getCollection("games");
+
+// 1. Sort by date
+const sortedGameDays = allGameDays.sort(
+    (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
+);
+
+// 2. Prepare Rendered Content
+// We use Promise.all because render() is asynchronous
+const processedDays = await Promise.all(
+    sortedGameDays.map(async (day) => {
+        const { Content } = await render(day);
+        return { ...day, Content };
+    }),
+);
+
+// 3. Group by Year (using processedDays instead of sortedGameDays)
+const scheduleByYear = processedDays.reduce(
+    (acc, day) => {
+        const year = day.data.date.getFullYear().toString();
+        if (!acc[year]) acc[year] = [];
+        acc[year].push(day);
+        return acc;
+    },
+    {} as Record<string, any[]>,
+);
+
+const years = Object.keys(scheduleByYear).sort((a, b) => b.localeCompare(a));
+---
+
+<MainLayout title="Schedule">
+    <div class="py-12 sm:py-20">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-4xl lg:mx-0 prose">
+                <h2
+                    class="text-4xl font-semibold tracking-tight text-white sm:text-6xl uppercase"
+                >
+                    RDD Games Schedule
+                </h2>
+                <p class="mt-6 text-lg leading-8">
+                    Get ready for hard-hitting action and high-speed thrills.
+                    Join the Renegade Derby Dames as we hit the track for
+                    another season of elite roller derby. Check the schedule
+                    below for home games, travel dates, and other details.
+                </p>
+                <p>Note: Tickets for Home Games are available at the door.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-white font-sans">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            {
+                years.map((year) => (
+                    <div class="mb-24">
+                        <h2 class="text-5xl font-black mb-8 text-white/75 uppercase  tracking-tighter leading-none">
+                            {year}
+                        </h2>
+
+                        <div class="space-y-12">
+                            {scheduleByYear[year].map((day) => (
+                                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-white/10 pt-10">
+                                    <div class="md:col-span-1">
+                                        <div class="flex items-center gap-3">
+                                            <p class="text-2xl font-bold">
+                                                {day.data.date.toLocaleDateString(
+                                                    "en-US",
+                                                    {
+                                                        month: "short",
+                                                        day: "numeric",
+                                                        timeZone: "UTC",
+                                                    },
+                                                )}
+                                            </p>
+                                            <span
+                                                class={`text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-widest ${day.data.location === "home" ? "bg-secondary text-secondary-content" : "bg-blue-600 text-white"}`}
+                                            >
+                                                {day.data.location}
+                                            </span>
+                                        </div>
+                                        <p class="text-sm  uppercase font-bold mt-1">
+                                            {day.data.date.toLocaleDateString(
+                                                "en-US",
+                                                {
+                                                    weekday: "long",
+                                                    timeZone: "UTC",
+                                                },
+                                            )}
+                                        </p>
+
+                                        {day.data.pricing && (
+                                            <div class="mt-4 text-sm p-6 bg-neutral-800 rounded-2xl">
+                                                <span class="text-white font-bold uppercase block text-[10px] mb-1">
+                                                    Admission:
+                                                </span>
+                                                {day.data.pricing}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <div class="md:col-span-3 space-y-8">
+                                        {day.data.entries.map((game: any) => (
+                                            <div class="group relative">
+                                                <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                                                    <span class="text-xl text-secondary w-24 shrink-0">
+                                                        {game.time}
+                                                    </span>
+                                                    <div class="grow">
+                                                        <h4 class="text-2xl md:text-2xl font-bold   tracking-tight group-hover:text-secondary transition-colors">
+                                                            {game.title}
+                                                        </h4>
+                                                        {day.data.location ===
+                                                            "away" &&
+                                                            day.data
+                                                                .hostedBy && (
+                                                                <p class="text-sm text-slate-500 mt-1 italic">
+                                                                    Hosted by{" "}
+                                                                    {
+                                                                        day.data
+                                                                            .hostedBy
+                                                                    }
+                                                                </p>
+                                                            )}
+                                                    </div>
+                                                    {(game.isTentative ||
+                                                        day.data
+                                                            .isTentative) && (
+                                                        <div class="inline border border-amber-500/50 text-amber-500 px-2 py-1 rounded text-[10px] font-bold uppercase self-start">
+                                                            Tentative
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        ))}
+
+                                        {day.body && (
+                                            <div class="prose prose-invert prose-sm max-w-none">
+                                                <day.Content />
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</MainLayout>

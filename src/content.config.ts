@@ -1,5 +1,6 @@
-import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders"; // The new way to "load" local files
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
+import { glob } from "astro/loaders";
 
 const teams = defineCollection({
   loader: glob({
@@ -70,4 +71,29 @@ const sponsors = defineCollection({
     }),
 });
 
-export const collections = { teams, players, coaches, officials, sponsors };
+const gameEntrySchema = z.object({
+  time: z.string(),
+  title: z.string(), // e.g. "All-Stars vs. Forest City"
+  isTentative: z.boolean().default(false),
+});
+
+const games = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/games" }),
+  schema: z.object({
+    date: z.coerce.date(),
+    location: z.enum(["home", "away"]),
+    hostedBy: z.string().optional(),
+    pricing: z.string().optional(),
+    isTentative: z.boolean().default(false), // Overarching event status
+    entries: z.array(gameEntrySchema), // The list of actual games
+  }),
+});
+
+export const collections = {
+  teams,
+  players,
+  coaches,
+  officials,
+  sponsors,
+  games,
+};

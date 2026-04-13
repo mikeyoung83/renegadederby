@@ -1,19 +1,31 @@
 ---
+import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 const items = [
     {
         src: "https://images.unsplash.com/photo-1640469262892-183628a6ef33?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        alt: "Client 1",
+        alt: "Derby 1",
     },
     {
         src: "https://plus.unsplash.com/premium_photo-1664444389231-c1109b2193a3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        alt: "Client 2",
+        alt: "Derby 2",
     },
     {
         src: "https://upload.wikimedia.org/wikipedia/commons/0/0a/WasatchVsJunctionCity.jpg",
-        alt: "Client 3",
+        alt: "Derby 3",
     },
 ];
+
+const allGames = await getCollection("games");
+
+// Get today's date at midnight for an accurate comparison
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+// Filter for future games and sort by date (closest first)
+const upcomingGame = allGames
+    .filter((game) => new Date(game.data.date) >= today)
+    .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())[0]; // Take only the first one
 ---
 
 <MainLayout title="Home" description="change meta tag">
@@ -35,17 +47,38 @@ const items = [
                     <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
                         <div class="mb-10 sm:flex">
                             <div
-                                class="relative rounded-full px-3 py-1 text-sm/6 ring-1 ring-accent"
+                                class="relative rounded-full px-8 py-2 text-sm/6 ring-1 ring-accent"
                             >
-                                Upcoming game or news or something. <a
-                                    href="#"
-                                    class="font-semibold whitespace-nowrap"
-                                    ><span
-                                        class="absolute inset-0"
-                                        aria-hidden="true"></span>Read more <span
-                                        aria-hidden="true">&rarr;</span
-                                    ></a
-                                >
+                                {
+                                    upcomingGame && (
+                                        <div class="mx-auto max-w-7xl ">
+                                            <p class="text-secondary uppercase tracking-widest font-black text-xs">
+                                                Upcoming Game:
+                                            </p>
+                                            <div class="flex items-baseline gap-4">
+                                                <p class="font-bold text-white">
+                                                    {upcomingGame.data.date.toLocaleDateString(
+                                                        "en-US",
+                                                        {
+                                                            month: "short",
+                                                            day: "numeric",
+                                                            timeZone: "UTC",
+                                                        },
+                                                    )}
+                                                </p>
+                                                <span class="text-white/20">
+                                                    |
+                                                </span>
+                                                <p class="tl font-black uppercase  tracking-tight text-white">
+                                                    {
+                                                        upcomingGame.data
+                                                            .entries[0]?.title
+                                                    }
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )
+                                }
                             </div>
                         </div>
                         <h1
