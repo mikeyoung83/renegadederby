@@ -1,23 +1,174 @@
-# pages.yml
+# .pages.yml
 content:
+  # --- HOMEPAGE ---
+  - name: homepage
+    label: Homepage Sections
+    type: collection
+    path: src/content/homepage
+    format: md
+    fields:
+      - name: title
+        label: Section Title
+        type: string
+      - name: order
+        label: Display Order
+        type: number
+        default: 0
+      - name: sectionImage
+        label: Section Image
+        type: image
+        upload_dir: src/assets
+        public_path: ../../assets
+      - name: body
+        label: Content Body
+        type: rich-text
+
+  # --- TEAMS ---
+  - name: teams
+    label: Teams
+    type: collection
+    path: src/content/teams
+    format: md
+    fields:
+      - name: name
+        label: Team Name
+        type: string
+      - name: logo
+        label: Team Logo
+        type: image
+        upload_dir: src/assets/teams
+        public_path: ../../assets/teams
+      - name: groupPhoto
+        label: Group Photo
+        type: image
+        upload_dir: src/assets/teams
+        public_path: ../../assets/teams
+      - name: socials
+        label: Social Media Links
+        type: object
+        fields:
+          - name: facebook
+            label: Facebook URL
+            type: string
+          - name: twitter
+            label: Twitter URL
+            type: string
+          - name: instagram
+            label: Instagram URL
+            type: string
+      - name: body
+        label: Team Description
+        type: rich-text
+
+  # --- PLAYERS ---
   - name: players
     label: Players
     type: collection
     path: src/content/players
     format: md
-    # This is the secret sauce: tell PagesCMS what goes in the frontmatter
     fields:
       - name: name
         label: Skater Name
         type: string
       - name: number
         label: Jersey Number
-        type: string
+        type: number
       - name: photo
         label: Skater Photo
         type: image
         upload_dir: src/assets/players
         public_path: ../../assets/players
-      - name: body
-        label: Bio / Content
-        type: rich-text
+
+  # --- GAMES ---
+  - name: games
+    label: Games & Schedule
+    type: collection
+    path: src/content/games
+    format: md
+    fields:
+      - name: date
+        label: Game Date
+        type: date
+      - name: location
+        label: Location
+        type: select
+        options:
+          - label: Home
+            value: home
+          - label: Away
+            value: away
+      - name: hostedBy
+        label: Hosted By
+        type: string
+      - name: pricing
+        label: Pricing Info
+        type: string
+      - name: isTentative
+        label: Event-wide Tentative Status
+        type: boolean
+        default: false
+      - name: entries
+        label: Individual Game Matches
+        type: list
+        fields:
+          - name: time
+            label: Start Time (e.g. 5:00 PM)
+            type: string
+          - name: title
+            label: Matchup Title
+            type: string
+          - name: isTentative
+            label: Match Tentative?
+            type: boolean
+            default: false
+
+  # --- COACHES ---
+  - name: coaches
+    label: Coaches
+    type: collection
+    path: src/content/coaches
+    format: md
+    fields:
+      - name: name
+        label: Coach Name
+        type: string
+      - name: photo
+        label: Photo
+        type: image
+        upload_dir: src/assets/coaches
+        public_path: ../../assets/coaches
+
+  # --- OFFICIALS ---
+  - name: officials
+    label: Officials
+    type: collection
+    path: src/content/officials
+    format: md
+    fields:
+      - name: name
+        label: Official Name
+        type: string
+      - name: photo
+        label: Photo
+        type: image
+        upload_dir: src/assets/officials
+        public_path: ../../assets/officials
+
+  # --- SPONSORS ---
+  - name: sponsors
+    label: Sponsors
+    type: collection
+    path: src/content/sponsors
+    format: md
+    fields:
+      - name: name
+        label: Sponsor Name
+        type: string
+      - name: url
+        label: Website URL
+        type: string
+      - name: logo
+        label: Logo
+        type: image
+        upload_dir: src/assets/sponsors
+        public_path: ../../assets/sponsors
