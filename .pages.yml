@@ -5,6 +5,7 @@ content:
     label: Homepage Sections
     type: collection
     path: src/content/homepage
+    filename: "{fields.title}.md"
     format: md
     fields:
       - name: title
@@ -22,6 +23,9 @@ content:
       - name: body
         label: Content Body
         type: rich-text
+    media:
+      input: src/assets/homepage
+      output: ../../assets/homepage
 
   # --- TEAMS ---
   - name: teams
