@@ -62,17 +62,19 @@ content:
         label: Notes / Description
         type: rich-text
 
-  # --- GAMES ---
+  # --- GAMES COLLECTION ---
   - name: games
     label: Games & Schedule
     type: collection
     path: src/content/games
-    # Filename uses the date for easy sorting in your code editor
+    # Files will be saved as YYYY-MM-DD.md for clean sorting
     filename: "{fields.date}.md"
     fields:
       - name: date
         label: Game Date
         type: date
+        help: "Select the date of the event"
+
       - name: location
         label: Location
         type: select
@@ -81,28 +83,34 @@ content:
             value: home
           - label: Away
             value: away
+
       - name: hostedBy
         label: Hosted By
         type: string
-        help: "Optional: Name of the league hosting the event"
+        help: "Optional: Name of the league hosting if it's an away game"
+
       - name: pricing
         label: Ticket Pricing
         type: string
         help: "e.g., $15 at the door, Kids under 10 free"
+
       - name: isTentative
         label: Event-wide Tentative Status
         type: boolean
         default: false
+        help: "Check this if the whole date is still being finalized"
 
-      # This handles your gameEntrySchema array (Triple Headers)
+      # This handles the gameEntrySchema array from your config.ts
       - name: entries
         label: Individual Game Matches
         type: list
+        # Fixes the [object Object] preview issue
+        label_field: title
         fields:
           - name: title
             label: Matchup Title
             type: string
-            help: "e.g., Bombshell Battalion vs. Hogtown"
+            help: "e.g., Bombshell Battalion vs. Hogtown Horror"
           - name: time
             label: Start Time
             type: string
@@ -111,3 +119,8 @@ content:
             label: This Match is Tentative
             type: boolean
             default: false
+
+      - name: body
+        label: Additional Notes
+        type: rich-text
+        help: "Optional: Any extra details not covered by the fields above"
