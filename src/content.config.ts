@@ -89,6 +89,20 @@ const games = defineCollection({
   }),
 });
 
+const homepage = defineCollection({
+  // 2. Use the loader instead of type: "content"
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/homepage",
+  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      sectionImage: image(),
+      order: z.number().default(0),
+    }),
+});
+
 export const collections = {
   teams,
   players,
@@ -96,4 +110,5 @@ export const collections = {
   officials,
   sponsors,
   games,
+  homepage,
 };

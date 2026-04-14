@@ -1,5 +1,6 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 const items = [
     {
@@ -26,6 +27,16 @@ today.setHours(0, 0, 0, 0);
 const upcomingGame = allGames
     .filter((game) => new Date(game.data.date) >= today)
     .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())[0]; // Take only the first one
+
+const rawSections = await getCollection("homepage");
+const sortedSections = rawSections.sort((a, b) => a.data.order - b.data.order);
+
+const sections = await Promise.all(
+    sortedSections.map(async (section) => {
+        const { Content } = await render(section);
+        return { ...section, Content };
+    }),
+);
 ---
 
 <MainLayout title="Home" description="change meta tag">
@@ -160,6 +171,36 @@ const upcomingGame = allGames
             </div>
         </div>
     </section>
+
+    <div class="space-y-24 py-24">
+        {
+            sections.map((section, index) => (
+                <section class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div
+                        class={`flex flex-col gap-12 lg:items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
+                    >
+                        {/* Image Side */}
+                        <div class="w-full lg:w-1/2">
+                            <Image
+                                src={section.data.sectionImage}
+                                alt={section.data.title}
+                                class="rounded-2xl object-cover shadow-2xl"
+                                width={800}
+                            />
+                        </div>
+
+                        {/* Text Side */}
+                        <div class="w-full lg:w-1/2 prose prose-invert prose-lg">
+                            <h2 class="text-4xl font-black uppercase italic tracking-tight text-white">
+                                {section.data.title}
+                            </h2>
+                            <section.Content />
+                        </div>
+                    </div>
+                </section>
+            ))
+        }
+    </div>
 
     <section class="overflow-hidden py-24 sm:py-32">
         <div class="mx-auto max-w-7xl md:px-6 lg:px-8 prose">
