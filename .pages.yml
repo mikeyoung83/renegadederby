@@ -105,9 +105,12 @@ content:
       - name: entries
         label: Individual Game Matches
         type: object
+        # 2. Add 'list: true' to make it repeatable (this replaces 'type: list')
         list: true
-        # This tells the CMS to use the title for the list preview
-        label_field: title 
+        # 3. Use 'view' to define what shows in the summary list
+        view:
+          primary: "{title}"
+          summary: "{time}"
         fields:
           - name: time
             label: Start Time
