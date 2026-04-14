@@ -79,10 +79,11 @@ content:
         label: Location
         type: select
         options:
-          - label: Home (Simcoe County)
-            value: home
-          - label: Away
-            value: away
+          values:
+            - name: home
+              label: Home
+            - name: away
+              label: Away
 
       - name: hostedBy
         label: Hosted By
