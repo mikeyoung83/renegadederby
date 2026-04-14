@@ -105,7 +105,7 @@ content:
       - name: entries
         label: Individual Game Matches
         type: list
-        label_field: title
+
         fields:
           - name: time
             label: Start Time
