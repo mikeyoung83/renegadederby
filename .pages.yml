@@ -105,17 +105,17 @@ content:
       - name: entries
         label: Individual Game Matches
         type: list
-        # Fixes the [object Object] preview issue
         label_field: title
         fields:
-          - name: title
-            label: Matchup Title
-            type: string
-            help: "e.g., Bombshell Battalion vs. Hogtown Horror"
           - name: time
             label: Start Time
             type: string
-            help: "e.g., 5:00 PM"
+          - name: title
+            label: Matchup Title
+            type:
+              string
+              # Note: I omitted isTentative here because it wasn't in your .md snippet,
+              # but your Astro config has it, so I've added it back below.
           - name: isTentative
             label: This Match is Tentative
             type: boolean
