@@ -1,49 +1,11 @@
 # pages.yml
 content:
-  # 1. Homepage Sections (Zig-zag content)
-  - name: homepage
-    label: Homepage Sections
-    type: collection
-    path: src/content/homepage
-    format: md
-    fields:
-      - name: title
-        label: Section Title
-        type: string
-      - name: order
-        label: Display Order
-        type: number
-        default: 0
-      - name: sectionImage
-        label: Section Image
-        type: image
-        # This matches your src/assets folder structure
-        upload_dir: src/assets
-        public_path: ../../assets
-      - name: body
-        label: Content Text
-        type: rich-text
-
-  # 2. Teams
-  - name: teams
-    label: Teams
-    type: collection
-    path: src/content/teams
-    format: md
-    fields:
-      - name: title
-        label: Team Name
-        type: string
-      - name: body
-        label: Team Description
-        type: rich-text
-
-  # 3. Players (Nested under Teams by ID)
   - name: players
     label: Players
     type: collection
     path: src/content/players
     format: md
+    # This is the secret sauce: tell PagesCMS what goes in the frontmatter
     fields:
       - name: name
         label: Skater Name
@@ -51,74 +13,11 @@ content:
       - name: number
         label: Jersey Number
         type: string
-      - name: body
-        label: Bio
-        type: rich-text
-
-  # 4. Games / Schedule
-  - name: games
-    label: Games
-    type: collection
-    path: src/content/games
-    format: md
-    fields:
-      - name: date
-        label: Game Date
-        type: date
-      - name: entries
-        label: Game Matches
-        type: list
-        fields:
-          - name: time
-            label: Start Time (Leave blank for TBD)
-            type: string
-          - name: title
-            label: Matchup Title
-            type: string
-          - name: isTentative
-            label: Is Tentative?
-            type: boolean
-            default: false
-
-  # 5. Coaches & Officials
-  - name: coaches
-    label: Coaches
-    type: collection
-    path: src/content/coaches
-    format: md
-    fields:
-      - name: name
-        label: Name
-        type: string
-      - name: role
-        label: Coaching Role
-        type: string
-
-  - name: officials
-    label: Officials
-    type: collection
-    path: src/content/officials
-    format: md
-    fields:
-      - name: name
-        label: Official Name
-        type: string
-
-  # 6. Sponsors
-  - name: sponsors
-    label: Sponsors
-    type: collection
-    path: src/content/sponsors
-    format: md
-    fields:
-      - name: name
-        label: Business Name
-        type: string
-      - name: logo
-        label: Sponsor Logo
+      - name: photo
+        label: Skater Photo
         type: image
-        upload_dir: src/assets/sponsors
-        public_path: ../../assets/sponsors
-      - name: url
-        label: Website Link
-        type: string
+        upload_dir: src/assets/players
+        public_path: ../../assets/players
+      - name: body
+        label: Bio / Content
+        type: rich-text
