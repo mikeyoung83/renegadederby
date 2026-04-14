@@ -103,21 +103,17 @@ content:
 
       # This handles the gameEntrySchema array from your config.ts
       - name: entries
-        label: Individual Game Matches
+        label: "{title}" # <--- The label MUST go here, before 'type' or 'fields'
         type: list
-
         fields:
           - name: time
             label: Start Time
             type: string
           - name: title
             label: Matchup Title
-            type:
-              string
-              # Note: I omitted isTentative here because it wasn't in your .md snippet,
-              # but your Astro config has it, so I've added it back below.
+            type: string
           - name: isTentative
-            label: This Match is Tentative
+            label: Match Tentative?
             type: boolean
             default: false
 
