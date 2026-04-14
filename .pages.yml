@@ -62,52 +62,40 @@ content:
         label: Notes / Description
         type: rich-text
 
-  # --- GAMES COLLECTION ---
+  # --- GAMES ---
   - name: games
     label: Games & Schedule
     type: collection
     path: src/content/games
-    # Files will be saved as YYYY-MM-DD.md for clean sorting
     filename: "{fields.date}.md"
     fields:
       - name: date
         label: Game Date
         type: date
-        help: "Select the date of the event"
 
       - name: location
         label: Location
         type: select
-        options:
-          values:
-            - name: home
-              label: Home
-            - name: away
-              label: Away
-
-      - name: hostedBy
-        label: Hosted By
-        type: string
-        help: "Optional: Name of the league hosting if it's an away game"
-
-      - name: pricing
-        label: Ticket Pricing
-        type: string
-        help: "e.g., $15 at the door, Kids under 10 free"
+        options: ["home", "away"]
 
       - name: isTentative
         label: Event-wide Tentative Status
         type: boolean
         default: false
-        help: "Check this if the whole date is still being finalized"
 
-      # This handles the gameEntrySchema array from your config.ts
+      - name: hostedBy
+        label: Hosted By
+        type: string
+
+      - name: pricing
+        label: Ticket Pricing
+        type: string
+
       - name: entries
         label: Individual Game Matches
         type: object
-        # 2. Add 'list: true' to make it repeatable (this replaces 'type: list')
         list: true
-        # 3. Use 'view' to define what shows in the summary list
+        # This fixes the display label in the CMS sidebar/list
         view:
           primary: "{title}"
           summary: "{time}"
@@ -118,12 +106,7 @@ content:
           - name: title
             label: Matchup Title
             type: string
-          - name: isTentative
-            label: Match Tentative?
-            type: boolean
-            default: false
 
       - name: body
         label: Additional Notes
         type: rich-text
-        help: "Optional: Any extra details not covered by the fields above"
