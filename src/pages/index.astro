@@ -37,6 +37,11 @@ const sections = await Promise.all(
         return { ...section, Content };
     }),
 );
+
+// Fetch the homepage settings singleton (file loader returns a single-entry array)
+const settingsEntries = await getCollection("homepageSettings");
+const { Content: AboutContent, ...settingsEntry } = await render(settingsEntries[0]);
+const settings = settingsEntry.data;
 ---
 
 <MainLayout title="Home" description="change meta tag">
@@ -96,22 +101,21 @@ const sections = await Promise.all(
                         <h1
                             class="text-6xl font-semibold tracking-tight text-pretty sm:text-7xl/22 text-white uppercase"
                         >
-                            Renegade Derby Dames
+                            {settings.hero_heading}
                         </h1>
                         <p
                             class="mt-8 text-lg font-medium text-pretty sm:text-xl/8"
                         >
-                            Established in 2011, Renegade Derby Dames is Simcoe
-                            County's first flat-track roller derby league.
+                            {settings.hero_tagline}
                         </p>
                         <div class="mt-10 flex items-center gap-x-6">
-                            <a href="/games" class="btn btn-secondary"
-                                >View Schedule</a
+                            <a href={settings.hero_cta_primary_url} class="btn btn-secondary"
+                                >{settings.hero_cta_primary_label}</a
                             >
                             <a
-                                href="/about"
+                                href={settings.hero_cta_secondary_url}
                                 class="btn btn-accent btn-outline text-accent"
-                                >Curious To Join?</a
+                                >{settings.hero_cta_secondary_label}</a
                             >
                         </div>
                     </div>
@@ -144,28 +148,21 @@ const sections = await Promise.all(
             >
                 <div class="sm:px-6 lg:px-0">
                     <span class="text-base/6 font-semibold text-accent"
-                        >About Us
+                        >{settings.about_eyebrow}
                     </span>
                     <h2
                         class="mt-2 text-4xl/12 font-semibold text-pretty sm:text-5xl/14 text-white uppercase mb-8"
                     >
-                        A league run for the skaters, by the skaters.
+                        {settings.about_heading}
                     </h2>
-                    <a href="/contact" class="btn btn-secondary">Learn More</a>
+                    <a href={settings.about_cta_url} class="btn btn-secondary">{settings.about_cta_label}</a>
                 </div>
 
                 <div class="sm:px-6 lg:px-6">
                     <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
-                        <p class="ext-lg/8 mt-8">
-                            We created a non-profit organization, based on
-                            democratic principles, operating as part of the
-                            larger derby community. We are proud to have become
-                            a full member league of the Women’s Flat Track Derby
-                            Association in March of 2014, which means that we
-                            joined the ranks of 470 women-led, skater owned and
-                            operated leagues worldwide that have united to lead
-                            the sport of women’s flat track roller derby.
-                        </p>
+                        <div class="ext-lg/8 mt-8 prose prose-invert">
+                            <AboutContent />
+                        </div>
                     </div>
                 </div>
             </div>

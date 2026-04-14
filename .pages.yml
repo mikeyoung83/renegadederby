@@ -209,3 +209,55 @@ content:
         options:
           media: players_media
           path: src/assets/teams
+
+  # --- HOMEPAGE SETTINGS (singleton) ---
+  - name: homepage_settings
+    label: Homepage Settings
+    type: file
+    path: src/content/homepage-settings.md
+    fields:
+      # Hero Section
+      - name: hero_heading
+        label: Hero Heading
+        type: string
+
+      - name: hero_tagline
+        label: Hero Tagline
+        type: text
+
+      - name: hero_cta_primary_label
+        label: "Primary CTA: Label"
+        type: string
+
+      - name: hero_cta_primary_url
+        label: "Primary CTA: URL"
+        type: string
+
+      - name: hero_cta_secondary_label
+        label: "Secondary CTA: Label"
+        type: string
+
+      - name: hero_cta_secondary_url
+        label: "Secondary CTA: URL"
+        type: string
+
+      # About Section
+      - name: about_eyebrow
+        label: About Eyebrow Text
+        type: string
+
+      - name: about_heading
+        label: About Heading
+        type: string
+
+      - name: about_cta_label
+        label: "About CTA: Label"
+        type: string
+
+      - name: about_cta_url
+        label: "About CTA: URL"
+        type: string
+
+      - name: body
+        label: About Body Copy
+        type: rich-text

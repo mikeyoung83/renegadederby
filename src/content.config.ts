@@ -1,6 +1,6 @@
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
-import { glob } from "astro/loaders";
+import { glob, file } from "astro/loaders";
 
 const teams = defineCollection({
   loader: glob({
@@ -102,6 +102,22 @@ const homepage = defineCollection({
     }),
 });
 
+const homepageSettings = defineCollection({
+  loader: file("./src/content/homepage-settings.md"),
+  schema: z.object({
+    hero_heading: z.string(),
+    hero_tagline: z.string(),
+    hero_cta_primary_label: z.string(),
+    hero_cta_primary_url: z.string(),
+    hero_cta_secondary_label: z.string(),
+    hero_cta_secondary_url: z.string(),
+    about_eyebrow: z.string(),
+    about_heading: z.string(),
+    about_cta_label: z.string(),
+    about_cta_url: z.string(),
+  }),
+});
+
 export const collections = {
   teams,
   players,
@@ -110,4 +126,5 @@ export const collections = {
   sponsors,
   games,
   homepage,
+  homepageSettings,
 };
