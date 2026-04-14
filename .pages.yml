@@ -64,7 +64,7 @@ content:
   - name: players
     label: Players
     type: collection
-    path: src/content/players/**/*
+    path: src/content/players/*
     format: md
     fields:
       - name: name
