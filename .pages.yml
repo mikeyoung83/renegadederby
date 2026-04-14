@@ -103,8 +103,11 @@ content:
 
       # This handles the gameEntrySchema array from your config.ts
       - name: entries
-        label: "{title}" # <--- The label MUST go here, before 'type' or 'fields'
-        type: list
+        label: Individual Game Matches
+        type: object
+        list: true
+        # This tells the CMS to use the title for the list preview
+        label_field: title 
         fields:
           - name: time
             label: Start Time
