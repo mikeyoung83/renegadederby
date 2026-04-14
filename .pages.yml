@@ -64,8 +64,11 @@ content:
   - name: players
     label: Players
     type: collection
-    path: src/content/players/*
+    path: src/content/players
+    exclude: ["**/_index.md"]
     format: md
+    view:
+      type: list
     fields:
       - name: name
         label: Skater Name
