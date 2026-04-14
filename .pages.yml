@@ -76,7 +76,12 @@ content:
       - name: location
         label: Location
         type: select
-        options: ["home", "away"]
+        options:
+          values:
+            - name: home
+              label: Home
+            - name: away
+              label: Away
 
       - name: isTentative
         label: Event-wide Tentative Status
