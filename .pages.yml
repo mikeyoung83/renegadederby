@@ -1,8 +1,16 @@
 media:
+  # Homepage media
   - name: homepage_media
     label: Homepage Images
     input: src/assets/homepage
     output: ../../assets/homepage
+    categories: [image]
+
+  # Sponsors media
+  - name: sponsors_media
+    label: Sponsor Logos
+    input: src/assets/sponsors
+    output: ../../assets/sponsors
     categories: [image]
 
 content:
@@ -26,4 +34,30 @@ content:
         media: homepage_media
       - name: body
         label: Content Body
+        type: rich-text
+
+  # --- SPONSORS ---
+  - name: sponsors
+    label: Sponsors
+    type: collection
+    path: src/content/sponsors
+    # Using the name for the filename to keep things organized
+    filename: "{fields.name}.md"
+    fields:
+      - name: name
+        label: Sponsor Name
+        type: string
+      - name: url
+        label: Website URL
+        type: string
+        # Help text to remind users to include https://
+        help: "Must be a full URL (e.g., https://renegadederbydames.com)"
+      - name: logo
+        label: Sponsor Logo
+        type: image
+        media: sponsors_media
+      # Adding body even though it's not in your schema
+      # just in case you want to add notes in the future
+      - name: body
+        label: Notes / Description
         type: rich-text
