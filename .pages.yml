@@ -1,4 +1,10 @@
-# .pages.yml
+media:
+  - name: homepage_media
+    label: Homepage Images
+    input: src/assets/homepage
+    output: ../../assets/homepage
+    categories: [image]
+
 content:
   # --- HOMEPAGE ---
   - name: homepage
@@ -6,7 +12,6 @@ content:
     type: collection
     path: src/content/homepage
     filename: "{fields.title}.md"
-    format: md
     fields:
       - name: title
         label: Section Title
@@ -18,165 +23,7 @@ content:
       - name: sectionImage
         label: Section Image
         type: image
-        upload_dir: src/assets
-        public_path: ../../assets
+        media: homepage_media
       - name: body
         label: Content Body
         type: rich-text
-    media:
-      input: src/assets/homepage
-      output: ../../assets/homepage
-
-  # --- TEAMS ---
-  - name: teams
-    label: Teams
-    type: collection
-    path: src/content/teams
-    format: md
-    fields:
-      - name: name
-        label: Team Name
-        type: string
-      - name: logo
-        label: Team Logo
-        type: image
-        upload_dir: src/assets/teams
-        public_path: ../../assets/teams
-      - name: groupPhoto
-        label: Group Photo
-        type: image
-        upload_dir: src/assets/teams
-        public_path: ../../assets/teams
-      - name: socials
-        label: Social Media Links
-        type: object
-        fields:
-          - name: facebook
-            label: Facebook URL
-            type: string
-          - name: twitter
-            label: Twitter URL
-            type: string
-          - name: instagram
-            label: Instagram URL
-            type: string
-      - name: body
-        label: Team Description
-        type: rich-text
-
-  # --- PLAYERS ---
-  - name: players
-    label: Players
-    type: collection
-    path: src/content/players
-    exclude: ["**/_index.md"]
-    format: md
-    extension: md
-    view:
-      type: tree
-    fields:
-      - name: name
-        label: Skater Name
-        type: string
-      - name: number
-        label: Jersey Number
-        type: number
-      - name: photo
-        label: Skater Photo
-        type: image
-        upload_dir: src/assets/players
-        public_path: ../../../assets/players
-
-  # --- GAMES ---
-  - name: games
-    label: Games & Schedule
-    type: collection
-    path: src/content/games
-    format: md
-    fields:
-      - name: date
-        label: Game Date
-        type: date
-      - name: location
-        label: Location
-        type: select
-        options:
-          - label: Home
-            value: home
-          - label: Away
-            value: away
-      - name: hostedBy
-        label: Hosted By
-        type: string
-      - name: pricing
-        label: Pricing Info
-        type: string
-      - name: isTentative
-        label: Event-wide Tentative Status
-        type: boolean
-        default: false
-      - name: entries
-        label: Individual Game Matches
-        type: list
-        fields:
-          - name: time
-            label: Start Time (e.g. 5:00 PM)
-            type: string
-          - name: title
-            label: Matchup Title
-            type: string
-          - name: isTentative
-            label: Match Tentative?
-            type: boolean
-            default: false
-
-  # --- COACHES ---
-  - name: coaches
-    label: Coaches
-    type: collection
-    path: src/content/coaches
-    format: md
-    fields:
-      - name: name
-        label: Coach Name
-        type: string
-      - name: photo
-        label: Photo
-        type: image
-        upload_dir: src/assets/coaches
-        public_path: ../../assets/coaches
-
-  # --- OFFICIALS ---
-  - name: officials
-    label: Officials
-    type: collection
-    path: src/content/officials
-    format: md
-    fields:
-      - name: name
-        label: Official Name
-        type: string
-      - name: photo
-        label: Photo
-        type: image
-        upload_dir: src/assets/officials
-        public_path: ../../assets/officials
-
-  # --- SPONSORS ---
-  - name: sponsors
-    label: Sponsors
-    type: collection
-    path: src/content/sponsors
-    format: md
-    fields:
-      - name: name
-        label: Sponsor Name
-        type: string
-      - name: url
-        label: Website URL
-        type: string
-      - name: logo
-        label: Logo
-        type: image
-        upload_dir: src/assets/sponsors
-        public_path: ../../assets/sponsors
