@@ -67,8 +67,9 @@ content:
     path: src/content/players
     exclude: ["**/_index.md"]
     format: md
+    extension: md
     view:
-      type: list
+      type: tree
     fields:
       - name: name
         label: Skater Name
@@ -80,7 +81,7 @@ content:
         label: Skater Photo
         type: image
         upload_dir: src/assets/players
-        public_path: ../../assets/players
+        public_path: ../../../assets/players
 
   # --- GAMES ---
   - name: games
