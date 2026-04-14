@@ -105,19 +105,16 @@ content:
       - name: entries
         label: Individual Game Matches
         type: object
+        # 2. Add 'list: true' to make it repeatable (this replaces 'type: list')
         list: true
-        # This view block fixes the [object Object] in the list
+        # 3. Use 'view' to define what shows in the summary list
         view:
           primary: "{title}"
           summary: "{time}"
         fields:
           - name: time
             label: Start Time
-            type: date
-            # This turns the date picker into a time picker
-            options:
-              time: true
-              format: "h:mm aa" # e.g., 4:00 PM
+            type: string
           - name: title
             label: Matchup Title
             type: string
