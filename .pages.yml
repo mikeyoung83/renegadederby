@@ -156,11 +156,9 @@ content:
     path: src/content/players
     subfolders: true
     view:
-      layout: tree # Enables folder-based browsing for team names
+      layout: tree
       primary: "{name}"
       summary: "#{number}"
-      node:
-        hideDirs: others # Keeps the view clean
     fields:
       - name: name
         label: Skater Name
