@@ -26,19 +26,15 @@ content:
     label: Homepage Sections
     type: collection
     path: src/content/homepage
-    filename: "{fields.title}.md"
+    filename:
+      template: "{title}.md"
+      field: true # 'true' allows editing the filename even after creation
     view:
       layout: list
       primary: "{title}"
-      fields: ["title", "filename"]
-      view:
-        layout: list
-        primary: "{title}"
-        # 'fields' here defines the columns you see in the CMS dashboard list
-        fields: [title]
-        default:
-          sort: filename
-          order: asc
+      default:
+        sort: filename
+        order: asc
     fields:
       - name: title
         label: Section Title
