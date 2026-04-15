@@ -20,6 +20,13 @@ media:
     output: ../../assets/officials
     categories: [image]
 
+  # Players media
+  - name: players_media
+    label: Players Media
+    input: src/assets/teams
+    output: ../../assets/teams
+    categories: [image]
+
 content:
   # --- HOMEPAGE ---
   - name: homepage
@@ -147,6 +154,7 @@ content:
     label: Players
     type: collection
     path: src/content/players
+    subfolders: true
     view:
       layout: tree # Enables folder-based browsing for team names
       primary: "{name}"
