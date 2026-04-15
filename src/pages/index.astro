@@ -29,7 +29,7 @@ const upcomingGame = allGames
     .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())[0]; // Take only the first one
 
 const rawSections = await getCollection("homepage");
-const sortedSections = rawSections.sort((a, b) => a.data.order - b.data.order);
+const sortedSections = rawSections.sort((a, b) => a.id.localeCompare(b.id));
 
 const sections = await Promise.all(
     sortedSections.map(async (section) => {

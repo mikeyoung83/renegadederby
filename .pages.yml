@@ -27,14 +27,13 @@ content:
     type: collection
     path: src/content/homepage
     filename: "{fields.title}.md"
+    view:
+      type: tree
+      primary: "{title}"
     fields:
       - name: title
         label: Section Title
         type: string
-      - name: order
-        label: Display Order
-        type: number
-        default: 0
       - name: sectionImage
         label: Section Image
         type: image

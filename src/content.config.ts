@@ -99,7 +99,6 @@ const homepage = defineCollection({
     z.object({
       title: z.string(),
       sectionImage: image(),
-      order: z.number().default(0),
     }),
 });
 
