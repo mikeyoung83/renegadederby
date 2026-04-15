@@ -28,7 +28,7 @@ content:
     path: src/content/homepage
     filename: "{fields.title}.md"
     view:
-      type: tree
+      layout: tree
       primary: "{title}"
     fields:
       - name: title
