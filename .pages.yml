@@ -28,8 +28,16 @@ content:
     path: src/content/homepage
     filename: "{fields.title}.md"
     view:
-      layout: tree
+      layout: list
       primary: "{title}"
+      view:
+        layout: list
+        primary: "{title}"
+        # 'fields' here defines the columns you see in the CMS dashboard list
+        fields: [title]
+        default:
+          sort: filename
+          order: asc
     fields:
       - name: title
         label: Section Title
