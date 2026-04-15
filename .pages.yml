@@ -30,6 +30,7 @@ content:
     view:
       layout: list
       primary: "{title}"
+      fields: ["title", "filename"]
       view:
         layout: list
         primary: "{title}"
