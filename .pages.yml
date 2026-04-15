@@ -13,6 +13,13 @@ media:
     output: ../../assets/sponsors
     categories: [image]
 
+  # Officials media
+  - name: officials_media
+    label: Officials Media
+    input: src/assets/officials
+    output: ../../assets/officials
+    categories: [image]
+
 content:
   # --- HOMEPAGE ---
   - name: homepage
@@ -56,8 +63,6 @@ content:
         label: Sponsor Logo
         type: image
         media: sponsors_media
-      # Adding body even though it's not in your schema
-      # just in case you want to add notes in the future
       - name: body
         label: Notes / Description
         type: rich-text
@@ -115,3 +120,20 @@ content:
       - name: body
         label: Additional Notes
         type: rich-text
+
+  # --- OFFICIALS ---
+  - name: officials
+    label: Officials
+    type: collection
+    path: src/content/officials
+    view:
+      primary: "{name}"
+    fields:
+      - name: name
+        label: Official Name
+        type: string
+
+      - name: photo
+        label: Official Photo
+        type: image
+        media: officials_media
