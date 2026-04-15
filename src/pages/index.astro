@@ -172,7 +172,7 @@ const sections = await Promise.all(
         </div>
     </section>
 
-    <div class="space-y-24 py-24">
+    <section class="space-y-24 py-24">
         {
             sections.map((section, index) => (
                 <section class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -191,96 +191,19 @@ const sections = await Promise.all(
 
                         {/* Text Side */}
                         <div class="w-full lg:w-1/2 prose prose-invert prose-lg">
-                            <h2 class="text-4xl font-black uppercase italic tracking-tight text-white">
+                            <h3 class="mt-2 text-2xl font-semibold tracking-tight text-pretty sm:text-4xl color-white">
                                 {section.data.title}
-                            </h2>
+                            </h3>
                             <section.Content />
                         </div>
                     </div>
                 </section>
+                <hr class="border-t border-gray-600 mx-auto max-w-7xl mt-12 mb-12" />
             ))
         }
-    </div>
-
-    <section class="overflow-hidden py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl md:px-6 lg:px-8 prose">
-            <div
-                class="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start"
-            >
-                <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
-                    <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
-                        <p
-                            class="mt-2 text-2xl font-semibold tracking-tight text-pretty sm:text-4xl"
-                        >
-                            2026 Home Game Schedule
-                        </p>
-                        <p class="mt-6 text-lg/8">
-                            <b>March 28, 2026: Home Opener Triple Header</b><br
-                            />
-                            <ul>
-                                <li>
-                                    South Simcoe Jr. Rollerderby Vs. Hogtown Jr.
-                                    Jawbreakers
-                                </li>
-                                <li>
-                                    Bombshell Battalion vs. Hogtown Debu-Taunts
-                                </li>
-                                <li>Striking Vikings vs. Hogtown Horror</li>
-                            </ul>
-                        </p>
-                        <p class="mt-6 text-lg/8">
-                            Click here for our 2026 schedule. More games to be
-                            announced! Stay tuned!
-                        </p>
-                    </div>
-                </div>
-                <div class="sm:px-6 lg:px-0">
-                    <div class="mx-auto max-w-2xl">
-                        <img
-                            src="https://tailwindui.com/plus-assets/img/component-images/project-app-screenshot.png"
-                            alt="Product screenshot"
-                            width="2432"
-                            height="1442"
-                            class="w-full h-auto rounded-xl"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr class="border-t border-gray-300 mx-auto max-w-7xl mt-12 mb-12" />
-        <div class="mx-auto max-w-7xl md:px-6 lg:px-8">
-            <div
-                class="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start"
-            >
-                <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
-                    <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
-                        <p
-                            class="mt-2 text-2xl font-semibold tracking-tight text-pretty sm:text-4xl"
-                        >
-                            Show latest content here
-                        </p>
-                        <p class="mt-6 text-lg/8">
-                            <b>Date: name of thing</b><br />
-                        </p>
-                        <p class="mt-6 text-lg/8">
-                            Kinda like what's on the current site homepage.
-                        </p>
-                    </div>
-                </div>
-                <div class="sm:px-6 lg:px-0">
-                    <div class="mx-auto max-w-2xl">
-                        <img
-                            src="https://tailwindui.com/plus-assets/img/component-images/project-app-screenshot.png"
-                            alt="Product screenshot"
-                            width="2432"
-                            height="1442"
-                            class="w-full h-auto rounded-xl"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
+
+
 </MainLayout>
 
 <script>

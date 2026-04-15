@@ -9,19 +9,24 @@ import Nav from "../components/Nav.astro";
 </style>
 
 <footer
-    class="footer footer-horizontal footer-center text-base-content p-10 bg-secondary/10 border-t border-neutral/20"
+    class="footer footer-horizontal footer-center text-base-content py-10 bg-secondary/10 border-t border-neutral/20"
 >
-    <nav class="grid grid-flow-col gap-4">
-        <ul class="menu menu-horizontal">
+    <nav class="flex justify-center">
+        <ul class="menu menu-horizontal flex-wrap justify-center">
             <Nav />
         </ul>
     </nav>
 
     <aside>
         <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by Renegade
-            Derby Dames
+            © {new Date().getFullYear()} Renegade Derby Dames
         </p>
-        <p>49 Nelson St. West in Downtown Alliston, Ontario</p>
+        <p>
+            <a
+                class="link"
+                href="https://maps.app.goo.gl/q8ZVpHfXCDdWeTWK6"
+                target="_blank">49 Nelson St. West</a
+            > | Alliston, Ontario
+        </p>
     </aside>
 </footer>
