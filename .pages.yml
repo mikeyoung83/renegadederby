@@ -141,3 +141,26 @@ content:
         label: Official Photo
         type: image
         media: officials_media
+
+  # --- PLAYERS ---
+  - name: players
+    label: Players
+    type: collection
+    path: src/content/players
+    view:
+      layout: tree # Enables folder-based browsing for team names
+      primary: "{name}"
+      summary: "#{number}"
+      node:
+        hideDirs: others # Keeps the view clean
+    fields:
+      - name: name
+        label: Skater Name
+        type: string
+      - name: number
+        label: Jersey Number
+        type: number
+      - name: photo
+        label: Player Photo
+        type: image
+        media: players_media
