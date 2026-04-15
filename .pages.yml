@@ -27,6 +27,13 @@ media:
     output: ../../assets/teams
     categories: [image]
 
+  # Coaches media
+  - name: coaches_media
+    label: Coaches Media
+    input: src/assets/teams
+    output: ../../assets/teams
+    categories: [image]
+
 content:
   # --- HOMEPAGE ---
   - name: homepage
@@ -148,6 +155,24 @@ content:
         label: Official Photo
         type: image
         media: officials_media
+
+  # --- COACHES ---
+  - name: coaches
+    label: Coaches
+    type: collection
+    path: src/content/coaches
+    subfolders: true
+    view:
+      layout: tree
+      primary: "{name}"
+    fields:
+      - name: name
+        label: Coach Name
+        type: string
+      - name: photo
+        label: Coach Photo
+        type: image
+        media: coaches_media
 
   # --- PLAYERS ---
   - name: players
