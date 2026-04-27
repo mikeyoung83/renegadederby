@@ -1,0 +1,15 @@
+name: Daily Schedule Rebuild
+
+on:
+  schedule:
+    # This runs at 00:00 UTC every day.
+    # (Note: Midnight UTC is 8:00 PM in Ontario right now)
+    - cron: "0 0 * * *"
+  workflow_dispatch: # Allows you to trigger it manually for testing
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify Build
+        run: curl -X POST -d {} https://api.netlify.com/build_hooks/69eeae2c933e0dc12db64aed
