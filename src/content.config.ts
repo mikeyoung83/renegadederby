@@ -72,7 +72,7 @@ const sponsors = defineCollection({
 });
 
 const gameEntrySchema = z.object({
-  time: z.string().optional(),
+  time: z.string(),
   title: z.string(), // e.g. "All-Stars vs. Forest City"
   isTentative: z.boolean().default(false),
 });
