@@ -137,18 +137,12 @@ const years = Object.keys(scheduleByYear).sort((a, b) => a.localeCompare(b));
                                         {day.data.entries.map((game: any) => (
                                             <div class="group relative">
                                                 <div class="flex flex-col sm:flex-row sm:items-center gap-4">
-                                                    <span class="text-xl text-secondary w-24 shrink-0">
-                                                        {/* Check if time is provided, otherwise show TBD */}
-                                                        {game.time &&
-                                                        game.time.trim() !==
-                                                            "" ? (
-                                                            game.time
-                                                        ) : (
-                                                            <span class="text-xs tracking-tighter text-slate-200">
-                                                                Game Time TBD
-                                                            </span>
-                                                        )}
-                                                    </span>
+                                                    {game.time?.trim() && (
+                                                        <span class="text-xl text-secondary w-24 shrink-0">
+                                                            {game.time}
+                                                        </span>
+                                                    )}
+
                                                     <div class="grow">
                                                         <h4 class="text-xl md:text-xl font-bold tracking-tight">
                                                             {game.title}
