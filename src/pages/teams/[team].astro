@@ -2,21 +2,41 @@
 import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import fallbackPhoto from "../../assets/placeholder-player.jpg";
 
 export async function getStaticPaths() {
+    // 1. Move the glob INSIDE getStaticPaths
+    const allPlayerImages = import.meta.glob<{ default: ImageMetadata }>(
+        "/src/assets/teams/**/*.{jpg,png,jpeg}",
+    );
+
     const allTeams = await getCollection("teams");
     const allPlayers = await getCollection("players");
     const allCoaches = await getCollection("coaches");
 
     return allTeams.map((team) => {
-        // 1. Filter players for this team
-        // 2. Sort them by number (Ascending)
         const teamPlayers = allPlayers
             .filter((p) => p.id.startsWith(`${team.id}/`))
+            .map((p) => {
+                const fileName = p.id.split("/").pop() || "0";
+                const jerseyNumber = parseInt(fileName);
+                const imagePath = `/src/assets/teams/${team.id}/${fileName}.jpg`;
+
+                return {
+                    ...p,
+                    data: {
+                        ...p.data,
+                        number: jerseyNumber,
+                        // 2. Access the glob directly here
+                        photo: allPlayerImages[imagePath]
+                            ? allPlayerImages[imagePath]()
+                            : undefined,
+                    },
+                };
+            })
             .sort((a, b) => a.data.number - b.data.number);
 
-        // Filter coaches for this team
         const teamCoaches = allCoaches.filter((c) =>
             c.id.startsWith(`${team.id}/`),
         );
@@ -29,7 +49,7 @@ export async function getStaticPaths() {
 }
 
 const { team, players, coaches } = Astro.props;
-const { Content } = await render(team); // This handles the Markdown links/text
+const { Content } = await render(team);
 const socials = team.data.socials;
 ---
 
