@@ -57,6 +57,9 @@ content:
         label: Section Image
         type: image
         media: homepage_media
+        options:
+          media: homepage_media
+          path: src/assets/homepage
       - name: body
         label: Content Body
         type: rich-text
@@ -80,7 +83,9 @@ content:
       - name: logo
         label: Sponsor Logo
         type: image
-        media: sponsors_media
+        options:
+          media: sponsors_media
+          path: src/assets/sponsors
       - name: body
         label: Notes / Description
         type: rich-text
@@ -154,7 +159,9 @@ content:
       - name: photo
         label: Official Photo
         type: image
-        media: officials_media
+        options:
+          media: officials_media
+          path: src/assets/officials
 
   # --- COACHES ---
   - name: coaches
@@ -172,7 +179,9 @@ content:
       - name: photo
         label: Coach Photo
         type: image
-        media: coaches_media
+        options:
+          media: coaches_media
+          path: src/assets/coaches
 
   # --- PLAYERS ---
   - name: players
