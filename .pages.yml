@@ -1,11 +1,4 @@
 media:
-  # Players media
-  - name: players_media
-    label: Players Media
-    input: public/assets/teams
-    output: /assets/teams
-    categories: [image]
-
   # Homepage media
   - name: homepage_media
     label: Homepage Images
@@ -25,6 +18,13 @@ media:
     label: Officials Media
     input: src/assets/officials
     output: ../../assets/officials
+    categories: [image]
+
+  # Players media
+  - name: players_media
+    label: Players Media
+    input: public/assets/teams
+    output: /assets/teams
     categories: [image]
 
   # Coaches media
