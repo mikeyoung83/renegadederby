@@ -23,8 +23,8 @@ media:
   # Players media
   - name: players_media
     label: Players Media
-    input: src/assets/teams
-    output: src/assets/teams
+    input: public/assets/teams
+    output: /assets/teams
     categories: [image]
 
   # Coaches media
