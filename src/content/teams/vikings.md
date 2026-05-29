@@ -1,7 +1,7 @@
 ---
 name: "Striking Vikings"
 logo: "../../assets/teams/vikings/logo.png"
-groupPhoto: "../../assets/teams/vikings/group-shot.jpg"
+groupPhoto: "../../assets/teams/bombshells/group-shot.jpg"
 socials:
   facebook: "http://www.facebook.com/strikingvikings/"
   instagram: "http://twitter.com/VikingsStrike"
