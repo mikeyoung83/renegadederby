@@ -197,4 +197,6 @@ content:
       - name: photo
         label: Player Photo
         type: image
-        media: players_media
+        options:
+          media: players_media
+          path: src/assets/teams
