@@ -182,7 +182,7 @@ content:
     label: Players
     type: collection
     path: src/content/players
-    subfolders: true
+    subfolders: false
     view:
       layout: tree
       primary: "{name}"
