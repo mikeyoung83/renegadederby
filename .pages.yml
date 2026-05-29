@@ -176,6 +176,9 @@ content:
 
   # --- PLAYERS ---
   - name: players
+    filename:
+      template: "{title}.md"
+      field: true
     label: Players
     type: collection
     path: src/content/players
