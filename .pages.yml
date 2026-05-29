@@ -24,7 +24,7 @@ media:
   - name: players_media
     label: Players Media
     input: src/assets/teams
-    output: src/assets/teams
+    output: /src/assets/teams
     categories: [image]
 
   # Coaches media
@@ -198,4 +198,3 @@ content:
         label: Player Photo
         type: image
         media: players_media
-        directory: src/assets/teams
