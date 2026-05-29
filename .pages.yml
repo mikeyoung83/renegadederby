@@ -198,3 +198,4 @@ content:
         label: Player Photo
         type: image
         media: players_media
+        directory: src/assets/teams
