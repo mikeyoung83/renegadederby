@@ -38,10 +38,31 @@ const sections = await Promise.all(
     }),
 );
 
-// Fetch the homepage settings singleton (file loader returns a single-entry array)
+// Fetch the homepage settings singleton
 const settingsEntries = await getCollection("homepageSettings");
-const { Content: AboutContent, ...settingsEntry } = await render(settingsEntries[0]);
-const settings = settingsEntry.data;
+let AboutContent;
+let settings;
+
+if (settingsEntries.length > 0) {
+    const entry = settingsEntries[0];
+    const { Content } = await render(entry);
+    AboutContent = Content;
+    settings = entry.data;
+} else {
+    // We define a fallback *only if needed* or handle it in the template
+    settings = {
+            hero_heading: 'Welcome to Renegade Derby',
+	        hero_tagline: 'Your source for all things roller derby.',
+	        hero_cta_primary_label: 'Learn More',
+	        hero_cta_primary_url: '#',
+	        hero_cta_secondary_label: 'Curious To Join?',
+	        hero_cta_secondary_url: '#',
+	        about_eyebrow: 'About Us',
+	        about_heading: 'What is Roller Derby?',
+	        about_cta_label: 'Read More',
+	        about_cta_url: '#',
+    }; // <--- Close the object
+    } // <--- Close the else block
 ---
 
 <MainLayout title="Home" description="change meta tag">
@@ -161,7 +182,11 @@ const settings = settingsEntry.data;
                 <div class="sm:px-6 lg:px-6">
                     <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
                         <div class="ext-lg/8 mt-8 prose prose-invert">
-                            <AboutContent />
+                            {AboutContent ? (
+                                <AboutContent />
+                            ) : (
+                                <p>No about content found.</p>
+                            )}
                         </div>
                     </div>
                 </div>
