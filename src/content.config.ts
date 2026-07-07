@@ -103,7 +103,10 @@ const homepage = defineCollection({
 });
 
 const homepageSettings = defineCollection({
-  loader: file("./src/content/homepage-settings.md"),
+  loader: glob({
+    pattern: "homepage-settings.md",
+    base: "./src/content",
+  }),
   schema: z.object({
     hero_heading: z.string(),
     hero_tagline: z.string(),
