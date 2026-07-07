@@ -214,7 +214,7 @@ content:
   - name: homepage_settings
     label: Homepage Settings
     type: file
-    path: src/content/homepage-settings.md
+    path: src/content/homepageSettings/homepage-settings.md
     fields:
       # Hero Section
       - name: hero_heading
