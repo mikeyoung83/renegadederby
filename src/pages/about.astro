@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import { Image } from "astro:assets";
 import { YouTube } from "astro-embed";
+import about1 from "../../src/assets/about1.jpg";
 ---
 
 <MainLayout title="About Us">
@@ -66,7 +67,7 @@ import { YouTube } from "astro-embed";
                     </p>
                 </div>
                 <Image
-                    src="https://dht7q8fif4gks.cloudfront.net/2025-11/572095564_18408401341142527_7253166904574926156_n.jpg"
+                    src={about1}
                     alt="Roller Derby Team Photo"
                     width={800}
                     height={800}
