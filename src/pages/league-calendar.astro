@@ -1,0 +1,131 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+---
+
+<MainLayout title="League Calendar" description="change meta tag">
+    <section class="relative isolate">
+        <div
+            class="mx-auto max-w-7xl px-6 py-10 sm:py-10 xs:py-10 lg:py-40 lg:px-8"
+        >
+            <div class="flex flex-col gap-y-16">
+                <!-- Full-Width Calendar Section -->
+                <div class="w-full">
+                    <div class="mx-auto max-w-6xl prose w-full">
+                        <h2
+                            class="text-4xl font-semibold tracking-tight text-white sm:text-6xl uppercase mt-0"
+                        >
+                            League Calendar
+                        </h2>
+
+                        <div
+                            class="relative w-full h-[500px] sm:h-[600px] lg:h-[650px] aspect-square sm:aspect-[4/3] lg:aspect-square overflow-hidden rounded-xl border border-white/20 shadow-lg bg-gray-900"
+                        >
+                            <iframe
+                                src="https://calendar.google.com/calendar/embed?src=renegadederbydames.com_q1rlojj2f621tch3m60iafbh8g@group.calendar.google.com"
+                                class="absolute inset-0 h-full w-full border-0"
+                                loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two Bordered Sections Underneath -->
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mx-auto"
+                >
+                    <div
+                        class="prose rounded-2xl border-2 border-solid border-white p-6"
+                    >
+                        <h2 class="mt-0">Visiting Skaters</h2>
+                        <p>
+                            Skaters from other leagues who have passed their
+                            WFTDA Minimum Skating Skills Requirement and who
+                            hold valid Skater Insurance are welcome to join our
+                            League Practices or Intermediate Practices, for a
+                            small fee per session ($10).
+                        </p>
+                        <p>
+                            Guests at Advanced Practices are welcome at the
+                            discretion of the team captains. Please <a
+                                href="mailto:vikings@renegadederbydames.com"
+                                >email</a
+                            > the captains for more info on attending Advanced Practices.
+                        </p>
+                        <p>
+                            Guest Referees are welcome at any and all of our
+                            practices and do not pay a visitor fee.
+                        </p>
+                    </div>
+
+                    <div
+                        class="prose rounded-2xl border-2 border-solid border-white p-6 flex flex-col justify-between"
+                    >
+                        <div>
+                            <h2 class="mt-0">Adding Calendars</h2>
+                            <p>
+                                Add our RDD calendars to your own Google
+                                Calendar or favorite calendar app by
+                                subscription.
+                            </p>
+
+                            <!-- Subscription Links -->
+                            <div class="not-prose mt-6 flex flex-col gap-4">
+                                <!-- Events Calendar -->
+                                <div
+                                    class="rounded-xl border border-white/20 p-3.5"
+                                >
+                                    <span
+                                        class="block text-sm font-semibold text-white mb-2"
+                                        >RDD Events</span
+                                    >
+                                    <div class="flex flex-wrap gap-2">
+                                        <a
+                                            href="https://calendar.google.com/calendar/render?cid=renegadederbydames.com_n1lrrd6sjh8qhvg37l2k4u0lg0%40group.calendar.google.com"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-medium text-white hover:bg-white/20 transition-colors no-underline"
+                                        >
+                                            + Google Calendar
+                                        </a>
+                                        <a
+                                            href="https://www.google.com/calendar/ical/renegadederbydames.com_n1lrrd6sjh8qhvg37l2k4u0lg0%40group.calendar.google.com/public/basic.ics"
+                                            class="inline-flex items-center gap-1.5 rounded-lg bg-white/5 px-3 py-1.5 text-xs font-medium text-gray-300 hover:bg-white/10 transition-colors no-underline"
+                                        >
+                                            iCal / Outlook
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Practices Calendar -->
+                                <div
+                                    class="rounded-xl border border-white/20 p-3.5"
+                                >
+                                    <span
+                                        class="block text-sm font-semibold text-white mb-2"
+                                        >RDD Practices</span
+                                    >
+                                    <div class="flex flex-wrap gap-2">
+                                        <a
+                                            href="https://calendar.google.com/calendar/render?cid=renegadederbydames.com_q1rlojj2f621tch3m60iafbh8g%40group.calendar.google.com"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-medium text-white hover:bg-white/20 transition-colors no-underline"
+                                        >
+                                            + Google Calendar
+                                        </a>
+                                        <a
+                                            href="https://www.google.com/calendar/ical/renegadederbydames.com_q1rlojj2f621tch3m60iafbh8g%40group.calendar.google.com/public/basic.ics"
+                                            class="inline-flex items-center gap-1.5 rounded-lg bg-white/5 px-3 py-1.5 text-xs font-medium text-gray-300 hover:bg-white/10 transition-colors no-underline"
+                                        >
+                                            iCal / Outlook
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</MainLayout>
