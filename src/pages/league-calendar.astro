@@ -11,7 +11,7 @@ import { Image } from "astro:assets";
             <div class="flex flex-col gap-y-16">
                 <!-- Full-Width Calendar Section -->
                 <div class="w-full">
-                    <div class="mx-auto max-w-7xl prose w-full">
+                    <div class="w-full prose max-w-none">
                         <h2
                             class="text-4xl font-semibold tracking-tight text-white sm:text-6xl uppercase mt-0"
                         >
@@ -29,12 +29,11 @@ import { Image } from "astro:assets";
                     </div>
                 </div>
 
-                <!-- Two Bordered Sections Underneath -->
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-7xl mx-auto"
-                >
+                <!-- Two Bordered Sections Underneath (Proportional Split with Tight Gap) -->
+                <div class="flex flex-col md:flex-row gap-6 w-full">
+                    <!-- Visiting Skaters (Slightly Wider) -->
                     <div
-                        class="prose rounded-2xl border-2 border-solid border-white p-6"
+                        class="prose max-w-none w-full md:w-[62%] rounded-2xl border-2 border-solid border-white p-6"
                     >
                         <h2 class="mt-0">Visiting Skaters</h2>
                         <p>
@@ -57,8 +56,9 @@ import { Image } from "astro:assets";
                         </p>
                     </div>
 
+                    <!-- Adding Calendars (Slightly Narrower) -->
                     <div
-                        class="prose rounded-2xl border-2 border-solid border-white p-6 flex flex-col justify-between"
+                        class="prose max-w-none w-full md:w-[38%] rounded-2xl border-2 border-solid border-white p-6 flex flex-col justify-between"
                     >
                         <div>
                             <h2 class="mt-0">Adding Calendars</h2>
