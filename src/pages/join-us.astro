@@ -1,0 +1,1111 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+
+const sections = [
+    { id: "new-skaters", label: "New Skaters" },
+    { id: "transfer-skaters", label: "Transfer Skaters" },
+    { id: "visiting-skaters", label: "Visiting Skaters" },
+    { id: "referees", label: "Referees" },
+    { id: "non-skating-officials", label: "Non-Skating Officials" },
+    { id: "volunteers", label: "Volunteers" },
+];
+---
+
+<MainLayout
+    title="Join Us"
+    description="Join Renegade Derby Dames as a skater, official, junior, or volunteer."
+>
+    <section class="relative">
+        <div
+            class="mx-auto max-w-7xl px-6 py-10 sm:py-10 xs:py-10 lg:py-40 lg:px-8"
+        >
+            <div class="flex flex-col gap-y-12">
+                <!-- Page Title -->
+                <div class="w-full">
+                    <div class="w-full prose max-w-none">
+                        <h1
+                            class="text-4xl font-semibold tracking-tight text-white sm:text-6xl uppercase mt-0"
+                        >
+                            Join Us!
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- Layout Grid: Navigation + Content -->
+                <div
+                    class="flex flex-col lg:flex-row gap-10 items-start relative"
+                >
+                    <!-- NAVIGATION SIDEBAR (Sticky Fix Applied) -->
+                    <aside
+                        class="w-full lg:w-1/4 sticky top-6 lg:top-24 shrink-0 z-300 self-start"
+                    >
+                        <nav
+                            class="p-4 rounded-2xl border border-white/20 bg-gray-900/90 backdrop-blur-md shadow-xl"
+                        >
+                            <h3
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 px-3 mb-2"
+                            >
+                                On This Page
+                            </h3>
+                            <ul
+                                class="menu menu-md w-full p-0 text-gray-300 gap-y-1"
+                            >
+                                {
+                                    sections.map((sec) => (
+                                        <li>
+                                            <a
+                                                href={`#${sec.id}`}
+                                                class="nav-link-desktop hover:text-white hover:bg-white/10 transition-colors py-2.5 px-3 rounded-lg"
+                                                data-section={sec.id}
+                                            >
+                                                {sec.label}
+                                            </a>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </nav>
+                    </aside>
+
+                    <!-- MAIN CONTENT AREA (Unbordered) -->
+                    <main class="w-full lg:w-3/4 flex flex-col gap-y-16">
+                        <!-- SECTION 1 -->
+                        <section
+                            id="new-skaters"
+                            class="scroll-section scroll-mt-28 prose max-w-none"
+                        >
+                            <h2 class="text-3xl font-bold text-white mt-0">
+                                New Skater Training
+                            </h2>
+
+                            <p>
+                                We are pleased to announce that our
+                                ten-week-long <strong>Derby 101 Program</strong> will
+                                be back for Spring 2026!
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                2026 Derby 101 Sessions
+                            </h3>
+                            <p>
+                                <strong
+                                    >The Spring session will begin on March
+                                    15th, 2026, from 5:00-7:00 pm at the
+                                    Alliston Memorial Arena, 49 Nelson St. W,
+                                    Alliston.</strong
+                                >
+                            </p>
+                            <p>
+                                <strong
+                                    >For more info, come to our info night,
+                                    March 8th from 5:00-7:00 pm at the Alliston
+                                    Memorial Arena, or email: <a
+                                        href="mailto:derby101@renegadederbydames.com"
+                                        target="_blank">derby101</a
+                                    > @ renegadederbydames .com or message us on <a
+                                        href="https://www.facebook.com/RDerbyDames"
+                                        target="_blank">Facebook</a
+                                    ></strong
+                                >
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                Derby 101
+                            </h3>
+                            <p>
+                                Sign up now and start enjoying all the health
+                                benefits that come from roller skating.
+                            </p>
+                            <ul>
+                                <li>
+                                    Improves cardio and respiratory endurance
+                                </li>
+                                <li>Improves balance and coordination</li>
+                                <li>Helps build a healthy heart</li>
+                                <li>Burns over 450 calories an hour</li>
+                                <li>Builds muscle strength</li>
+                                <li>Improves mental health</li>
+                                <li>Relieves stress</li>
+                                <li>Boosts self-confidence</li>
+                            </ul>
+                            <p>
+                                Join the community that is flat track roller
+                                derby today!!
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                What is the cost of Training?
+                            </h3>
+                            <p>
+                                Our Derby 101 program is $150 for 10 weeks of
+                                lessons, plus insurance fees. Want to bring a
+                                friend? We are also offering BOGO memberships,
+                                just ask!<br /> Roller derby insurance can be purchased
+                                from Roller Derby Canada Services (RDC). Note: Roller
+                                Derby insurance has to be purchased individually.
+                                <a
+                                    href="https://rdcservices.org/"
+                                    target="_blank">Click for details</a
+                                >.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                When does the training program take place?
+                            </h3>
+                            <p>
+                                Lessons are held from 5:00 to 7:00 pm on
+                                Sundays. There will be opportunities for extra
+                                skate time on the sidelines of the league
+                                practice, which runs on Thursdays from 7-9 pm.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                Where does the training program take place?
+                            </h3>
+                            <p>
+                                Allison Memorial Arena at 49 Nelson Street West
+                                (between Church &amp; Paris) in downtown
+                                Alliston.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                How do I sign up?
+                            </h3>
+                            <p>
+                                Please fill out our <a
+                                    href="https://www.renegadederbydames.com/join-us/membership-application"
+                                    target="_blank"
+                                    ><strong>Online Membership Form</strong></a
+                                >.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                What do I need in order to train?
+                            </h3>
+                            <p>
+                                Here's everything you'll need to have before you
+                                can practice:
+                            </p>
+                            <ul>
+                                <li>
+                                    <strong>Quad Skates:</strong> We recommend having
+                                    these fitted by a professional at a skate shop.
+                                    If buying online, please ensure you can return
+                                    them if they don’t fit properly. Ideal skates
+                                    for roller derby are speed-style with a low heel
+                                    and adjustable toe stops. (See below for more
+                                    details about skate recommendations.)
+                                </li>
+                                <li>
+                                    <strong>Helmets:</strong> must be snug on your
+                                    head and made for multiple impacts. They can be
+                                    found at skate shops or local sports stores. We
+                                    recommend the S1 "Lifer", Technical Safety Gear
+                                    (TSG) Skate Helmets, or Nutcase derby helmets.
+                                    Hockey helmets are also acceptable. Face shields
+                                    are optional.
+                                </li>
+                                <li>
+                                    <strong
+                                        >Elbow Pads, Wrist Guards and Knee Pads</strong
+                                    > are a must. Pads should fit snugly to avoid
+                                    slipping. Triple 8, Scabs, ProDesigned, and 187s
+                                    are the most common brands. Pads are required
+                                    to have a hard shell, and we recommend getting
+                                    knee pads with a large, flat surface area for
+                                    better stability when sliding on them.
+                                </li>
+                                <li>
+                                    <strong>Mouth Guards</strong> (boil and bite)
+                                    can be found at local sports stores, ranging from
+                                    $5 to $30. Derby Shops sell the popular <a
+                                        href="https://whatsyourdamage.ca/collections/mouth-guards"
+                                        target="_blank">SISU Aero Guard</a
+                                    > in a range of colours, or talk to your dentist
+                                    about getting a custom-fitted one. (Mouth Guards
+                                    are not required for referees.)
+                                </li>
+                                <li>
+                                    <strong>Whistles:</strong> (required only for
+                                    referees). The Fox 40 Classic is the standard
+                                    whistle used in roller derby. A Cushioned Mouth
+                                    Grip is recommended for comfort.
+                                </li>
+                                <li>
+                                    <em>PLEASE NOTE:</em>
+                                    <strong>Glasses</strong> should be secured on
+                                    the skater’s head with a sports retaining strap
+                                    that is not loose (similar to goggles), and must
+                                    contain shatterproof lenses.
+                                </li>
+                            </ul>
+
+                            <p>
+                                Please refer to the <a
+                                    href="https://static.wftda.com/resources/wftda-guide-for-equipment-check.pdf"
+                                    target="_blank">WFTDA Equipment Guide</a
+                                > for more details.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                What do I need to know about skates before I go
+                                shopping?
+                            </h3>
+                            <p>
+                                Skates used in derby are flat or very low-heeled
+                                quad-style skates that are also used in speed
+                                skating. That's not to say you can't wear those
+                                stylin' Moxi skates on the track, but you should
+                                know this style of rec skates is designed for
+                                jam skating and skate parks, and can hinder your
+                                mastery of some derby skills. That's mostly
+                                because the weight distribution pushes you onto
+                                your toes and not onto your heels, where you
+                                want to be when you take a hit.
+                            </p>
+                            <p>
+                                You get what you pay for. This is especially
+                                true when it comes to skates. Cheap-o recreation
+                                skates found for discounts online are not
+                                recommended for roller derby because they aren't
+                                sturdy enough with their poor construction and
+                                weak plates, they also generally don't have
+                                adjustable toe stops (and worse yet, they're
+                                often bell-style that are way too high for
+                                derby), and they often come with dance heels
+                                rather than the flat speed-style skates that are
+                                most effective for derby. We recommend shopping
+                                for derby-made skates by a trusted brand such as
+                                Riedell, Antik, Bondt, or Sure-grip. If you have
+                                any questions about the quality of what you're
+                                buying, please ask someone who plays derby. Feel
+                                free to <a href="/contact-us">email</a> us or <a
+                                    href="https://www.facebook.com/RDerbyDames"
+                                    target="_blank">message</a
+                                > us on Facebook if you want advice.
+                            </p>
+                            <p>
+                                We know, investing in even low-end derby skates
+                                isn't cheap, especially when you add on the rest
+                                of the gear and the cost of training, but the
+                                biggest advantage to getting decent gear is that
+                                it lasts a long time, and you can always resell
+                                it. So, whether you decide derby isn't for you
+                                (what!?! 🤯), or you want to upgrade to better
+                                skates that fit your newly-discovered style and
+                                preferences after skating a while, being able to
+                                sell old skates (and safety gear) allows you to
+                                get something back out of your investment.[cite:
+                                1]
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                Wish-list Accessories:
+                            </h3>
+                            <ul>
+                                <li>
+                                    Outdoor or Indoor wheels (opposite of what
+                                    came on your skates) and bearings to go with
+                                    them. (approx $50-$125 for wheels, $40-$90
+                                    for bearings).
+                                </li>
+                                <li>
+                                    A multipurpose skate tool, which you will
+                                    use for regular skate maintenance and it
+                                    also makes it faster to trade off your
+                                    indoor/outdoor wheels. (approx $25-$35)
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://www.rollergirl.ca/skateshop/smith-scabs-knee-gaskets-p-308.html"
+                                        target="_blank">Knee gaskets</a
+                                    >. They protect your knees with extra
+                                    padding around the kneecap and fill in any
+                                    gaps in your knee pads to keep them in
+                                    place. (approx $35).
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://monstermuffin.com/collections/roller-derby"
+                                        target="_blank"
+                                        >Reversible scrimmage shirt</a
+                                    > with name and number on both sides. (approx
+                                    $30, or $45 customized with your name and number).[cite:
+                                    1]
+                                </li>
+                                <li>
+                                    Metal plates with locking toe stops. Much
+                                    more sturdy than nylon, these are made for
+                                    skaters over 125 pounds, or for skaters who
+                                    weigh less but skate hard. Some come with
+                                    locking toe stops are essential to prevent
+                                    loss of toe stops during skating. Plates
+                                    automatically come on new skates, which is
+                                    the easiest way to get them, or plates can
+                                    be purchased separately to be installed on
+                                    your existing skates. Please seek
+                                    professional assistance before mounting
+                                    plates; installation can be tricky and often
+                                    requires special skills or tools to prevent
+                                    damage to your skates.
+                                </li>
+                            </ul>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                Where to get gear:
+                            </h3>
+                            <ul>
+                                <li>
+                                    <a
+                                        href="https://www.whatsyourdamage.ca/"
+                                        target="_blank"
+                                        ><strong>What's Your Damage?</strong></a
+                                    > (Keswick, shop and online)
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://rollerskatin.ca/"
+                                        target="_blank"
+                                        ><strong>Rollerskatin.ca</strong></a
+                                    > (Woodstock, shop and online)
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://www.rollergirl.ca"
+                                        target="_blank"
+                                        ><strong>Roller Girl</strong></a
+                                    > (Vancouver, online)
+                                </li>
+                            </ul>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                Where to get officials' (and scrimmage) jerseys:
+                            </h3>
+                            <ul>
+                                <li>
+                                    <a
+                                        href="https://monstermuffin.com/collections/referee"
+                                        target="_blank"
+                                        ><strong>Monster Muffin</strong></a
+                                    > (Barrie, online)
+                                </li>
+                            </ul>
+
+                            <p>
+                                <em
+                                    >All derby shops offer starter packages,
+                                    including full sets of safety gear and
+                                    sometimes including the skates too. We
+                                    highly recommend checking return policies in
+                                    case you need to trade something in because
+                                    it's not right for you or doesn't fit right.</em
+                                >
+                            </p>
+                            <p>
+                                <em
+                                    >🍁 All the shops that we list here are
+                                    Canadian-owned and run by Canadian skaters.
+                                    What's Your Damage is owned and run by
+                                    Canadian and Indigenous skaters.</em
+                                >
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                Loaner Gear:
+                            </h3>
+                            <p>
+                                We have some used gear available for skaters who
+                                want to try it out before investing in the gear.
+                                We have lots of safety gear available, but spare
+                                skates are harder to come by, and we only have
+                                limited sizes. Please let us know if you'd like
+                                to borrow anything to get started when you sign
+                                up, and we will try to find items to fit you.
+                                Sorry, but we cannot lend mouth guards (for
+                                obvious reasons).
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                What will I learn during Derby 101?
+                            </h3>
+                            <p>
+                                Even if you’ve never tried on skates before, you
+                                will learn how to skate, stop properly and fall
+                                safely. You’ll learn fancy footwork like gliding
+                                and weaving on one foot, and changing from a
+                                forward direction to a backward direction.
+                                You'll learn how to balance, how to hop over
+                                obstacles, and how to improve your stride for
+                                speed. You'll learn about basic strategy and
+                                about the rules of flat track roller derby.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                What you'll learn as a Skater:
+                            </h3>
+                            <p>
+                                You’ll find out how to deliver a powerful hit,
+                                how to take one, and how to counter hit. You'll
+                                learn how to push and pull someone safely.
+                                You’ll learn to work with your teammates and
+                                skate in a pack as well as how to navigate
+                                through it. You'll learn how to cross the track
+                                quickly, how to lean an opponent out of bounds,
+                                and how to deal with unexpected obstacles.
+                                Basically, you’ll learn all the skills you need
+                                to start playing roller derby. Most importantly,
+                                you’ll learn how capable you are of kicking ass,
+                                and having fun while doing it!
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                What you'll learn as a Referee:
+                            </h3>
+                            <p>
+                                You’ll learn how to interpret the rules and
+                                apply them to gameplay happening on the track.
+                                You'll practice the hand signals and verbal cues
+                                used to issue a penalty, and learn how to blow a
+                                whistle properly as part of a referee crew.
+                                You'll learn about the Officiating Standardized
+                                Practices and the referee positions such as Head
+                                Referee, Inside and Outside Pack Referees, and
+                                Jam Referees. You'll learn how to work with
+                                Non-Skating Officials, how to share data with
+                                them during games. Basically, you'll learn all
+                                the skills needed to start officiating at
+                                scrimmages and games, and gain the confidence
+                                necessary to be part of the awesomeness that is
+                                Team Zebra!
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                What if I don’t know how to skate?
+                            </h3>
+                            <p>
+                                Just because you can’t skate yet doesn’t mean
+                                you can’t learn how to play roller derby! Our
+                                training program is designed for skaters of all
+                                levels, and we start out covering the absolute
+                                basics, from gliding forward to stopping, to
+                                falling safely, and after just a few weeks, you
+                                may be surprised at how well you’re doing.
+                                (Please note, we encourage beginning skaters to
+                                attend as many sessions as possible and stay for
+                                the extra skate time.) You can also practice on
+                                your own to work on your basic skills if you
+                                want to improve even faster.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                What happens during training?
+                            </h3>
+                            <p>
+                                You'll start off learning to skate, stop, and
+                                fall safely, then, as you go, you'll move on to
+                                practicing skills and doing drills that build on
+                                what you've learned so far. Your coaches will
+                                discuss your progress with you at every stage
+                                and make sure you are developing your skills
+                                safely.
+                            </p>
+                            <p>
+                                You'll be expected to try hard and to never say
+                                "I can't" unless it's followed by "yet." You'll
+                                be offered advice and support from veteran
+                                skaters.
+                            </p>
+                            <p>
+                                As you progress, you'll learn how to use what
+                                you know so far to play derby, and how the rules
+                                apply. You'll have homework that involves
+                                reading the WFTDA Rules, doing take-home
+                                quizzes, and watching roller derby videos.[cite:
+                                1]
+                            </p>
+                            <p>
+                                You'll be encouraged to compare your progress
+                                only to your earlier self rather than others,
+                                and to be proud of your accomplishments. You'll
+                                discover that everyone learns at their own pace
+                                and will develop some skills more easily than
+                                others, mostly depending on sports or skating
+                                background, fitness level, and dedication to
+                                training. There is no time limit to developing
+                                your skills, and the Derby 101 program is only
+                                the start of your adventures in roller derby!
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                What happens after training?
+                            </h3>
+                            <p>
+                                Once you have completed Derby 101, you'll join
+                                in with our league practices, where you'll start
+                                to learn more of the tactics and strategies that
+                                we use to play roller derby. You'll join in for
+                                warm-ups and drills right away, and participate
+                                in practice scrimmaging when you and the coaches
+                                decide you're ready.
+                            </p>
+                            <p>
+                                The next step is to join a team. There are no
+                                tryouts, but you will need to have reached a
+                                safe level in your skills, as determined by the
+                                coaches. You will start as a member of the
+                                Bombshell Battalion, our "B" Team, and you will
+                                be allowed to try out for our Charter ("A")
+                                Team: the Striking Vikings if and when you
+                                decide you are ready.
+                            </p>
+                            <p>
+                                We currently hold one league practice a week in
+                                Alliston, with frequent scrimmages and bouts,
+                                both home and away.
+                            </p>
+                            <p>
+                                Regular league dues are $60 per month, and
+                                Regular Skater Insurance coverage costs $55 for
+                                a year.
+                            </p>
+                            <p>
+                                <em
+                                    >Please note: We follow the <a
+                                        href="https://wftda.org/wftda-gender-statement"
+                                        target="_blank"
+                                        >WFTDA Statement on Gender</a
+                                    > for all players, but anyone of any gender can
+                                    be an official, coach, or volunteer.</em
+                                >
+                            </p>
+                            <blockquote class="text-sm italic">
+                                The Women’s Flat Track Derby Association (WFTDA)
+                                is committed to inclusive and
+                                anti-discrimination practices in relation to all
+                                transgender women, intersex women, and gender
+                                expansive participants, and aims to ensure that
+                                all skaters’, volunteers’, and employees’ rights
+                                are respected and protected.
+                            </blockquote>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                What if I want more practice time?
+                            </h3>
+                            <p>
+                                You are welcome to skate on the sidelines during
+                                any of our practices. There are also roller
+                                rinks nearby that offer open skating (and skate
+                                rental) on various days and times: The <a
+                                    href="https://www.therollerskatingplace.com/"
+                                    target="_blank"
+                                    >Skating Place at ODAS Park</a
+                                > in Orillia ($10 including rental) and <a
+                                    href="https://www.scooters.ca"
+                                    target="_blank">Scooters</a
+                                > in Mississauga ($16-$18, +$5 rental). <a
+                                    href="https://www.susoskateco.com/"
+                                    target="_blank">SUSO Skate Co</a
+                                >. offers roving rinks and currently has one
+                                open at <a
+                                    href="https://www.susoskateco.com/pages/roller-skate-oshawa-centre"
+                                    target="_blank">Oshawa Centre</a
+                                > ($12-14, with rental skates and safety gear available
+                                for a few dollars more). In the winter (late Dec to
+                                early Feb), there is a free pop-up rink (including
+                                free skate and safety gear rentals) at Union Station
+                                in Toronto called <a
+                                    href="https://torontounion.ca/tdunionwinter/roller-express/"
+                                    target="_blank">Roller Express</a
+                                > (requires advanced registration).
+                            </p>
+
+                            <p>
+                                <strong
+                                    >For more information, email us at: <a
+                                        href="mailto:derby101@renegadederbydames.com"
+                                        target="_blank">derby101</a
+                                    > @ renegadederbydames .com</strong
+                                >
+                            </p>
+                        </section>
+
+                        <!-- SECTION 2 -->
+                        <section
+                            id="transfer-skaters"
+                            class="scroll-section scroll-mt-28 prose max-w-none"
+                        >
+                            <h2 class="text-3xl font-bold text-white mt-0">
+                                Transfer Skaters
+                            </h2>
+
+                            <p>
+                                Skaters who have played games with, or passed
+                                their WFTDA Minimum Skating Skills Requirement
+                                (or equivalent), at another league are welcome
+                                to transfer to RDD as regular members, but they
+                                may be required to pass a short safety test
+                                and/or our written WFTDA rules test, and they
+                                will need to provide a transfer letter from
+                                their previous league.
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Regular members will be expected to pay
+                                    standard monthly dues ($60), as well as
+                                    maintain insurance coverage. Roller derby
+                                    insurance can be purchased from Roller Derby
+                                    Canada Services (RDC). <a
+                                        href="/join-us/roller-derby-insurance"
+                                        target="_blank">Click for details</a
+                                    >.
+                                </li>
+                                <li>
+                                    Transfer skaters will be given the
+                                    opportunity to try out for our Charter Team
+                                    as soon as possible, if desired.
+                                </li>
+                                <li>
+                                    Skaters who have some skating experience
+                                    with another league, but have not yet played
+                                    a game or passed their WFTDA MSRs are
+                                    welcome to transfer into RDD's Roller
+                                    Skating 101 Program. Participants will be
+                                    expected to pay the program fees, and
+                                    maintain at least valid apprentice insurance
+                                    coverage during their training.
+                                </li>
+                                <li>
+                                    Referees who have experience officiating and
+                                    wish to transfer to RDD as Officials can
+                                    find additional information on our <a
+                                        href="/join-us/referees"
+                                        target="_blank">Referee page</a
+                                    >. Referees are considered volunteers and do
+                                    not pay dues, but must maintain skater
+                                    insurance.
+                                </li>
+                            </ul>
+
+                            <p>
+                                All transfer skaters can apply for membership
+                                using our <a
+                                    href="/join-us/membership-application"
+                                    target="_blank"
+                                    ><strong>Online Membership Form</strong></a
+                                >.
+                            </p>
+
+                            <p>
+                                <strong
+                                    >For more information, email us at: <a
+                                        href="mailto:skaters@renegadederbydames.com"
+                                        target="_blank">skaters</a
+                                    > @ renegadederbydames .com or <a
+                                        href="mailto:skating101@renegadederbydames.com"
+                                        target="_blank">skating101</a
+                                    > @ renegadederbydames .com</strong
+                                >
+                            </p>
+                        </section>
+
+                        <!-- SECTION 3 -->
+                        <section
+                            id="visiting-skaters"
+                            class="scroll-section scroll-mt-28 prose max-w-none"
+                        >
+                            <h2 class="text-3xl font-bold text-white mt-0">
+                                Visiting Skaters
+                            </h2>
+
+                            <p>
+                                Skaters from other leagues who have passed their
+                                WFTDA Minimum Skating Skills Requirement and who
+                                hold valid Skater Insurance are welcome to join
+                                any of our League Practices, Endurance
+                                Practices, or Intermediate Practices, for a
+                                small fee per session ($15).
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Guest skaters are welcome at Advanced
+                                    Practices at the discretion of the Vikings'
+                                    captains and coaches. Please note, some
+                                    Advanced Practices are closed to the public
+                                    while we prepare for specific games. Please <a
+                                        href="mailto:vikings@renegadederbydames.com"
+                                        target="_blank">email</a
+                                    > the captains for more info on attending Advanced
+                                    Practices.
+                                </li>
+                            </ul>
+
+                            <p>
+                                Guest skaters from other leagues who are new
+                                skaters are welcome to drop in for our Skating
+                                101 classes, for a small fee per session ($15).
+                            </p>
+
+                            <p>
+                                Guest Referees are welcome at any and all of our
+                                practices and do not pay a visitor fee.
+                            </p>
+
+                            <p>
+                                Please check our <a
+                                    href="http://www.renegadederbydames.com/events"
+                                    target="_blank">Events Calendar</a
+                                > for practice dates and times.
+                            </p>
+
+                            <p>
+                                <strong
+                                    >For more information, email us at: <a
+                                        href="mailto:skaters@renegadederbydames.com"
+                                        target="_blank">skaters</a
+                                    > @ renegadederbydames .com</strong
+                                >
+                            </p>
+                        </section>
+
+                        <!-- SECTION 4 -->
+                        <section
+                            id="referees"
+                            class="scroll-section scroll-mt-28 prose max-w-none"
+                        >
+                            <h2 class="text-3xl font-bold text-white mt-0">
+                                Referees
+                            </h2>
+
+                            <p>
+                                Referees are volunteer skaters who work together
+                                to implement the rules fairly and consistently,
+                                creating a safe roller derby environment for
+                                scrimmages and bouts. Their monthly dues are
+                                waived, and they are instead granted league
+                                membership by their continuing participation.
+                                They are required to maintain insurance
+                                coverage, which can be purchased from Roller
+                                Derby Canada Services (RDC) for $30 per year. <a
+                                    href="/join-us/roller-derby-insurance"
+                                    target="_blank">Click for details</a
+                                >.
+                            </p>
+
+                            <p>
+                                Referees are encouraged to attend practices and
+                                are welcome to participate in any non-contact
+                                drills, including off-skates, warm ups, footwork
+                                drills, cool downs, and stretches. Additionally,
+                                during practices, referees can work on their
+                                officiating skills during drills or scrimmage,
+                                or can choose to work on skating skills on the
+                                sidelines. They are encouraged to share their
+                                rules knowledge with not just other referees,
+                                but with everyone in the league. We happily
+                                support any referees who are working towards any
+                                level of WFTDA certification in any way that we
+                                can, but we also welcome referees who just want
+                                to support the league with their skills and
+                                knowledge.
+                            </p>
+
+                            <p>
+                                "Referees in Training" are not required to go
+                                through our <a
+                                    href="https://sites.google.com/renegadederbydames.com/main/join-us/new-skaters"
+                                    target="_blank"
+                                    ><strong>Skating 101</strong></a
+                                > program, but are encouraged to do so in order to
+                                improve their skating skills and knowledge of the
+                                rules. Please note, referees participate only in the
+                                lessons that apply to their required skills (no blocking/hitting),
+                                but will learn skills useful to WFTDA referee testing.
+                                Referees in Training may also attend any regular league
+                                practices to work on skating and referee skills. <strong
+                                    >The next free Training Session</strong
+                                > for Referees begins September 7th (skater insurance
+                                required). To register, contact us at <a
+                                    href="mailto:refs@renegadederbydames.com"
+                                    target="_blank"><strong>refs</strong></a
+                                > @ renegadederbydames .com
+                            </p>
+
+                            <p>
+                                Both experienced referees who wish to transfer
+                                to RDD as officials, and new referee recruits
+                                who wish to learn the skills needed to officiate
+                                can apply for league membership using our <a
+                                    href="/join-us/membership-application"
+                                    target="_blank"
+                                    ><strong>Online Membership Form</strong></a
+                                >.
+                            </p>
+
+                            <p>
+                                We also welcome referees who are not league
+                                members but who want to officiate with our crew
+                                on game day. If you would like to officiate at
+                                any of our games, please <a
+                                    href="mailto:refs@renegadederbydames.com"
+                                    target="_blank"
+                                    ><strong>contact us</strong></a
+                                > for more information or to make arrangements.[cite:
+                                1]
+                            </p>
+
+                            <p>
+                                <strong
+                                    >For more information, email us at: <a
+                                        href="mailto:refs@renegadederbydames.com"
+                                        target="_blank">refs</a
+                                    > @ renegadederbydames .com</strong
+                                >
+                            </p>
+                        </section>
+
+                        <!-- SECTION 5 -->
+                        <section
+                            id="non-skating-officials"
+                            class="scroll-section scroll-mt-28 prose max-w-none"
+                        >
+                            <h2 class="text-3xl font-bold text-white mt-0">
+                                Non-Skating Officials
+                            </h2>
+
+                            <p>
+                                RDD has two classes of Non-Skating Officials
+                                (NSOs): League Member NSOs and Game Day NSOs,
+                                and we are always looking for more people to
+                                fill these roles. We value any and all help that
+                                anyone would like to lend to our league, and
+                                encourage anyone interested in the sport of
+                                roller derby to get involved as much or as
+                                little as they have time to do.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                Game Day NSOs
+                            </h3>
+                            <p>
+                                Game Day NSOs help out at games and events,
+                                filling a specific role during the event.[cite:
+                                1] These jobs are filled on a game by game
+                                basis, and do not require any long term
+                                commitment to the league. They are a fun way to
+                                be involved with roller derby and to support
+                                your local league. Skaters who are not playing
+                                in a specific game are encouraged to sign up as
+                                well. It's a great way to better understand the
+                                rules and workings of derby.
+                            </p>
+                            <p>
+                                Non-skating officials work together with
+                                Referees to implement the rules fairly and
+                                consistently, and to document games and
+                                scrimmages while they occur. These jobs usually
+                                require advanced training or certification, but
+                                some NSO positions can be taught on game day.
+                                New NSOs are paired with experienced officials
+                                whenever possible. If you would like to
+                                officiate at any of our games, please sign up on
+                                our <a href="/games/2018-games" target="_blank"
+                                    >Games</a
+                                > page.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                League Member NSOs
+                            </h3>
+                            <p>
+                                League Member NSOs are actively involved in the
+                                league and helping to accomplish the goals of
+                                the league year round. Their monthly dues are
+                                waived, and they are instead granted league
+                                membership, including voting rights, by their
+                                continuing participation.
+                            </p>
+                            <p>
+                                Dedicated non-skating officials who are league
+                                members participate in our Officials Committee,
+                                and work between games to organize and train
+                                game day NSOs, help prepare and process game day
+                                paperwork, as well as officiate on game days.
+                                They might also have a specific league job, such
+                                as Head or Assistant-Head NSO. Experienced NSOs
+                                (with us or elsewhere), or those wish to train
+                                to become a dedicated NSO, and wish to join RDD
+                                as Officials can apply for league membership
+                                using our <a
+                                    href="/join-us/membership-application"
+                                    target="_blank"
+                                    ><strong>Online Membership Form</strong></a
+                                >.
+                            </p>
+
+                            <p>
+                                <strong
+                                    >For more information, email us at: <a
+                                        href="mailto:nsos@renegadederbydames.com"
+                                        target="_blank">nsos</a
+                                    > @ renegadederbydames .com</strong
+                                >
+                            </p>
+                        </section>
+
+                        <!-- SECTION 6 -->
+                        <section
+                            id="volunteers"
+                            class="scroll-section scroll-mt-28 prose max-w-none"
+                        >
+                            <h2 class="text-3xl font-bold text-white mt-0">
+                                Volunteers
+                            </h2>
+
+                            <p>
+                                RDD has two classes of volunteers: League Member
+                                Volunteers and Game Day Volunteers, and we are
+                                always looking for more people to fill these
+                                roles. We value any and all help that anyone
+                                would like to lend to our league, and encourage
+                                anyone interested in the sport of roller derby
+                                to get involved as much or as little as they
+                                have time to do.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                Game Day Volunteers
+                            </h3>
+                            <p>
+                                Game Day Volunteers help out at games and
+                                events, filling a specific role during the
+                                event. These jobs are filled on a game by game
+                                basis, and do not require any long term
+                                commitment to the league. They are a fun way to
+                                be involved with roller derby and to support
+                                your local league.
+                            </p>
+                            <p>
+                                Game Day Volunteers fill a specific job for a
+                                game or event. Available jobs include: Snack
+                                Bar, Beer Table, Front Door, Security, Emergency
+                                Medical, League Merch, Sound Board, Announcer,
+                                and Fundraising. Most jobs do not require
+                                experience, with the exception of Announcer, or
+                                previous training, with with exception of
+                                Emergency Medical, which requires First
+                                Responder certification, and Beer Table, which
+                                requires SmartServe. If you would like to
+                                volunteer for any of our games, please sign upon
+                                our <a href="/games/2018-games" target="_blank"
+                                    >Games</a
+                                > page.
+                            </p>
+                            <p>
+                                We also welcome members of the media and both
+                                established and upcoming derby photographers.
+                                Please contact <a href="" target="_blank"
+                                    >Media Relations</a
+                                > in advance to get credentials for a game or for
+                                our whole season.
+                            </p>
+
+                            <h3 class="text-2xl font-semibold text-white">
+                                League Member Volunteers
+                            </h3>
+                            <p>
+                                League member volunteers are actively involved
+                                in running the league and helping to accomplish
+                                the goals of the league year round. Their
+                                monthly dues are waived, and they are instead
+                                granted league membership, including voting
+                                rights, by their continuing participation.
+                            </p>
+                            <p>
+                                League Member Volunteers fill a specific job for
+                                the league year round, such as event organizers,
+                                coaches, volunteer organizers, or media
+                                personnel. They are often former skaters, but
+                                they are not required to have ever skated, since
+                                these are all off-skates jobs. Volunteers who
+                                wish to participate in the league at this level
+                                should contact our <a href="" target="_blank"
+                                    >League Membership</a
+                                > to become a RDD league member.
+                            </p>
+
+                            <p>
+                                <strong
+                                    >For more information, email us at: <a
+                                        href="mailto:volunteers@renegadederbydames.com"
+                                        target="_blank">volunteers</a
+                                    > @RDD</strong
+                                >
+                            </p>
+                        </section>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+<!-- Client-side script for ScrollSpy intersection active states -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections =
+            document.querySelectorAll<HTMLElement>(".scroll-section");
+        const navLinks =
+            document.querySelectorAll<HTMLAnchorElement>(".nav-link-desktop");
+
+        const observerOptions = {
+            root: null,
+            rootMargin: "-20% 0px -60% 0px",
+            threshold: 0,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute("id");
+
+                    navLinks.forEach((link) => {
+                        if (link.dataset.section === id) {
+                            link.classList.add(
+                                "active",
+                                "bg-white",
+                                "text-black",
+                                "font-semibold",
+                            );
+                            link.classList.remove(
+                                "text-gray-300",
+                                "hover:bg-white/10",
+                            );
+                        } else {
+                            link.classList.remove(
+                                "active",
+                                "bg-white",
+                                "text-black",
+                                "font-semibold",
+                            );
+                            link.classList.add(
+                                "text-gray-300",
+                                "hover:bg-white/10",
+                            );
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach((section) => observer.observe(section));
+    });
+</script>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
