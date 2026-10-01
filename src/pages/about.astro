@@ -1,12 +1,15 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import { YouTube } from "astro-embed";
 import about1 from "../../src/assets/about1.jpg";
 import about2 from "../../src/assets/about2.jpg";
 ---
 
-<MainLayout title="About Us">
+<BaseLayout
+    title="About the League"
+    description="Founded in 2011 and a full WFTDA member since 2014, Renegade Derby Dames is a skater-run, non-profit roller derby league based in Alliston, Ontario."
+>
     <section class="overflow-hidden">
         <div
             class="mx-auto max-w-7xl px-6 py-10 sm:py-10 xs:py-10 lg:pt-40 lg:px-8"
@@ -204,4 +207,4 @@ import about2 from "../../src/assets/about2.jpg";
             </aside>
         </div>
     </section>
-</MainLayout>
+</BaseLayout>

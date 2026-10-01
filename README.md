@@ -1,43 +1,21 @@
-# Astro Starter Kit: Minimal
+# Renegade Derby Dames
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Website for Renegade Derby Dames, Simcoe County's flat-track roller derby
+league. Astro 6 (static) + Tailwind CSS v4 + daisyUI 5, deployed to Netlify.
+Players, coaches, officials, games, sponsors and homepage sections are
+editable through Pages CMS (`.pages.yml`).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Design and content decisions live in `STYLE-GUIDE.md`.
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command             | Action                                                   |
+| :------------------ | :------------------------------------------------------- |
+| `npm run dev`       | Local dev server                                         |
+| `npm run build`     | `astro check` + `eslint .` + production build to `dist/` |
+| `npm run lint`      | Accessibility/lint check only                            |
+| `npm run typecheck` | `astro check` only                                       |
+| `npm run preview`   | Serve the production build locally                       |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+A GitHub Action (`.github/workflows/daily-build.yml`) triggers a Netlify
+rebuild every night so the games schedule rolls past finished games.

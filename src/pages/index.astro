@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
-import { Image } from "astro:assets";
-import MainLayout from "../layouts/MainLayout.astro";
+import { Image, getImage } from "astro:assets";
+import ogSource from "../assets/teams/vikings/group-shot.jpg";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const items = [
     {
         src: "https://images.unsplash.com/photo-1640469262892-183628a6ef33?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -16,6 +17,15 @@ const items = [
         alt: "Derby 3",
     },
 ];
+
+// 1200×630 Open Graph image for link previews, cropped from a team photo.
+const ogImage = await getImage({
+    src: ogSource,
+    width: 1200,
+    height: 630,
+    fit: "cover",
+    format: "jpg",
+});
 
 const allGames = await getCollection("games");
 
@@ -65,7 +75,11 @@ if (settingsEntries.length > 0) {
     } // <--- Close the else block
 ---
 
-<MainLayout title="Home" description="change meta tag">
+<BaseLayout
+    ogImage={new URL(ogImage.src, Astro.site).href}
+    title="Simcoe County Flat-Track Roller Derby"
+    description="Renegade Derby Dames is Simcoe County's first flat-track roller derby league, founded in 2011. See our next home game, meet the teams, and find out how to join."
+>
     <section class="relative overflow-hidden z-0 pt">
         <div class="mx-auto max-w-7xl">
             <div class="relative z-10 lg:w-full lg:max-w-2xl">
@@ -226,7 +240,7 @@ if (settingsEntries.length > 0) {
     </section>
 
 
-</MainLayout>
+</BaseLayout>
 
 <script>
     const carousel = document.querySelector(".carousel") as HTMLElement;

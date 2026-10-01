@@ -1,9 +1,11 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<MainLayout title="League Calendar" description="change meta tag">
+<BaseLayout
+    title="League Calendar"
+    description="Practice times, events and league dates for Renegade Derby Dames in Alliston, Ontario, plus drop-in details for visiting skaters from other leagues."
+>
     <section class="relative isolate">
         <div
             class="mx-auto max-w-7xl px-6 py-10 sm:py-10 xs:py-10 lg:py-40 lg:px-8"
@@ -22,6 +24,7 @@ import { Image } from "astro:assets";
                             class="relative w-full h-125 sm:h-150 lg:h-162.5 aspect-square sm:aspect-4/3 lg:aspect-square overflow-hidden rounded-xl border border-white/20 shadow-lg bg-gray-900"
                         >
                             <iframe
+                                title="Renegade Derby Dames league calendar"
                                 src="https://calendar.google.com/calendar/embed?src=renegadederbydames.com_q1rlojj2f621tch3m60iafbh8g@group.calendar.google.com"
                                 class="absolute inset-0 h-full w-full border-0"
                                 loading="lazy"></iframe>
@@ -128,4 +131,4 @@ import { Image } from "astro:assets";
             </div>
         </div>
     </section>
-</MainLayout>
+</BaseLayout>

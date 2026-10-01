@@ -4,14 +4,25 @@
     themes: business --default;
 }
 
+/* Extends daisyUI's built-in "business" theme — only overrides what's
+   brand-specific. Full palette rationale lives in STYLE-GUIDE.md. */
 @plugin "daisyui/theme" {
     name: "business";
     default: true;
-    --color-secondary: #8bc242;
+    --color-secondary: oklch(75% 0.167 129.6); /* derby green, was #8bc242 */
 }
 
-h1,
-h2 {
-    font-family: "Anton", sans-serif;
-    letter-spacing: 2px;
+/* Maps Astro's generated font variable (astro.config.mjs) onto a Tailwind
+   v4 theme token, producing the font-heading utility. Body stays on
+   Tailwind's default sans stack. */
+@theme {
+    --font-heading: var(--font-heading-family), sans-serif;
+}
+
+@layer base {
+    h1,
+    h2 {
+        font-family: var(--font-heading);
+        letter-spacing: 2px;
+    }
 }

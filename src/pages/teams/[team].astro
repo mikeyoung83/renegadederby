@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import MainLayout from "../../layouts/MainLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import fallbackPhoto from "../../assets/placeholder-player.png";
 
@@ -33,7 +33,10 @@ const { Content } = await render(team); // This handles the Markdown links/text
 const socials = team.data.socials;
 ---
 
-<MainLayout title={team.data.name}>
+<BaseLayout
+    title={`${team.data.name} Roster`}
+    description={`Meet the ${team.data.name}: skater names, jersey numbers and coaches for this Renegade Derby Dames travel team from Alliston, Ontario.`}
+>
     <div
         class="relative isolate overflow-hidden py-24 sm:py-10 xs:py-10 lg:py-40 lg:px-8"
     >
@@ -147,7 +150,6 @@ const socials = team.data.socials;
                     </h2>
                 </div>
                 <ul
-                    role="list"
                     class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-3 lg:mx-0 lg:max-w-none xl:grid-cols-3"
                 >
                     {
@@ -182,7 +184,7 @@ const socials = team.data.socials;
                         Our Coaches
                     </h2>
 
-                    <ul role="list" class="mt-8 space-y-6">
+                    <ul class="mt-8 space-y-6">
                         {
                             coaches.map((coach) => (
                                 <li>
@@ -198,4 +200,4 @@ const socials = team.data.socials;
             </aside>
         </div>
     </div>
-</MainLayout>
+</BaseLayout>

@@ -1,11 +1,14 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
 const allSponsors = await getCollection("sponsors");
 ---
 
-<MainLayout title="Sponsors" description="change meta tag">
+<BaseLayout
+    title="Sponsors & Partnerships"
+    description="Meet the local businesses that support Renegade Derby Dames, and learn how your brand can reach roller derby fans across Simcoe County as a sponsor."
+>
     <section class="relative isolate">
         <div
             class="mx-auto max-w-7xl px-6 py-10 sm:py-10 xs:py-10 lg:py-40 lg:px-8"
@@ -152,4 +155,4 @@ const allSponsors = await getCollection("sponsors");
             </div>
         </div>
     </section>
-</MainLayout>
+</BaseLayout>

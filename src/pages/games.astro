@@ -1,7 +1,7 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import { render } from "astro:content"; // Import render
-import MainLayout from "../layouts/MainLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const allGameDays = await getCollection("games");
 
@@ -52,7 +52,10 @@ const scheduleByYear = gamesToDisplay.reduce(
 const years = Object.keys(scheduleByYear).sort((a, b) => a.localeCompare(b));
 ---
 
-<MainLayout title="Schedule">
+<BaseLayout
+    title="Game Schedule"
+    description="Upcoming Renegade Derby Dames bouts: home and away game dates, start times, matchups and ticket prices for the current flat-track roller derby season."
+>
     <div class="py-10 sm:py-10 xs:py-10 lg:py-40">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-5xl lg:mx-0 prose">
@@ -173,4 +176,4 @@ const years = Object.keys(scheduleByYear).sort((a, b) => a.localeCompare(b));
             }
         </div>
     </div>
-</MainLayout>
+</BaseLayout>

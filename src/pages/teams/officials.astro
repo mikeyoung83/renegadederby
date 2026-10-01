@@ -1,13 +1,16 @@
 ---
 import { getCollection, render } from "astro:content";
-import MainLayout from "../../layouts/MainLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import fallbackPhoto from "../../assets/placeholder-player.png";
 
 const officials = await getCollection("officials");
 ---
 
-<MainLayout title="League Officials">
+<BaseLayout
+    title="League Officials"
+    description="Meet the referees and non-skating officials who keep Renegade Derby Dames games safe, call penalties and track scores. We couldn't play without them."
+>
     <div class="py-10 sm:py-10 xs:py-10 lg:py-40 lg:px-8">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-5xl lg:mx-0">
@@ -26,7 +29,6 @@ const officials = await getCollection("officials");
             </div>
 
             <ul
-                role="list"
                 class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
             >
                 {
@@ -58,4 +60,4 @@ const officials = await getCollection("officials");
             </ul>
         </div>
     </div>
-</MainLayout>
+</BaseLayout>

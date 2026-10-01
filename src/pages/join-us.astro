@@ -1,11 +1,10 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<MainLayout
-    title="Join Us"
-    description="Join Renegade Derby Dames as a skater, official, junior, or volunteer."
+<BaseLayout
+    title="Join the League"
+    description="Join Renegade Derby Dames in Alliston, Ontario. New and transfer skaters, referees, non-skating officials and volunteers are all welcome. Here's how to start."
 >
     <section class="relative">
         <div
@@ -1038,9 +1037,8 @@ import { Image } from "astro:assets";
                             <p>
                                 We also welcome members of the media and both
                                 established and upcoming derby photographers.
-                                Please contact <a href="" target="_blank"
-                                    >Media Relations</a
-                                > in advance to get credentials for a game or for
+                                Please contact <strong>Media Relations</strong
+                                ><!-- TODO: link to the media relations email once known --> in advance to get credentials for a game or for
                                 our whole season.
                             </p>
 
@@ -1063,9 +1061,8 @@ import { Image } from "astro:assets";
                                 they are not required to have ever skated, since
                                 these are all off-skates jobs. Volunteers who
                                 wish to participate in the league at this level
-                                should contact our <a href="" target="_blank"
-                                    >League Membership</a
-                                > to become a RDD league member.
+                                should contact our <strong>League Membership</strong
+                                ><!-- TODO: link to the league membership email once known --> to become a RDD league member.
                             </p>
 
                             <p>
@@ -1082,7 +1079,7 @@ import { Image } from "astro:assets";
             </div>
         </div>
     </section>
-</MainLayout>
+</BaseLayout>
 
 <style>
     /* Hide native details disclosure triangle marker across browsers */
