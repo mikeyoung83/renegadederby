@@ -2,7 +2,7 @@
 import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { Image } from "astro:assets";
-import fallbackPhoto from "../../assets/placeholder-player.jpg";
+import fallbackPhoto from "../../assets/placeholder-player.png";
 
 export async function getStaticPaths() {
     const allTeams = await getCollection("teams");
