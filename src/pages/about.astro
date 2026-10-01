@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import { YouTube } from "astro-embed";
 import about1 from "../../src/assets/about1.jpg";
 import about2 from "../../src/assets/about2.jpg";
+import quotePhoto from "../../src/assets/about-quote-emily-young.jpg";
 ---
 
 <BaseLayout
@@ -38,22 +39,22 @@ import about2 from "../../src/assets/about2.jpg";
                     <figure class="mt-12">
                         <blockquote class="text-base/7">
                             <p>
-                                An inspiring quote from a team member saying how
-                                awesome derby is and how proud they are to be
-                                part of the team.
+                                I showed up not knowing anyone. Now I have a
+                                whole team behind me, and some of my closest
+                                friends.
                             </p>
                         </blockquote>
                         <figcaption class="mt-6 flex gap-x-4 text-sm/6">
                             <Image
-                                src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-                                alt=""
+                                src={quotePhoto}
+                                alt="Emily Young"
                                 width={48}
                                 height={48}
                                 class="size-6 flex-none rounded-full mt-0 mb-0"
                             />
                             <div>
-                                <span class="font-semibold">Jane Doe</span> – Team
-                                Member or something
+                                <span class="font-semibold">Emily Young</span> – Bombshell
+                                Battalion
                             </div>
                         </figcaption>
                     </figure>
