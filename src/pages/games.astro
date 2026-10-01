@@ -1,7 +1,7 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import { render } from "astro:content"; // Import render
-import MainLayout from "../layouts/MainLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const allGameDays = await getCollection("games");
 
@@ -52,12 +52,15 @@ const scheduleByYear = gamesToDisplay.reduce(
 const years = Object.keys(scheduleByYear).sort((a, b) => a.localeCompare(b));
 ---
 
-<MainLayout title="Schedule">
+<BaseLayout
+    title="Game Schedule"
+    description="Upcoming Renegade Derby Dames bouts: home and away game dates, start times, matchups and ticket prices for the current flat-track roller derby season."
+>
     <div class="py-10 sm:py-10 xs:py-10 lg:py-40">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-5xl lg:mx-0 prose">
                 <h2
-                    class="text-4xl font-semibold tracking-tight text-white sm:text-6xl uppercase"
+                    class="text-4xl font-semibold tracking-tight text-bright sm:text-6xl uppercase"
                 >
                     RDD Games Schedule
                 </h2>
@@ -72,19 +75,19 @@ const years = Object.keys(scheduleByYear).sort((a, b) => a.localeCompare(b));
         </div>
     </div>
 
-    <div class="text-white font-sans">
+    <div class="text-bright font-sans">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             {
                 years.map((year) => (
                     <div class="mb-24">
-                        <h2 class="text-5xl font-black mb-8 text-white uppercase  tracking-tighter leading-none">
+                        <h2 class="text-5xl font-black mb-8 text-bright uppercase  tracking-tighter leading-none">
                             {year}
                         </h2>
 
                         <div class="space-y-12">
                             {scheduleByYear[year].map((day) => (
                                 <div
-                                    class={`grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-white/10 pt-10 transition-opacity ${day === lastExpiredGame ? "opacity-25" : "opacity-100"}`}
+                                    class={`grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-base-content/10 pt-10 transition-opacity ${day === lastExpiredGame ? "opacity-25" : "opacity-100"}`}
                                 >
                                     <div class="md:col-span-1">
                                         <div class="flex items-center gap-3">
@@ -99,7 +102,7 @@ const years = Object.keys(scheduleByYear).sort((a, b) => a.localeCompare(b));
                                                 )}
                                             </p>
                                             <span
-                                                class={`text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-widest ${day.data.location === "home" ? "bg-secondary text-secondary-content" : "bg-blue-600 text-white"}`}
+                                                class={`text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-widest ${day.data.location === "home" ? "bg-secondary text-secondary-content" : "bg-primary text-primary-content"}`}
                                             >
                                                 {day.data.location}
                                             </span>
@@ -115,8 +118,8 @@ const years = Object.keys(scheduleByYear).sort((a, b) => a.localeCompare(b));
                                         </p>
 
                                         {day.data.pricing && (
-                                            <div class="mt-4 text-sm p-6 bg-neutral-800 rounded-2xl">
-                                                <span class="text-white font-bold uppercase block text-[10px] mb-1">
+                                            <div class="mt-4 text-sm p-6 bg-neutral rounded-2xl">
+                                                <span class="text-bright font-bold uppercase block text-[10px] mb-1">
                                                     Admission:
                                                 </span>
                                                 {day.data.pricing}
@@ -128,7 +131,7 @@ const years = Object.keys(scheduleByYear).sort((a, b) => a.localeCompare(b));
                                         {/* Hosted By shown once per date entry */}
                                         {day.data.location === "away" &&
                                             day.data.hostedBy && (
-                                                <p class="text-sm text-slate-500 mb-4 italic">
+                                                <p class="text-sm text-base-content/60 mb-4 italic">
                                                     Hosted by{" "}
                                                     {day.data.hostedBy}
                                                 </p>
@@ -151,7 +154,7 @@ const years = Object.keys(scheduleByYear).sort((a, b) => a.localeCompare(b));
                                                     {(game.isTentative ||
                                                         day.data
                                                             .isTentative) && (
-                                                        <div class="inline border border-amber-500/50 text-amber-500 px-2 py-1 rounded text-[10px] font-bold uppercase self-start">
+                                                        <div class="inline border border-warning/50 text-warning px-2 py-1 rounded text-[10px] font-bold uppercase self-start">
                                                             Tentative
                                                         </div>
                                                     )}
@@ -173,4 +176,4 @@ const years = Object.keys(scheduleByYear).sort((a, b) => a.localeCompare(b));
             }
         </div>
     </div>
-</MainLayout>
+</BaseLayout>

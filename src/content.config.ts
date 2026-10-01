@@ -1,6 +1,6 @@
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
-import { glob, file } from "astro/loaders";
+import { glob } from "astro/loaders";
 
 const teams = defineCollection({
   loader: glob({
@@ -15,9 +15,9 @@ const teams = defineCollection({
       // New Socials Object
       socials: z
         .object({
-          facebook: z.string().url().optional(),
-          twitter: z.string().url().optional(),
-          instagram: z.string().url().optional(),
+          facebook: z.url().optional(),
+          twitter: z.url().optional(),
+          instagram: z.url().optional(),
         })
         .optional(),
     }),
@@ -66,7 +66,7 @@ const sponsors = defineCollection({
     z.object({
       name: z.string(),
       logo: image(),
-      url: z.string().url(),
+      url: z.url(),
       // Description can stay in the frontmatter or be the body of the MD
     }),
 });

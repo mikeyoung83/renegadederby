@@ -1,20 +1,10 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import { Image } from "astro:assets";
-
-const sections = [
-    { id: "new-skaters", label: "New Skaters" },
-    { id: "transfer-skaters", label: "Transfer Skaters" },
-    { id: "visiting-skaters", label: "Visiting Skaters" },
-    { id: "referees", label: "Referees" },
-    { id: "non-skating-officials", label: "Non-Skating Officials" },
-    { id: "volunteers", label: "Volunteers" },
-];
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<MainLayout
-    title="Join Us"
-    description="Join Renegade Derby Dames as a skater, official, junior, or volunteer."
+<BaseLayout
+    title="Join the League"
+    description="Join Renegade Derby Dames in Alliston, Ontario. New and transfer skaters, referees, non-skating officials and volunteers are all welcome. Here's how to start."
 >
     <section class="relative">
         <div
@@ -22,70 +12,70 @@ const sections = [
         >
             <div class="flex flex-col gap-y-12">
                 <!-- Page Title -->
-                <div class="w-full">
-                    <div class="w-full prose max-w-none">
-                        <h1
-                            class="text-4xl font-semibold tracking-tight text-white sm:text-6xl uppercase mt-0"
-                        >
-                            Join Us!
-                        </h1>
+                <div class="w-full text-left">
+                    <h1
+                        class="text-4xl font-semibold tracking-tight text-bright sm:text-6xl uppercase mt-0"
+                    >
+                        Join Us!
+                    </h1>
+                </div>
+
+                <!-- Membership Application Section (Above Accordion) -->
+                <div>
+                    <h2
+                        class="text-3xl font-bold text-bright mb-6 mt-0 uppercase"
+                    >
+                        Membership Application
+                    </h2>
+                    <p>
+                        Are you ready to join the Renegade Derby Dames? Sign up
+                        here:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Left Side: Payment -->
+                        <div class="prose max-w-none text-base-content">
+                            <h3 class="text-2xl font-semibold text-bright mt-0">
+                                Payment
+                            </h3>
+                            <p>Payment details and instructions go here.</p>
+                        </div>
+
+                        <!-- Right Side: Insurance -->
+                        <div class="prose max-w-none text-base-content">
+                            <h3 class="text-2xl font-semibold text-bright mt-0">
+                                Insurance
+                            </h3>
+                            <p>Insurance details and instructions go here.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Layout Grid: Navigation + Content -->
-                <div
-                    class="flex flex-col lg:flex-row gap-10 items-start relative"
-                >
-                    <!-- NAVIGATION SIDEBAR (Sticky Fix Applied) -->
-                    <aside
-                        class="w-full lg:w-1/4 sticky top-6 lg:top-24 shrink-0 z-300 self-start"
+                <!-- Accordion Container -->
+                <div class="flex flex-col gap-y-4">
+                    <!-- ACCORDION 1: NEW SKATERS -->
+                    <details
+                        name="join-us-accordion"
+                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
                     >
-                        <nav
-                            class="p-4 rounded-2xl border border-white/20 bg-gray-900/90 backdrop-blur-md shadow-xl"
+                        <summary
+                            class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
                         >
-                            <h3
-                                class="text-xs font-bold uppercase tracking-wider text-gray-400 px-3 mb-2"
+                            <span>New Skaters</span>
+                            <span
+                                class="text-xl group-open:rotate-180 transition-transform duration-200"
+                                >▼</span
                             >
-                                On This Page
-                            </h3>
-                            <ul
-                                class="menu menu-md w-full p-0 text-gray-300 gap-y-1"
-                            >
-                                {
-                                    sections.map((sec) => (
-                                        <li>
-                                            <a
-                                                href={`#${sec.id}`}
-                                                class="nav-link-desktop hover:text-white hover:bg-white/10 transition-colors py-2.5 px-3 rounded-lg"
-                                                data-section={sec.id}
-                                            >
-                                                {sec.label}
-                                            </a>
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                        </nav>
-                    </aside>
-
-                    <!-- MAIN CONTENT AREA (Unbordered) -->
-                    <main class="w-full lg:w-3/4 flex flex-col gap-y-16">
-                        <!-- SECTION 1 -->
-                        <section
-                            id="new-skaters"
-                            class="scroll-section scroll-mt-28 prose max-w-none"
+                        </summary>
+                        <div
+                            class="p-6 pt-2 border-t border-base-content/10 prose max-w-none text-base-content"
                         >
-                            <h2 class="text-3xl font-bold text-white mt-0">
-                                New Skater Training
-                            </h2>
-
-                            <p>
+                            <p class="mt-4">
                                 We are pleased to announce that our
                                 ten-week-long <strong>Derby 101 Program</strong> will
                                 be back for Spring 2026!
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 2026 Derby 101 Sessions
                             </h3>
                             <p>
@@ -110,7 +100,7 @@ const sections = [
                                 >
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 Derby 101
                             </h3>
                             <p>
@@ -134,7 +124,7 @@ const sections = [
                                 derby today!!
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 What is the cost of Training?
                             </h3>
                             <p>
@@ -150,7 +140,7 @@ const sections = [
                                 >.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 When does the training program take place?
                             </h3>
                             <p>
@@ -160,7 +150,7 @@ const sections = [
                                 practice, which runs on Thursdays from 7-9 pm.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 Where does the training program take place?
                             </h3>
                             <p>
@@ -169,7 +159,7 @@ const sections = [
                                 Alliston.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 How do I sign up?
                             </h3>
                             <p>
@@ -180,7 +170,7 @@ const sections = [
                                 >.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 What do I need in order to train?
                             </h3>
                             <p>
@@ -248,7 +238,7 @@ const sections = [
                                 > for more details.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 What do I need to know about skates before I go
                                 shopping?
                             </h3>
@@ -296,11 +286,10 @@ const sections = [
                                 skates that fit your newly-discovered style and
                                 preferences after skating a while, being able to
                                 sell old skates (and safety gear) allows you to
-                                get something back out of your investment.[cite:
-                                1]
+                                get something back out of your investment.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 Wish-list Accessories:
                             </h3>
                             <ul>
@@ -331,8 +320,7 @@ const sections = [
                                         target="_blank"
                                         >Reversible scrimmage shirt</a
                                     > with name and number on both sides. (approx
-                                    $30, or $45 customized with your name and number).[cite:
-                                    1]
+                                    $30, or $45 customized with your name and number).
                                 </li>
                                 <li>
                                     Metal plates with locking toe stops. Much
@@ -352,7 +340,7 @@ const sections = [
                                 </li>
                             </ul>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 Where to get gear:
                             </h3>
                             <ul>
@@ -379,7 +367,7 @@ const sections = [
                                 </li>
                             </ul>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 Where to get officials' (and scrimmage) jerseys:
                             </h3>
                             <ul>
@@ -411,7 +399,7 @@ const sections = [
                                 >
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 Loaner Gear:
                             </h3>
                             <p>
@@ -426,7 +414,7 @@ const sections = [
                                 obvious reasons).
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 What will I learn during Derby 101?
                             </h3>
                             <p>
@@ -441,7 +429,7 @@ const sections = [
                                 about the rules of flat track roller derby.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 What you'll learn as a Skater:
                             </h3>
                             <p>
@@ -459,7 +447,7 @@ const sections = [
                                 and having fun while doing it!
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 What you'll learn as a Referee:
                             </h3>
                             <p>
@@ -480,7 +468,7 @@ const sections = [
                                 Team Zebra!
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 What if I don’t know how to skate?
                             </h3>
                             <p>
@@ -498,7 +486,7 @@ const sections = [
                                 want to improve even faster.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 What happens during training?
                             </h3>
                             <p>
@@ -521,8 +509,7 @@ const sections = [
                                 you know so far to play derby, and how the rules
                                 apply. You'll have homework that involves
                                 reading the WFTDA Rules, doing take-home
-                                quizzes, and watching roller derby videos.[cite:
-                                1]
+                                quizzes, and watching roller derby videos.
                             </p>
                             <p>
                                 You'll be encouraged to compare your progress
@@ -537,7 +524,7 @@ const sections = [
                                 the start of your adventures in roller derby!
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 What happens after training?
                             </h3>
                             <p>
@@ -589,7 +576,7 @@ const sections = [
                                 are respected and protected.
                             </blockquote>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 What if I want more practice time?
                             </h3>
                             <p>
@@ -628,18 +615,27 @@ const sections = [
                                     > @ renegadederbydames .com</strong
                                 >
                             </p>
-                        </section>
+                        </div>
+                    </details>
 
-                        <!-- SECTION 2 -->
-                        <section
-                            id="transfer-skaters"
-                            class="scroll-section scroll-mt-28 prose max-w-none"
+                    <!-- ACCORDION 2: TRANSFER SKATERS -->
+                    <details
+                        name="join-us-accordion"
+                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                    >
+                        <summary
+                            class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
                         >
-                            <h2 class="text-3xl font-bold text-white mt-0">
-                                Transfer Skaters
-                            </h2>
-
-                            <p>
+                            <span>Transfer Skaters</span>
+                            <span
+                                class="text-xl group-open:rotate-180 transition-transform duration-200"
+                                >▼</span
+                            >
+                        </summary>
+                        <div
+                            class="p-6 pt-2 border-t border-base-content/10 prose max-w-none text-base-content"
+                        >
+                            <p class="mt-4">
                                 Skaters who have played games with, or passed
                                 their WFTDA Minimum Skating Skills Requirement
                                 (or equivalent), at another league are welcome
@@ -708,18 +704,27 @@ const sections = [
                                     > @ renegadederbydames .com</strong
                                 >
                             </p>
-                        </section>
+                        </div>
+                    </details>
 
-                        <!-- SECTION 3 -->
-                        <section
-                            id="visiting-skaters"
-                            class="scroll-section scroll-mt-28 prose max-w-none"
+                    <!-- ACCORDION 3: VISITING SKATERS -->
+                    <details
+                        name="join-us-accordion"
+                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                    >
+                        <summary
+                            class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
                         >
-                            <h2 class="text-3xl font-bold text-white mt-0">
-                                Visiting Skaters
-                            </h2>
-
-                            <p>
+                            <span>Visiting Skaters</span>
+                            <span
+                                class="text-xl group-open:rotate-180 transition-transform duration-200"
+                                >▼</span
+                            >
+                        </summary>
+                        <div
+                            class="p-6 pt-2 border-t border-base-content/10 prose max-w-none text-base-content"
+                        >
+                            <p class="mt-4">
                                 Skaters from other leagues who have passed their
                                 WFTDA Minimum Skating Skills Requirement and who
                                 hold valid Skater Insurance are welcome to join
@@ -768,18 +773,27 @@ const sections = [
                                     > @ renegadederbydames .com</strong
                                 >
                             </p>
-                        </section>
+                        </div>
+                    </details>
 
-                        <!-- SECTION 4 -->
-                        <section
-                            id="referees"
-                            class="scroll-section scroll-mt-28 prose max-w-none"
+                    <!-- ACCORDION 4: REFEREES -->
+                    <details
+                        name="join-us-accordion"
+                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                    >
+                        <summary
+                            class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
                         >
-                            <h2 class="text-3xl font-bold text-white mt-0">
-                                Referees
-                            </h2>
-
-                            <p>
+                            <span>Referees</span>
+                            <span
+                                class="text-xl group-open:rotate-180 transition-transform duration-200"
+                                >▼</span
+                            >
+                        </summary>
+                        <div
+                            class="p-6 pt-2 border-t border-base-content/10 prose max-w-none text-base-content"
+                        >
+                            <p class="mt-4">
                                 Referees are volunteer skaters who work together
                                 to implement the rules fairly and consistently,
                                 creating a safe roller derby environment for
@@ -852,8 +866,7 @@ const sections = [
                                     href="mailto:refs@renegadederbydames.com"
                                     target="_blank"
                                     ><strong>contact us</strong></a
-                                > for more information or to make arrangements.[cite:
-                                1]
+                                > for more information or to make arrangements.
                             </p>
 
                             <p>
@@ -864,18 +877,27 @@ const sections = [
                                     > @ renegadederbydames .com</strong
                                 >
                             </p>
-                        </section>
+                        </div>
+                    </details>
 
-                        <!-- SECTION 5 -->
-                        <section
-                            id="non-skating-officials"
-                            class="scroll-section scroll-mt-28 prose max-w-none"
+                    <!-- ACCORDION 5: NON-SKATING OFFICIALS -->
+                    <details
+                        name="join-us-accordion"
+                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                    >
+                        <summary
+                            class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
                         >
-                            <h2 class="text-3xl font-bold text-white mt-0">
-                                Non-Skating Officials
-                            </h2>
-
-                            <p>
+                            <span>Non-Skating Officials</span>
+                            <span
+                                class="text-xl group-open:rotate-180 transition-transform duration-200"
+                                >▼</span
+                            >
+                        </summary>
+                        <div
+                            class="p-6 pt-2 border-t border-base-content/10 prose max-w-none text-base-content"
+                        >
+                            <p class="mt-4">
                                 RDD has two classes of Non-Skating Officials
                                 (NSOs): League Member NSOs and Game Day NSOs,
                                 and we are always looking for more people to
@@ -886,20 +908,20 @@ const sections = [
                                 little as they have time to do.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 Game Day NSOs
                             </h3>
                             <p>
                                 Game Day NSOs help out at games and events,
-                                filling a specific role during the event.[cite:
-                                1] These jobs are filled on a game by game
-                                basis, and do not require any long term
-                                commitment to the league. They are a fun way to
-                                be involved with roller derby and to support
-                                your local league. Skaters who are not playing
-                                in a specific game are encouraged to sign up as
-                                well. It's a great way to better understand the
-                                rules and workings of derby.
+                                filling a specific role during the event.These
+                                jobs are filled on a game by game basis, and do
+                                not require any long term commitment to the
+                                league. They are a fun way to be involved with
+                                roller derby and to support your local league.
+                                Skaters who are not playing in a specific game
+                                are encouraged to sign up as well. It's a great
+                                way to better understand the rules and workings
+                                of derby.
                             </p>
                             <p>
                                 Non-skating officials work together with
@@ -916,7 +938,7 @@ const sections = [
                                 > page.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 League Member NSOs
                             </h3>
                             <p>
@@ -953,18 +975,27 @@ const sections = [
                                     > @ renegadederbydames .com</strong
                                 >
                             </p>
-                        </section>
+                        </div>
+                    </details>
 
-                        <!-- SECTION 6 -->
-                        <section
-                            id="volunteers"
-                            class="scroll-section scroll-mt-28 prose max-w-none"
+                    <!-- ACCORDION 6: VOLUNTEERS -->
+                    <details
+                        name="join-us-accordion"
+                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                    >
+                        <summary
+                            class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
                         >
-                            <h2 class="text-3xl font-bold text-white mt-0">
-                                Volunteers
-                            </h2>
-
-                            <p>
+                            <span>Volunteers</span>
+                            <span
+                                class="text-xl group-open:rotate-180 transition-transform duration-200"
+                                >▼</span
+                            >
+                        </summary>
+                        <div
+                            class="p-6 pt-2 border-t border-base-content/10 prose max-w-none text-base-content"
+                        >
+                            <p class="mt-4">
                                 RDD has two classes of volunteers: League Member
                                 Volunteers and Game Day Volunteers, and we are
                                 always looking for more people to fill these
@@ -975,7 +1006,7 @@ const sections = [
                                 have time to do.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 Game Day Volunteers
                             </h3>
                             <p>
@@ -1006,13 +1037,12 @@ const sections = [
                             <p>
                                 We also welcome members of the media and both
                                 established and upcoming derby photographers.
-                                Please contact <a href="" target="_blank"
-                                    >Media Relations</a
-                                > in advance to get credentials for a game or for
+                                Please contact <strong>Media Relations</strong
+                                ><!-- TODO: link to the media relations email once known --> in advance to get credentials for a game or for
                                 our whole season.
                             </p>
 
-                            <h3 class="text-2xl font-semibold text-white">
+                            <h3 class="text-2xl font-semibold text-bright">
                                 League Member Volunteers
                             </h3>
                             <p>
@@ -1031,9 +1061,8 @@ const sections = [
                                 they are not required to have ever skated, since
                                 these are all off-skates jobs. Volunteers who
                                 wish to participate in the league at this level
-                                should contact our <a href="" target="_blank"
-                                    >League Membership</a
-                                > to become a RDD league member.
+                                should contact our <strong>League Membership</strong
+                                ><!-- TODO: link to the league membership email once known --> to become a RDD league member.
                             </p>
 
                             <p>
@@ -1044,68 +1073,20 @@ const sections = [
                                     > @RDD</strong
                                 >
                             </p>
-                        </section>
-                    </main>
+                        </div>
+                    </details>
                 </div>
             </div>
         </div>
     </section>
-</MainLayout>
-
-<!-- Client-side script for ScrollSpy intersection active states -->
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const sections =
-            document.querySelectorAll<HTMLElement>(".scroll-section");
-        const navLinks =
-            document.querySelectorAll<HTMLAnchorElement>(".nav-link-desktop");
-
-        const observerOptions = {
-            root: null,
-            rootMargin: "-20% 0px -60% 0px",
-            threshold: 0,
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute("id");
-
-                    navLinks.forEach((link) => {
-                        if (link.dataset.section === id) {
-                            link.classList.add(
-                                "active",
-                                "bg-white",
-                                "text-black",
-                                "font-semibold",
-                            );
-                            link.classList.remove(
-                                "text-gray-300",
-                                "hover:bg-white/10",
-                            );
-                        } else {
-                            link.classList.remove(
-                                "active",
-                                "bg-white",
-                                "text-black",
-                                "font-semibold",
-                            );
-                            link.classList.add(
-                                "text-gray-300",
-                                "hover:bg-white/10",
-                            );
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
-
-        sections.forEach((section) => observer.observe(section));
-    });
-</script>
+</BaseLayout>
 
 <style>
-    html {
-        scroll-behavior: smooth;
+    /* Hide native details disclosure triangle marker across browsers */
+    summary::-webkit-details-marker {
+        display: none;
+    }
+    summary {
+        list-style: none;
     }
 </style>

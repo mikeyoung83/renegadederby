@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
-import { Image } from "astro:assets";
-import MainLayout from "../layouts/MainLayout.astro";
+import { Image, getImage } from "astro:assets";
+import ogSource from "../assets/teams/vikings/group-shot.jpg";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const items = [
     {
         src: "https://images.unsplash.com/photo-1640469262892-183628a6ef33?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -16,6 +17,15 @@ const items = [
         alt: "Derby 3",
     },
 ];
+
+// 1200×630 Open Graph image for link previews, cropped from a team photo.
+const ogImage = await getImage({
+    src: ogSource,
+    width: 1200,
+    height: 630,
+    fit: "cover",
+    format: "jpg",
+});
 
 const allGames = await getCollection("games");
 
@@ -65,7 +75,11 @@ if (settingsEntries.length > 0) {
     } // <--- Close the else block
 ---
 
-<MainLayout title="Home" description="change meta tag">
+<BaseLayout
+    ogImage={new URL(ogImage.src, Astro.site).href}
+    title="Simcoe County Flat-Track Roller Derby"
+    description="Renegade Derby Dames is Simcoe County's first flat-track roller derby league, founded in 2011. See our next home game, meet the teams, and find out how to join."
+>
     <section class="relative overflow-hidden z-0 pt">
         <div class="mx-auto max-w-7xl">
             <div class="relative z-10 lg:w-full lg:max-w-2xl">
@@ -94,7 +108,7 @@ if (settingsEntries.length > 0) {
                                                 Upcoming Game:
                                             </p>
                                             <div class="flex items-baseline gap-4">
-                                                <p class="font-bold text-white whitespace-nowrap">
+                                                <p class="font-bold text-bright whitespace-nowrap">
                                                     {upcomingGame.data.date.toLocaleDateString(
                                                         "en-US",
                                                         {
@@ -104,10 +118,10 @@ if (settingsEntries.length > 0) {
                                                         },
                                                     )}
                                                 </p>
-                                                <span class="text-white/20">
+                                                <span class="text-bright/20">
                                                     |
                                                 </span>
-                                                <p class="font-black uppercase  text-white group-hover:text-secondary transition-colors">
+                                                <p class="font-black uppercase  text-bright group-hover:text-secondary transition-colors">
                                                     {
                                                         upcomingGame.data
                                                             .entries[0]?.title
@@ -120,7 +134,7 @@ if (settingsEntries.length > 0) {
                             )
                         }
                         <h1
-                            class="text-6xl font-semibold tracking-tight text-pretty sm:text-7xl/22 text-white uppercase"
+                            class="text-6xl font-semibold tracking-tight text-pretty sm:text-7xl/22 text-bright uppercase"
                         >
                             {settings.hero_heading}
                         </h1>
@@ -172,7 +186,7 @@ if (settingsEntries.length > 0) {
                         >{settings.about_eyebrow}
                     </span>
                     <h2
-                        class="mt-2 text-4xl/12 font-semibold text-pretty sm:text-5xl/14 text-white uppercase mb-8"
+                        class="mt-2 text-4xl/12 font-semibold text-pretty sm:text-5xl/14 text-bright uppercase mb-8"
                     >
                         {settings.about_heading}
                     </h2>
@@ -213,20 +227,20 @@ if (settingsEntries.length > 0) {
 
                         {/* Text Side */}
                         <div class="w-full lg:w-3/4 prose prose-invert prose-lg">
-                            <h3 class="mt-2 text-2xl font-semibold tracking-tight text-pretty sm:text-4xl color-white">
+                            <h3 class="mt-2 text-2xl font-semibold tracking-tight text-pretty sm:text-4xl text-bright">
                                 {section.data.title}
                             </h3>
                             <section.Content />
                         </div>
                     </div>
                 </section>
-                <hr class="border-t border-gray-600 mx-auto max-w-7xl mt-12 mb-12" />
+                <hr class="border-t border-base-content/30 mx-auto max-w-7xl mt-12 mb-12" />
             ))
         }
     </section>
 
 
-</MainLayout>
+</BaseLayout>
 
 <script>
     const carousel = document.querySelector(".carousel") as HTMLElement;

@@ -7,21 +7,35 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && eslint . && astro build",
     "preview": "astro preview",
+    "lint": "eslint .",
+    "typecheck": "astro check",
     "astro": "astro"
   },
   "dependencies": {
-    "@fontsource/anton": "^5.2.7",
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.2",
     "astro-embed": "^0.12.0",
-    "nod": "^0.2.0",
-    "node": "^25.9.0",
+    "astro-seo": "^0.8.4",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@tailwindcss/typography": "^0.5.19",
-    "daisyui": "^5.5.19"
-  }
+    "@typescript-eslint/parser": "^8.71.0",
+    "daisyui": "^5.5.19",
+    "eslint": "^10.11.0",
+    "eslint-plugin-astro": "^3.2.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "vite": "^7.0.0",
+    "eslint-plugin-jsx-a11y": {
+      "eslint": "$eslint"
+    }
+  },
+  "private": true
 }

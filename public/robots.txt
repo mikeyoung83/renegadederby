@@ -1,0 +1,5 @@
+# Update the domain below to match astro.config.mjs's `site` value.
+User-agent: *
+Allow: /
+
+Sitemap: https://renegadederby.netlify.app/sitemap-index.xml
