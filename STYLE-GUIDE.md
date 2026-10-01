@@ -61,10 +61,18 @@ Headings are styled bright white for contrast against the charcoal base.
 }
 ```
 
-**Known cleanup:** pages still use raw Tailwind colors (`text-white`,
-`text-gray-*`, `bg-gray-900`, `border-white/20`, `text-blue-*`, etc.) rather
-than theme tokens. New work should use semantic tokens; migrate the old
-ones as pages get touched.
+**Extra named tokens** (`@theme` in `global.css`, beyond daisyUI's set):
+
+| Token | Value | Use |
+|---|---|---|
+| `bright` | `oklch(100% 0 0)` | headings / high-emphasis text (`text-bright`), white sponsor-logo tiles |
+| `facebook` / `instagram` / `twitter` | brand blues/pink | social icon hover only |
+
+Muted text uses `text-base-content/60–80`; hairlines use
+`border-base-content/10–30`. Home vs away game badges are `secondary` vs
+`primary`; tentative badges use `warning`. The only fixed color left is the
+black gradient scrim over team group photos (`from-black/98`), deliberately
+theme-independent.
 
 ---
 

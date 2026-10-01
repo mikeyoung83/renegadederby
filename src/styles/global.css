@@ -17,6 +17,15 @@
    Tailwind's default sans stack. */
 @theme {
     --font-heading: var(--font-heading-family), sans-serif;
+
+    /* Pure white: headings and high-emphasis text a step brighter than
+       base-content, plus the white tiles sponsor logos sit on. */
+    --color-bright: oklch(100% 0 0);
+
+    /* Social network brand colors, used only for icon hover states. */
+    --color-facebook: oklch(54.6% 0.245 262.881);
+    --color-instagram: oklch(65.6% 0.241 354.308);
+    --color-twitter: oklch(70.7% 0.165 254.624);
 }
 
 @layer base {

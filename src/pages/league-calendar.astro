@@ -15,13 +15,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 <div class="w-full">
                     <div class="w-full prose max-w-none">
                         <h2
-                            class="text-4xl font-semibold tracking-tight text-white sm:text-6xl uppercase mt-0"
+                            class="text-4xl font-semibold tracking-tight text-bright sm:text-6xl uppercase mt-0"
                         >
                             League Calendar
                         </h2>
 
                         <div
-                            class="relative w-full h-125 sm:h-150 lg:h-162.5 aspect-square sm:aspect-4/3 lg:aspect-square overflow-hidden rounded-xl border border-white/20 shadow-lg bg-gray-900"
+                            class="relative w-full h-125 sm:h-150 lg:h-162.5 aspect-square sm:aspect-4/3 lg:aspect-square overflow-hidden rounded-xl border border-base-content/20 shadow-lg bg-base-300"
                         >
                             <iframe
                                 title="Renegade Derby Dames league calendar"
@@ -36,7 +36,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 <div class="flex flex-col md:flex-row gap-6 w-full">
                     <!-- Visiting Skaters (Slightly Wider) -->
                     <div
-                        class="prose max-w-none w-full md:w-[62%] rounded-2xl border-2 border-solid border-white p-6"
+                        class="prose max-w-none w-full md:w-[62%] rounded-2xl border-2 border-solid border-bright p-6"
                     >
                         <h2 class="mt-0">Visiting Skaters</h2>
                         <p>
@@ -61,7 +61,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                     <!-- Adding Calendars (Slightly Narrower) -->
                     <div
-                        class="prose max-w-none w-full md:w-[38%] rounded-2xl border-2 border-solid border-white p-6 flex flex-col justify-between"
+                        class="prose max-w-none w-full md:w-[38%] rounded-2xl border-2 border-solid border-bright p-6 flex flex-col justify-between"
                     >
                         <div>
                             <h2 class="mt-0">Adding Calendars</h2>
@@ -75,10 +75,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                             <div class="not-prose mt-6 flex flex-col gap-4">
                                 <!-- Events Calendar -->
                                 <div
-                                    class="rounded-xl border border-white/20 p-3.5"
+                                    class="rounded-xl border border-base-content/20 p-3.5"
                                 >
                                     <span
-                                        class="block text-sm font-semibold text-white mb-2"
+                                        class="block text-sm font-semibold text-bright mb-2"
                                         >RDD Events</span
                                     >
                                     <div class="flex flex-wrap gap-2">
@@ -86,13 +86,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                             href="https://calendar.google.com/calendar/render?cid=renegadederbydames.com_n1lrrd6sjh8qhvg37l2k4u0lg0%40group.calendar.google.com"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            class="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-medium text-white hover:bg-white/20 transition-colors no-underline"
+                                            class="inline-flex items-center gap-1.5 rounded-lg bg-base-content/10 px-3 py-1.5 text-xs font-medium text-bright hover:bg-base-content/20 transition-colors no-underline"
                                         >
                                             + Google Calendar
                                         </a>
                                         <a
                                             href="https://www.google.com/calendar/ical/renegadederbydames.com_n1lrrd6sjh8qhvg37l2k4u0lg0%40group.calendar.google.com/public/basic.ics"
-                                            class="inline-flex items-center gap-1.5 rounded-lg bg-white/5 px-3 py-1.5 text-xs font-medium text-gray-300 hover:bg-white/10 transition-colors no-underline"
+                                            class="inline-flex items-center gap-1.5 rounded-lg bg-base-content/5 px-3 py-1.5 text-xs font-medium text-base-content hover:bg-base-content/10 transition-colors no-underline"
                                         >
                                             iCal / Outlook
                                         </a>
@@ -101,10 +101,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                                 <!-- Practices Calendar -->
                                 <div
-                                    class="rounded-xl border border-white/20 p-3.5"
+                                    class="rounded-xl border border-base-content/20 p-3.5"
                                 >
                                     <span
-                                        class="block text-sm font-semibold text-white mb-2"
+                                        class="block text-sm font-semibold text-bright mb-2"
                                         >RDD Practices</span
                                     >
                                     <div class="flex flex-wrap gap-2">
@@ -112,13 +112,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                             href="https://calendar.google.com/calendar/render?cid=renegadederbydames.com_q1rlojj2f621tch3m60iafbh8g%40group.calendar.google.com"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            class="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-medium text-white hover:bg-white/20 transition-colors no-underline"
+                                            class="inline-flex items-center gap-1.5 rounded-lg bg-base-content/10 px-3 py-1.5 text-xs font-medium text-bright hover:bg-base-content/20 transition-colors no-underline"
                                         >
                                             + Google Calendar
                                         </a>
                                         <a
                                             href="https://www.google.com/calendar/ical/renegadederbydames.com_q1rlojj2f621tch3m60iafbh8g%40group.calendar.google.com/public/basic.ics"
-                                            class="inline-flex items-center gap-1.5 rounded-lg bg-white/5 px-3 py-1.5 text-xs font-medium text-gray-300 hover:bg-white/10 transition-colors no-underline"
+                                            class="inline-flex items-center gap-1.5 rounded-lg bg-base-content/5 px-3 py-1.5 text-xs font-medium text-base-content hover:bg-base-content/10 transition-colors no-underline"
                                         >
                                             iCal / Outlook
                                         </a>
