@@ -10,7 +10,7 @@ import Logo from "./Logo.astro";
 >
     <div class="mx-auto max-w-7xl px-6 lg:px-8 w-full flex items-center h-22.5">
         <div class="flex-1 self-start">
-            <a href="/" aria-label="Derby Home" class="inline-block">
+            <a href="/" aria-label="Derby Home" class="logo-link inline-block">
                 <Logo />
             </a>
         </div>
@@ -72,7 +72,16 @@ import Logo from "./Logo.astro";
 </div>
 
 <style is:global>
+    /* The logo is shrunk with a transform, which doesn't shrink the link's
+       layout box. That box stays the full 220px and would catch taps meant
+       for the mobile menu. Only the image, hit-tested at its scaled size,
+       takes clicks, and they bubble up to the link. */
+    .logo-link {
+        pointer-events: none;
+    }
+
     .logo-img {
+        pointer-events: auto;
         height: 220px;
         width: auto;
         transform-origin: top left;
