@@ -65,11 +65,18 @@ const isActive = (path: string) =>
 </li>
 
 <li>
-    <a
-        aria-label="Join Us"
-        href="/join-us/"
-        class='font-bold text-secondary {isActive("/join-us/")}'>Join Us!</a
-    >
+    <details>
+        <summary class="font-bold text-secondary">Join Us!</summary>
+        <ul class="p-2 bg-base-100 w-full min-w-max z-1">
+            <li><a href="/join-us/">Information</a></li>
+            <li>
+                <a href="/join-us/membership-application/"
+                    >Membership Application</a
+                >
+            </li>
+            <li><a href="/join-us/roller-derby-insurance/">Insurance</a></li>
+        </ul>
+    </details>
 </li>
 
 <li>

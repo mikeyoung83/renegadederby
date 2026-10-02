@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// Prices and process are Roller Derby Canada Services' (RDC), checked against
+// https://rdcservices.org/membership on 2026-10-01.
+const rdcMembershipUrl = "https://rdcservices.org/membership";
+const rdcEmail = "pamtera@rdcservices.org";
+
+interface Plan {
+    name: string;
+    price: string;
+    term: string;
+    details: string;
+}
+
+const plans: Plan[] = [
+    {
+        name: "Regular",
+        price: "$55",
+        term: "per year, plus taxes",
+        details: "For all skaters on our travel teams and in league practice.",
+    },
+    {
+        name: "Apprentice",
+        price: "$30",
+        term: "for 4 months",
+        details:
+            "For new skaters in Skating 101. Apprentices aren't covered to skate in games. If you're still skating after 4 months, switch to a regular membership.",
+    },
+    {
+        name: "Skating official",
+        price: "$30",
+        term: "per year",
+        details:
+            "For dedicated referees only. Not for officials who also play roller derby.",
+    },
+];
+---
+
+<BaseLayout
+    title="Roller Derby Insurance"
+    description="Everyone on skates at Renegade Derby Dames needs RDC insurance. See what it covers, what it costs for skaters, apprentices and officials, and how to sign up."
+>
+    <section class="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-40">
+        <h1 class="mt-0 text-4xl font-semibold text-bright uppercase sm:text-6xl">
+            Roller Derby Insurance
+        </h1>
+        <p class="mt-6 max-w-3xl text-lg">
+            Anyone on skates, skaters and referees alike, needs valid roller
+            derby insurance <strong class="text-bright">and</strong> provincial
+            health coverage (OHIP) before they can skate with us. We're insured
+            through Roller Derby Canada Services (RDC), which covers flat track,
+            banked track, women's, men's, co-ed and junior derby across Canada.
+        </p>
+        <p class="mt-4 max-w-3xl text-base-content/80">
+            Non-skating officials, coaches and volunteers don't need RDC
+            membership.
+        </p>
+
+        <div class="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
+            <div>
+                <h2 class="mt-0 mb-4 text-3xl font-bold text-bright uppercase">
+                    What it covers
+                </h2>
+                <ul class="flex list-disc flex-col gap-3 pl-5">
+                    <li>
+                        Accidents while skating at league practices and games.
+                    </li>
+                    <li>
+                        It's secondary insurance: it pays for injury costs over
+                        and above your provincial health care.
+                    </li>
+                    <li>
+                        Coverage anywhere in Canada, as long as you have Canadian
+                        health care.
+                    </li>
+                    <li>
+                        Worldwide coverage when you're playing a game with the
+                        league, at a bootcamp, or at RollerCon.
+                    </li>
+                    <li>Coverage lasts one year from the day you buy it.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="mt-0 mb-4 text-3xl font-bold text-bright uppercase">
+                    How to sign up
+                </h2>
+                <ol class="list rounded-box border border-base-content/10">
+                    <li class="list-row">
+                        <span class="text-3xl font-bold text-secondary">1</span>
+                        <div>
+                            Fill out RDC's
+                            <a
+                                class="link link-secondary"
+                                href={rdcMembershipUrl}
+                                target="_blank"
+                                rel="noopener noreferrer">online membership form</a
+                            >. List <strong class="text-bright">Renegade Derby Dames</strong>
+                            as your league. That puts you in our league database,
+                            which is required before you skate.
+                        </div>
+                    </li>
+                    <li class="list-row">
+                        <span class="text-3xl font-bold text-secondary">2</span>
+                        <div>
+                            Pay RDC by e-Transfer to
+                            <a class="link link-secondary" href={`mailto:${rdcEmail}`}
+                                >{rdcEmail}</a
+                            >. Put your real name and league in the e-Transfer
+                            message.
+                        </div>
+                    </li>
+                    <li class="list-row">
+                        <span class="text-3xl font-bold text-secondary">3</span>
+                        <div>
+                            Watch for an email confirmation within 24–48 hours.
+                            Nothing? Check your spam folder, then email RDC.
+                        </div>
+                    </li>
+                </ol>
+                <p class="mt-4 text-sm text-base-content/80">
+                    RDC doesn't accept personal cheques or cash.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="mt-16 mb-6 text-3xl font-bold text-bright uppercase">
+            What it costs
+        </h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {
+                plans.map((plan) => (
+                    <div class="card card-border border-base-content/10 bg-base-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-bright">{plan.name}</h3>
+                            <p class="flex-none">
+                                <span class="text-4xl font-bold text-secondary">
+                                    {plan.price}
+                                </span>
+                                <span class="ml-1 text-sm text-base-content/80">
+                                    {plan.term}
+                                </span>
+                            </p>
+                            <p class="text-sm">{plan.details}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+        <p class="mt-4 text-sm text-base-content/80">
+            Prices are set by RDC and may change. Check
+            <a
+                class="link"
+                href={rdcMembershipUrl}
+                target="_blank"
+                rel="noopener noreferrer">their membership page</a
+            > for the latest.
+        </p>
+
+        <div class="mt-16 rounded-box bg-base-200 p-8 text-center">
+            <h2 class="mt-0 text-2xl font-bold text-bright uppercase">
+                Insured and ready to go?
+            </h2>
+            <p class="mx-auto mt-2 max-w-xl">
+                Have your RDC insurance number handy. The membership application
+                asks for it.
+            </p>
+            <a href="/join-us/membership-application/" class="btn btn-secondary mt-6"
+                >Apply for membership</a
+            >
+        </div>
+    </section>
+</BaseLayout>

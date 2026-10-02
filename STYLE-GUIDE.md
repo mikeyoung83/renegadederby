@@ -136,6 +136,7 @@ fonts: [
 | Sponsors (`/sponsors`) | thank sponsors, recruit new ones | sponsor logos, sponsorship package PDF |
 | Join Us (`/join-us`) | recruit members | apply-now link, accordion per role |
 | Membership Application (`/join-us/membership-application`) | sign up | dues list, insurance callout, member-update link, embedded Google Form |
+| Roller Derby Insurance (`/join-us/roller-derby-insurance`) | explain required RDC insurance | who needs it, coverage, 3-step signup, price cards, apply CTA |
 
 ---
 
@@ -167,7 +168,7 @@ Teams themselves (name, logo, group photo, socials) are in `src/content/teams/` 
 
 ## 9. Components & patterns
 
-- **Navbar**: sticky, solid `base-100`; oversized logo that shrinks on scroll (desktop); dropdowns for Schedules and Teams & Support; mobile uses a daisyUI drawer. "Join Us!" is bold `text-secondary`. Facebook/Instagram icons inline.
+- **Navbar**: sticky, solid `base-100`; oversized logo that shrinks on scroll (desktop); dropdowns for Schedules, Teams & Support, and Join Us! (Information, Membership Application, Insurance); mobile uses a daisyUI drawer. The "Join Us!" dropdown label is bold `text-secondary`. Active link highlighting is exact-match. Facebook/Instagram icons inline.
 - **Hero**: split — text + angled SVG edge on the left, auto-rotating image carousel on the right.
 - **Cards**: roster/official grids of photo + name (+ number).
 - **CTA buttons**: solid `btn-secondary` for primary actions; `btn-accent btn-outline` for secondary.

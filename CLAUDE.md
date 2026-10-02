@@ -17,7 +17,8 @@ green `secondary`. See `STYLE-GUIDE.md` §2.
 
 ## Pages
 Home, About, Games, League Calendar, Teams (`/teams/[team]` for Bombshells and
-Vikings), Officials, Sponsors, Join Us, Membership Application. `STYLE-GUIDE.md`
+Vikings), Officials, Sponsors, Join Us, Membership Application, Roller Derby
+Insurance. `STYLE-GUIDE.md`
 §6 is the source of truth.
 
 ## Pages to build (linked from Join Us, currently 404)
@@ -25,9 +26,8 @@ Found by auditing `/join-us` on 2026-10-01. Build one at a time, then update
 the links in `src/pages/join-us.astro` (line numbers as of that date).
 - [x] **Membership Application**: `/join-us/membership-application`. Built
   2026-10-01. It embeds the league's Google Form, and all Join Us links point to it.
-  When the insurance page exists, swap its RDC link to `/join-us/roller-derby-insurance/`.
-- [ ] **Roller Derby Insurance**: `/join-us/roller-derby-insurance`. Linked
-  2× (lines 656, 806). Covers buying RDC insurance, $30/yr for officials.
+- [x] **Roller Derby Insurance**: `/join-us/roller-derby-insurance`. Built
+  2026-10-01. RDC prices were checked against rdcservices.org/membership on that date.
 - [ ] **Referees**: `/join-us/referees`. Linked once (line 679), for
   experienced refs transferring to RDD.
 - [ ] **Contact Us**: `/contact-us`. Linked once (line 273, "email us" for
