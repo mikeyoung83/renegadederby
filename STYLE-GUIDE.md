@@ -134,7 +134,8 @@ fonts: [
 | Striking Vikings (`/teams/vikings`) | "A" travel / WFTDA charter team roster | group photo, players, coaches, socials |
 | Officials (`/teams/officials`) | recognise refs and NSOs | officials grid |
 | Sponsors (`/sponsors`) | thank sponsors, recruit new ones | sponsor logos, sponsorship package PDF |
-| Join Us (`/join-us`) | recruit members | membership application (payment/insurance), accordion per role |
+| Join Us (`/join-us`) | recruit members | apply-now link, accordion per role |
+| Membership Application (`/join-us/membership-application`) | sign up | dues list, insurance callout, member-update link, embedded Google Form |
 
 ---
 
@@ -171,7 +172,7 @@ Teams themselves (name, logo, group photo, socials) are in `src/content/teams/` 
 - **Cards**: roster/official grids of photo + name (+ number).
 - **CTA buttons**: solid `btn-secondary` for primary actions; `btn-accent btn-outline` for secondary.
 - **Footer**: centred nav (same items as navbar), copyright, arena address link (49 Nelson St. West, Alliston).
-- **Forms**: none on-site; membership is external/email-based.
+- **Forms**: no native forms. The membership application is the league's Google Form, embedded in a fixed-height iframe with an "open in a new tab" fallback.
 
 ---
 

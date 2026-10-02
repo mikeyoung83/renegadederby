@@ -1,0 +1,155 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// The application itself is the league's existing Google Form, embedded so
+// responses keep going to the same place. Cross-origin iframes can't size
+// themselves to their content, so the frame gets a fixed height tuned to
+// the form's first (longest) page.
+const formUrl =
+    "https://docs.google.com/forms/d/e/1FAIpQLSck2QXCsrdm8usWRUblVEnXX3ijNpS69mGz3W_GBqTQdO7upA/viewform";
+const updateFormUrl = "https://forms.gle/fcPryecrRP2CnCWr5";
+const paymentsEmail = "payments@renegadederbydames.com";
+
+interface Fee {
+    who: string;
+    amount: string;
+    details: string;
+}
+
+const fees: Fee[] = [
+    {
+        who: "New skaters",
+        amount: "$150",
+        details:
+            "Skating 101 training program. Pay by cash or cheque at your first practice, or by e-Transfer.",
+    },
+    {
+        who: "Transfer skaters",
+        amount: "$60/mo",
+        details:
+            "Regular dues. Pay by cash or cheque at any practice, or by e-Transfer.",
+    },
+    {
+        who: "Rec skaters",
+        amount: "$30/mo",
+        details:
+            "Regular dues. Pay by cash or cheque at any practice, or by e-Transfer.",
+    },
+    {
+        who: "Officials",
+        amount: "No dues",
+        details: "Referees and NSOs are volunteers and don't pay dues.",
+    },
+];
+---
+
+<BaseLayout
+    title="Membership Application"
+    description="Apply to join Renegade Derby Dames in Alliston, Ontario. See dues for new, transfer and rec skaters, insurance requirements, and fill out the application."
+>
+    <section class="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-40">
+        <h1 class="mt-0 text-4xl font-semibold text-bright uppercase sm:text-6xl">
+            Membership Application
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg">
+            Ready to join the Renegade Derby Dames? Check the dues and insurance
+            details below, then fill out the application.
+        </p>
+
+        <div class="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-5">
+            <aside class="flex flex-col gap-10 lg:sticky lg:top-28 lg:col-span-2 lg:self-start">
+                <div>
+                    <h2 class="mt-0 mb-4 text-3xl font-bold text-bright uppercase">
+                        Payment
+                    </h2>
+                    <ul class="list rounded-box border border-base-content/10">
+                        {
+                            fees.map((fee) => (
+                                <li class="list-row">
+                                    <div class="w-20 font-bold text-secondary">
+                                        {fee.amount}
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-bright">
+                                            {fee.who}
+                                        </div>
+                                        <p class="text-sm text-base-content/80">
+                                            {fee.details}
+                                        </p>
+                                    </div>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <p class="mt-4 text-sm">
+                        Send e-Transfers to
+                        <a class="link link-secondary" href={`mailto:${paymentsEmail}`}>
+                            {paymentsEmail}
+                        </a>. Include your full name so we can match your payment
+                        to your application.
+                    </p>
+                </div>
+
+                <div role="note" class="alert alert-warning alert-soft alert-vertical items-start text-left">
+                    <div>
+                        <h2 class="mt-0 mb-2 text-xl font-bold uppercase">
+                            Insurance required
+                        </h2>
+                        <p class="text-sm">
+                            Everyone on skates, skaters and referees alike, needs
+                            valid roller derby insurance and provincial health
+                            coverage (OHIP). We're insured through Roller Derby
+                            Canada Services (RDC), and you can buy coverage
+                            directly from
+                            <a
+                                class="link"
+                                href="https://rdcservices.org/"
+                                target="_blank"
+                                rel="noopener noreferrer">RDC</a
+                            >.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="mt-0 mb-2 text-xl font-bold text-bright uppercase">
+                        Already a member?
+                    </h2>
+                    <p class="text-sm">
+                        Moved, changed your number or got new insurance?
+                        <a
+                            class="link link-secondary"
+                            href={updateFormUrl}
+                            target="_blank"
+                            rel="noopener noreferrer">Update your information</a
+                        >.
+                    </p>
+                </div>
+            </aside>
+
+            <div class="lg:col-span-3">
+                <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+                    <h2 class="mt-0 text-3xl font-bold text-bright uppercase">
+                        Application form
+                    </h2>
+                    <a
+                        class="link link-secondary text-sm"
+                        href={formUrl}
+                        target="_blank"
+                        rel="noopener noreferrer">Open the form in a new tab</a
+                    >
+                </div>
+                <div class="overflow-hidden rounded-box border border-base-content/10 bg-bright">
+                    <iframe
+                        title="Renegade Derby Dames membership application form"
+                        src={`${formUrl}?embedded=true`}
+                        class="block h-[3350px] w-full border-0"
+                        loading="lazy"
+                    >
+                        Loading the application form…
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

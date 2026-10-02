@@ -17,14 +17,15 @@ green `secondary`. See `STYLE-GUIDE.md` §2.
 
 ## Pages
 Home, About, Games, League Calendar, Teams (`/teams/[team]` for Bombshells and
-Vikings), Officials, Sponsors, Join Us. `STYLE-GUIDE.md` §6 is the source of truth.
+Vikings), Officials, Sponsors, Join Us, Membership Application. `STYLE-GUIDE.md`
+§6 is the source of truth.
 
 ## Pages to build (linked from Join Us, currently 404)
 Found by auditing `/join-us` on 2026-10-01. Build one at a time, then update
 the links in `src/pages/join-us.astro` (line numbers as of that date).
-- [ ] **Membership Application**: `/join-us/membership-application`. Linked
-  4×: lines 690, 855, 964, plus line 167, which still points at the old
-  site's absolute URL (`https://www.renegadederbydames.com/join-us/membership-application`).
+- [x] **Membership Application**: `/join-us/membership-application`. Built
+  2026-10-01. It embeds the league's Google Form, and all Join Us links point to it.
+  When the insurance page exists, swap its RDC link to `/join-us/roller-derby-insurance/`.
 - [ ] **Roller Derby Insurance**: `/join-us/roller-derby-insurance`. Linked
   2× (lines 656, 806). Covers buying RDC insurance, $30/yr for officials.
 - [ ] **Referees**: `/join-us/referees`. Linked once (line 679), for
@@ -46,12 +47,13 @@ Broken or moved external links:
   to `https://resources.wftda.org/membership/diversity-and-inclusion/wftda-statement-about-gender/`.
 
 Also still on this page: "Media Relations" / "League Membership" (no email
-yet, see TODO comments), and the placeholder Payment / Insurance text.
+yet, see TODO comments).
 
 ## Content source
-Real league copy, largely maintained by the league through Pages CMS. Some
-placeholders remain (homepage carousel images, About testimonial, Join Us
-payment/insurance text): never invent replacements for those. Ask instead.
+Real league copy, largely maintained by the league through Pages CMS. Old
+copy can be cross-checked against the previous Google Site, which is still up
+at renegadederbydames.com. Never invent missing details like emails, prices or
+dates. Ask instead.
 
 ## Special integrations / exceptions
 - **Pages CMS** (`.pages.yml`) commits straight to `master`. Pull before
