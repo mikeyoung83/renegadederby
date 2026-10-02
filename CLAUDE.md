@@ -36,21 +36,16 @@ the links in `src/pages/join-us.astro` (line numbers as of that date).
 - [ ] **Contact Us**: `/contact-us`. Linked once (line 273, "email us" for
   gear advice). Not in the nav yet.
 
-Relink only, no new page needed:
-- [ ] `/games/2018-games` (lines 936, 1033: officials/volunteer sign-up) →
-  `/games/`.
-- [ ] `http://www.renegadederbydames.com/events` (line 763) → `/league-calendar/`.
-- [ ] `https://sites.google.com/renegadederbydames.com/main/join-us/new-skaters`
-  (line 832, "Skating 101") points at the old Google Site → decide on a target.
-
-Broken or moved external links:
-- [ ] `https://monstermuffin.com/collections/roller-derby` (line 319,
-  scrimmage shirt): 404, so find the current Monster Muffin URL.
-- [ ] `https://wftda.org/wftda-gender-statement` (line 562) redirects. Update
-  to `https://resources.wftda.org/membership/diversity-and-inclusion/wftda-statement-about-gender/`.
+Fixed 2026-10-01: old games and events links → `/games/` and `/league-calendar/`,
+Skating 101 → `#new-skaters`, Monster Muffin → homepage (old collection
+404'd), WFTDA gender statement → new resources.wftda.org URL. A re-audit
+showed `/contact-us` as the only broken link left on Join Us.
 
 Also still on this page: "Media Relations" / "League Membership" (no email
 yet, see TODO comments).
+- [ ] The NSO and Volunteers sections say "sign up on our Games page", but
+  `/games/` has no sign-up. Find out how volunteers actually sign up and
+  point those links there.
 
 ## Content source
 Real league copy, largely maintained by the league through Pages CMS. Old
