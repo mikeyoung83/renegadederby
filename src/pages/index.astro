@@ -3,18 +3,34 @@ import { getCollection, render } from "astro:content";
 import { Image, getImage } from "astro:assets";
 import ogSource from "../assets/teams/vikings/group-shot.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
-const items = [
+import heroHolly from "../assets/hero/hero-holly-jamming.jpg";
+import heroSass from "../assets/hero/hero-sass-jamming.jpg";
+import heroWall from "../assets/hero/hero-bombshells-wall.jpg";
+import heroPack from "../assets/hero/hero-vikings-pack.jpg";
+
+// Hero carousel. `position` is the object-position focal point, which
+// matters on desktop where the right half of the hero crops each photo
+// to a tall frame. All photos by Darren Stehr (credited on the carousel).
+const heroSlides = [
     {
-        src: "https://images.unsplash.com/photo-1640469262892-183628a6ef33?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        alt: "Derby 1",
+        src: heroHolly,
+        alt: "Bombshell Battalion jammer Holly, number 104, pushes past a Nickel City blocker",
+        position: "object-[62%_50%]",
     },
     {
-        src: "https://plus.unsplash.com/premium_photo-1664444389231-c1109b2193a3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        alt: "Derby 2",
+        src: heroSass,
+        alt: "Bombshell Battalion jammer Sass fights her way past an opposing blocker",
+        position: "object-left",
     },
     {
-        src: "https://upload.wikimedia.org/wikipedia/commons/0/0a/WasatchVsJunctionCity.jpg",
-        alt: "Derby 3",
+        src: heroWall,
+        alt: "Bombshell Battalion blockers brace shoulder to shoulder against an opposing jammer",
+        position: "object-[40%_50%]",
+    },
+    {
+        src: heroPack,
+        alt: "Striking Vikings skaters battle for position in the pack",
+        position: "object-[30%_50%]",
     },
 ];
 
@@ -157,20 +173,31 @@ if (settingsEntries.length > 0) {
                 </div>
             </div>
         </div>
-        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <div class="carousel w-full h-full">
+        <div
+            class="relative aspect-4/3 w-full lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-1/2"
+        >
+            <div class="carousel h-full w-full">
                 {
-                    items.map((item) => (
-                        <div class="carousel-item w-full h-full">
-                            <img
-                                src={item.src}
-                                alt={item.alt}
-                                class="object-cover w-full h-full"
+                    heroSlides.map((slide, i) => (
+                        <div class="carousel-item h-full w-full">
+                            <Image
+                                src={slide.src}
+                                alt={slide.alt}
+                                widths={[640, 960, 1280, 1920]}
+                                sizes="(min-width: 1024px) 50vw, 100vw"
+                                loading={i === 0 ? "eager" : "lazy"}
+                                fetchpriority={i === 0 ? "high" : "auto"}
+                                class={`h-full w-full object-cover ${slide.position}`}
                             />
                         </div>
                     ))
                 }
             </div>
+            <p
+                class="absolute right-3 bottom-2 rounded bg-base-100/60 px-2 py-0.5 text-xs text-base-content"
+            >
+                Photos: Darren Stehr
+            </p>
         </div>
     </section>
 
