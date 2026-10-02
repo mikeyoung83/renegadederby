@@ -28,8 +28,11 @@ the links in `src/pages/join-us.astro` (line numbers as of that date).
   2026-10-01. It embeds the league's Google Form, and all Join Us links point to it.
 - [x] **Roller Derby Insurance**: `/join-us/roller-derby-insurance`. Built
   2026-10-01. RDC prices were checked against rdcservices.org/membership on that date.
-- [ ] **Referees**: `/join-us/referees`. Linked once (line 679), for
-  experienced refs transferring to RDD.
+- [x] **Referees**: no page needed. The old site's Referees page is
+  word-for-word the Join Us accordion's Referees section, so the link now
+  goes to `#referees`. Each accordion section has an anchor (`#new-skaters`,
+  `#transfer-skaters`, `#visiting-skaters`, `#referees`,
+  `#non-skating-officials`, `#volunteers`), and a script opens it from the URL hash.
 - [ ] **Contact Us**: `/contact-us`. Linked once (line 273, "email us" for
   gear advice). Not in the nav yet.
 

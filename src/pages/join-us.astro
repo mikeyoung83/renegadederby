@@ -49,8 +49,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     </h2>
                     <!-- ACCORDION 1: NEW SKATERS -->
                     <details
+                        id="new-skaters"
                         name="join-us-accordion"
-                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                        class="scroll-mt-32 group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
                     >
                         <summary
                             class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
@@ -614,8 +615,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                     <!-- ACCORDION 2: TRANSFER SKATERS -->
                     <details
+                        id="transfer-skaters"
                         name="join-us-accordion"
-                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                        class="scroll-mt-32 group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
                     >
                         <summary
                             class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
@@ -668,10 +670,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                 <li>
                                     Referees who have experience officiating and
                                     wish to transfer to RDD as Officials can
-                                    find additional information on our <a
-                                        href="/join-us/referees"
-                                        target="_blank">Referee page</a
-                                    >. Referees are considered volunteers and do
+                                    find additional information in the
+                                    <a href="#referees">Referees section</a> below.
+                                    Referees are considered volunteers and do
                                     not pay dues, but must maintain skater
                                     insurance.
                                 </li>
@@ -701,8 +702,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                     <!-- ACCORDION 3: VISITING SKATERS -->
                     <details
+                        id="visiting-skaters"
                         name="join-us-accordion"
-                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                        class="scroll-mt-32 group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
                     >
                         <summary
                             class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
@@ -770,8 +772,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                     <!-- ACCORDION 4: REFEREES -->
                     <details
+                        id="referees"
                         name="join-us-accordion"
-                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                        class="scroll-mt-32 group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
                     >
                         <summary
                             class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
@@ -872,8 +875,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                     <!-- ACCORDION 5: NON-SKATING OFFICIALS -->
                     <details
+                        id="non-skating-officials"
                         name="join-us-accordion"
-                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                        class="scroll-mt-32 group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
                     >
                         <summary
                             class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
@@ -969,8 +973,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                     <!-- ACCORDION 6: VOLUNTEERS -->
                     <details
+                        id="volunteers"
                         name="join-us-accordion"
-                        class="group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
+                        class="scroll-mt-32 group border border-base-content/20 rounded-2xl overflow-hidden transition-all duration-200"
                     >
                         <summary
                             class="flex justify-between items-center cursor-pointer p-6 text-2xl font-bold text-bright hover:bg-base-content/5 transition-colors list-none"
@@ -1069,6 +1074,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
     </section>
 </BaseLayout>
+
+<script>
+    // Open the accordion section named in the URL hash (e.g. /join-us/#referees)
+    // on load and on in-page links. Browsers scroll to a closed <details> but
+    // don't open it. The shared `name` attribute closes the others.
+    const openFromHash = () => {
+        const id = decodeURIComponent(window.location.hash.slice(1));
+        const section = id ? document.getElementById(id) : null;
+        if (section instanceof HTMLDetailsElement) {
+            section.open = true;
+            section.scrollIntoView();
+        }
+    };
+
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+</script>
 
 <style>
     /* Hide native details disclosure triangle marker across browsers */
