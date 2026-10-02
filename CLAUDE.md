@@ -19,6 +19,35 @@ green `secondary`. See `STYLE-GUIDE.md` §2.
 Home, About, Games, League Calendar, Teams (`/teams/[team]` for Bombshells and
 Vikings), Officials, Sponsors, Join Us. `STYLE-GUIDE.md` §6 is the source of truth.
 
+## Pages to build (linked from Join Us, currently 404)
+Found by auditing `/join-us` on 2026-10-01. Build one at a time, then update
+the links in `src/pages/join-us.astro` (line numbers as of that date).
+- [ ] **Membership Application**: `/join-us/membership-application`. Linked
+  4×: lines 690, 855, 964, plus line 167, which still points at the old
+  site's absolute URL (`https://www.renegadederbydames.com/join-us/membership-application`).
+- [ ] **Roller Derby Insurance**: `/join-us/roller-derby-insurance`. Linked
+  2× (lines 656, 806). Covers buying RDC insurance, $30/yr for officials.
+- [ ] **Referees**: `/join-us/referees`. Linked once (line 679), for
+  experienced refs transferring to RDD.
+- [ ] **Contact Us**: `/contact-us`. Linked once (line 273, "email us" for
+  gear advice). Not in the nav yet.
+
+Relink only, no new page needed:
+- [ ] `/games/2018-games` (lines 936, 1033: officials/volunteer sign-up) →
+  `/games/`.
+- [ ] `http://www.renegadederbydames.com/events` (line 763) → `/league-calendar/`.
+- [ ] `https://sites.google.com/renegadederbydames.com/main/join-us/new-skaters`
+  (line 832, "Skating 101") points at the old Google Site → decide on a target.
+
+Broken or moved external links:
+- [ ] `https://monstermuffin.com/collections/roller-derby` (line 319,
+  scrimmage shirt): 404, so find the current Monster Muffin URL.
+- [ ] `https://wftda.org/wftda-gender-statement` (line 562) redirects. Update
+  to `https://resources.wftda.org/membership/diversity-and-inclusion/wftda-statement-about-gender/`.
+
+Also still on this page: "Media Relations" / "League Membership" (no email
+yet, see TODO comments), and the placeholder Payment / Insurance text.
+
 ## Content source
 Real league copy, largely maintained by the league through Pages CMS. Some
 placeholders remain (homepage carousel images, About testimonial, Join Us
