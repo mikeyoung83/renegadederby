@@ -8,10 +8,14 @@
 // which is chained into `npm run build` — omit either and the build fails).
 // ogImage is optional; when omitted, no Open Graph image tags are rendered.
 // noindex is an escape hatch for pages that shouldn't be indexed.
+// texture adds the decorative comic-book corner (PageTexture) behind the
+// page content. It's on by default for interior pages; the homepage passes
+// texture={false}.
 
 import { Font } from "astro:assets";
 import { SEO } from "astro-seo";
 import Navbar from "../components/Navbar.astro";
+import PageTexture from "../components/PageTexture.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
@@ -22,6 +26,7 @@ interface Props {
     lang?: string;
     ogImage?: string;
     noindex?: boolean;
+    texture?: boolean;
 }
 
 const {
@@ -31,6 +36,7 @@ const {
     lang = "en",
     ogImage,
     noindex,
+    texture = true,
 } = Astro.props;
 
 const pageTitle = `${title} · ${siteName}`;
@@ -68,7 +74,8 @@ const openGraph = ogImage
 
         <Navbar />
 
-        <main id="main-content" class="grow">
+        <main id="main-content" class:list={["grow", texture && "relative isolate"]}>
+            {texture && <PageTexture />}
             <slot />
         </main>
 
