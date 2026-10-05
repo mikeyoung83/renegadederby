@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+    title="Message Sent"
+    description="Thanks for contacting Renegade Derby Dames. Your message is on its way to the right person on our team, and we'll get back to you as soon as we can."
+    noindex
+>
+    <section class="mx-auto max-w-3xl px-6 py-10 text-center lg:px-8 lg:py-40">
+        <h1 class="mt-0 text-4xl font-semibold text-bright uppercase sm:text-6xl">
+            Message sent!
+        </h1>
+        <p class="mt-6 text-lg">
+            Thanks for getting in touch. Your message is on its way to the right
+            person, and we'll get back to you as soon as we can.
+        </p>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="/" class="btn btn-secondary">Back to home</a>
+            <a href="/games/" class="btn btn-accent btn-outline text-accent"
+                >See upcoming games</a
+            >
+        </div>
+    </section>
+</BaseLayout>

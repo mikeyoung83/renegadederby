@@ -137,6 +137,7 @@ fonts: [
 | Join Us (`/join-us`) | recruit members | apply-now link, accordion per role |
 | Membership Application (`/join-us/membership-application`) | sign up | dues list, insurance callout, member-update link, embedded Google Form |
 | Roller Derby Insurance (`/join-us/roller-derby-insurance`) | explain required RDC insurance | who needs it, coverage, 3-step signup, price cards, apply CTA |
+| Contact Us (`/contact-us`) | route enquiries to the right volunteer | topic dropdown (13 topics → 12 inboxes), name/email/message form, address, socials. Thank-you page at `/contact-us/thanks/` |
 
 ---
 
@@ -168,12 +169,13 @@ Teams themselves (name, logo, group photo, socials) are in `src/content/teams/` 
 
 ## 9. Components & patterns
 
-- **Navbar**: sticky, solid `base-100`; oversized logo that shrinks on scroll (desktop); dropdowns for Schedules, Teams & Support, and Join Us! (Information, Membership Application, Insurance); mobile uses a daisyUI drawer. The "Join Us!" dropdown label is bold `text-secondary`. Active link highlighting is exact-match. Facebook/Instagram icons inline.
+- **Navbar**: sticky, solid `base-100`; oversized logo that shrinks on scroll (desktop); dropdowns for Schedules, Teams & Support (incl. Sponsors), and Join Us! (Information, Membership Application, Insurance); mobile uses a daisyUI drawer. The "Join Us!" dropdown label is bold `text-secondary`. Contact Us sits where Sponsors used to be. Active link highlighting is exact-match. Facebook/Instagram icons inline.
+- **Page texture**: every interior page except the homepage and the two team roster pages (where the group photo fills the top) has a subtle comic-book corner behind the content, top right: faint green sunburst rays (`secondary`, 7%) over white halftone dots (`bright`, 5%), radially faded. It lives in `src/components/PageTexture.astro` and is rendered by `BaseLayout`; opt out with `texture={false}`. The dots are `public/textures/halftone.svg`, a generated file.
 - **Hero**: split — text + angled SVG edge on the left, auto-rotating image carousel on the right.
 - **Cards**: roster/official grids of photo + name (+ number).
 - **CTA buttons**: solid `btn-secondary` for primary actions; `btn-accent btn-outline` for secondary.
 - **Footer**: centred nav (same items as navbar), copyright, arena address link (49 Nelson St. West, Alliston).
-- **Forms**: no native forms. The membership application is the league's Google Form, embedded in a fixed-height iframe with an "open in a new tab" fallback.
+- **Forms**: Netlify Forms for the contact form (daisyUI `fieldset`/`input`/`select`/`textarea` with `validator` hints, labels above fields). The membership application stays the league's embedded Google Form.
 
 ---
 

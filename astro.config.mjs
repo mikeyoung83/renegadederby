@@ -9,7 +9,10 @@ export default defineConfig({
   site: "https://renegadederby.netlify.app",
   output: "static",
 
-  integrations: [sitemap()],
+  integrations: [
+    // The contact form's thank-you page is noindex, so keep it out too.
+    sitemap({ filter: (page) => !page.includes("/contact-us/thanks/") }),
+  ],
 
   vite: {
     plugins: [tailwindcss()],

@@ -1,0 +1,239 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// Netlify Forms can't route one form to different inboxes, so each inbox
+// gets its own Netlify form (defined hidden below), and choosing a topic
+// sets which form the visible one submits as. Each form's email
+// notification is set in the Netlify dashboard (Forms → form → Form
+// notifications). Addresses deliberately never appear in the page.
+interface Topic {
+    key: string; // for ?topic= links, e.g. /contact-us/?topic=tickets
+    label: string;
+    form: string; // Netlify form name → one inbox
+}
+
+const topics: Topic[] = [
+    { key: "general", label: "General question", form: "contact-general" },
+    { key: "new-skaters", label: "Learning to skate (Skating 101)", form: "contact-skating101" },
+    { key: "visiting", label: "Visiting skater: practise with us", form: "contact-skaters" },
+    { key: "transfer", label: "Transfer skater: play with us", form: "contact-skaters" },
+    { key: "games", label: "Interleague games: play against us", form: "contact-bouts" },
+    { key: "refs", label: "Refereeing", form: "contact-refs" },
+    { key: "nsos", label: "Non-skating officials", form: "contact-nsos" },
+    { key: "volunteers", label: "Volunteering", form: "contact-volunteers" },
+    { key: "tickets", label: "Game tickets", form: "contact-tickets" },
+    { key: "sponsorship", label: "Sponsorship", form: "contact-sponsor" },
+    { key: "vendors", label: "Vendor table at a game", form: "contact-vendors" },
+    { key: "media", label: "Media and promotion", form: "contact-pr" },
+    { key: "website", label: "Website problem", form: "contact-admin" },
+];
+
+const netlifyForms = [...new Set(topics.map((t) => t.form))];
+const defaultForm = "contact-general";
+---
+
+<BaseLayout
+    title="Contact Us"
+    description="Get in touch with Renegade Derby Dames: questions about joining, refereeing, volunteering, tickets, sponsorship or interleague games. Pick a topic and send us a message."
+>
+    <section class="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-40">
+        <h1 class="mt-0 text-4xl font-semibold text-bright uppercase sm:text-6xl">
+            Contact Us
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg">
+            Questions about joining, games, tickets or sponsorship? Pick a topic
+            and your message goes straight to the right person.
+        </p>
+
+        <div class="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-5">
+            <form
+                id="contact-form"
+                name={defaultForm}
+                method="POST"
+                action="/contact-us/thanks/"
+                class="flex flex-col gap-2 lg:col-span-3"
+            >
+                <input type="hidden" name="form-name" value={defaultForm} />
+                <p class="hidden">
+                    <label>Leave this empty: <input name="bot-field" /></label>
+                </p>
+
+                <div class="fieldset">
+                    <label for="contact-topic" class="fieldset-legend text-base">
+                        What's this about?
+                    </label>
+                    <select
+                        id="contact-topic"
+                        name="topic"
+                        class="select validator w-full"
+                        required
+                    >
+                        <option value="" disabled selected>Choose a topic</option>
+                        {
+                            topics.map((topic) => (
+                                <option
+                                    value={topic.label}
+                                    data-key={topic.key}
+                                    data-form={topic.form}
+                                >
+                                    {topic.label}
+                                </option>
+                            ))
+                        }
+                    </select>
+                    <p class="validator-hint">Choose a topic so we can route your message.</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-x-6 sm:grid-cols-2">
+                    <div class="fieldset">
+                        <label for="contact-name" class="fieldset-legend text-base">
+                            Your name
+                        </label>
+                        <input
+                            id="contact-name"
+                            name="name"
+                            type="text"
+                            autocomplete="name"
+                            class="input validator w-full"
+                            required
+                        />
+                        <p class="validator-hint">Let us know who you are.</p>
+                    </div>
+
+                    <div class="fieldset">
+                        <label for="contact-email" class="fieldset-legend text-base">
+                            Email address
+                        </label>
+                        <input
+                            id="contact-email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            class="input validator w-full"
+                            required
+                        />
+                        <p class="validator-hint">We need a valid email to reply.</p>
+                    </div>
+                </div>
+
+                <div class="fieldset">
+                    <label for="contact-message" class="fieldset-legend text-base">
+                        How can we help?
+                    </label>
+                    <textarea
+                        id="contact-message"
+                        name="message"
+                        rows="6"
+                        class="textarea validator w-full"
+                        required></textarea>
+                    <p class="validator-hint">Don't forget your message.</p>
+                </div>
+
+                <button type="submit" class="btn btn-secondary mt-2 self-start">
+                    Send message
+                </button>
+            </form>
+
+            <aside class="flex flex-col gap-10 lg:col-span-2">
+                <div>
+                    <h2 class="mt-0 mb-2 text-xl font-bold text-bright uppercase">
+                        Find us
+                    </h2>
+                    <p>
+                        Alliston Memorial Arena<br />
+                        49 Nelson St. West<br />
+                        Alliston, Ontario
+                    </p>
+                    <a
+                        class="link link-secondary mt-2 inline-block text-sm"
+                        href="https://maps.app.goo.gl/q8ZVpHfXCDdWeTWK6"
+                        target="_blank"
+                        rel="noopener noreferrer">Get directions</a
+                    >
+                </div>
+
+                <div>
+                    <h2 class="mt-0 mb-2 text-xl font-bold text-bright uppercase">
+                        Follow us
+                    </h2>
+                    <ul class="flex flex-col gap-1">
+                        <li>
+                            <a
+                                class="link link-secondary"
+                                href="https://www.facebook.com/RDerbyDames/"
+                                target="_blank"
+                                rel="noopener noreferrer">Facebook</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="link link-secondary"
+                                href="https://www.instagram.com/rderbydames/"
+                                target="_blank"
+                                rel="noopener noreferrer">Instagram</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="mt-0 mb-2 text-xl font-bold text-bright uppercase">
+                        Want to join?
+                    </h2>
+                    <p>
+                        Skaters, referees, NSOs and volunteers: start with
+                        <a class="link link-secondary" href="/join-us/">Join Us</a>
+                        or go straight to the
+                        <a class="link link-secondary" href="/join-us/membership-application/"
+                            >membership application</a
+                        >.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!--
+        Netlify detects forms in the built HTML at deploy time. These hidden
+        copies register one form per inbox, with the same fields the visible
+        form posts.
+    -->
+    {
+        netlifyForms.map((formName) => (
+            <form name={formName} data-netlify="true" netlify-honeypot="bot-field" hidden>
+                <input type="text" name="topic" aria-label="Topic" />
+                <input type="text" name="name" aria-label="Name" />
+                <input type="email" name="email" aria-label="Email" />
+                <textarea name="message" aria-label="Message" />
+                <input type="text" name="bot-field" aria-label="Leave empty" />
+            </form>
+        ))
+    }
+</BaseLayout>
+
+<script>
+    // Point the visible form at the chosen topic's Netlify form, and allow
+    // links like /contact-us/?topic=tickets to preselect a topic. Without JS
+    // everything still submits to the general inbox.
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    const select = document.getElementById("contact-topic") as HTMLSelectElement | null;
+    const formNameInput = form?.querySelector<HTMLInputElement>('input[name="form-name"]');
+
+    const syncFormName = () => {
+        if (!form || !select || !formNameInput) return;
+        const target = select.selectedOptions[0]?.dataset.form || "contact-general";
+        formNameInput.value = target;
+        form.name = target;
+    };
+
+    if (select) {
+        const key = new URLSearchParams(window.location.search).get("topic");
+        const preset = key
+            ? Array.from(select.options).find((o) => o.dataset.key === key)
+            : undefined;
+        if (preset) preset.selected = true;
+
+        select.addEventListener("change", syncFormName);
+        syncFormName();
+    }
+</script>
