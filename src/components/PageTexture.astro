@@ -9,8 +9,9 @@
 // `relative isolate` so the texture sits behind the page content. Pages
 // opt out with <BaseLayout texture={false}>.
 //
-// The halftone is a shared mask image (public/textures/halftone.svg) so the
-// ~2,300 dots are downloaded once and cached, not repeated in every page.
+// The halftone (public/textures/halftone.svg: tiny dots at the corner,
+// growing outward) is a shared mask image, so its ~3,400 dots are
+// downloaded once and cached, not repeated in every page.
 
 interface Props {
     class?: string;
@@ -39,7 +40,9 @@ for (let i = 0; i < rayCount; i += 2) {
     aria-hidden="true"
     class:list={[
         "pointer-events-none absolute top-0 right-0 -z-10 h-96 w-full text-secondary sm:h-[40rem] sm:w-[70vw] lg:max-w-4xl",
-        "mask-radial-at-top-right mask-radial-from-5% mask-radial-to-75%",
+        // Ellipse sized to the box's left and bottom edges (farthest-side from
+        // the corner), fully transparent by 85% so nothing is cut off at either edge.
+        "mask-radial-at-top-right mask-radial-farthest-side mask-radial-from-0% mask-radial-to-85%",
         className,
     ]}
 >
